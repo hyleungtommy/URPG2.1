@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42021614db77be54896ef8e0653bcda7, type: 3}
-  m_Name: e4
+  m_Name: e001
   m_EditorClassIdentifier: 
-  ID: 4
-  EnemyName: Wisp
-  EnemyImage: {fileID: 21300000, guid: 57256dd30a42b9a468c1a44296531655, type: 3}
+  ID: 1
+  EnemyName: Slime
+  EnemyImage: {fileID: 21300000, guid: 1f2cd0130135b034eaf25333a8b9991e, type: 3}
   HP: 100
-  MP: 200
-  ATK: 20
+  MP: 100
+  ATK: 25
   DEF: 10
-  MATK: 30
-  MDEF: 20
-  AGI: 12
-  DEX: 12
-  DropExp: 40
-  DropMoney: 20
-  Fire: 50
-  Ice: 50
-  Lightning: 50
-  Earth: 50
-  Wind: 50
-  Light: 50
-  Dark: 50
-  Hit: 50
+  MATK: 20
+  MDEF: 10
+  AGI: 10
+  DEX: 10
+  DropExp: 20
+  DropMoney: 10
+  Fire: 0
+  Ice: 0
+  Lightning: 0
+  Earth: 0
+  Wind: 0
+  Light: 0
+  Dark: 0
+  Hit: -50
   Slash: 50

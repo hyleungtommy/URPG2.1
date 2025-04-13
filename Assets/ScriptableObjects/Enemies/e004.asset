@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42021614db77be54896ef8e0653bcda7, type: 3}
-  m_Name: e5
+  m_Name: e004
   m_EditorClassIdentifier: 
-  ID: 5
-  EnemyName: Angry Bull
-  EnemyImage: {fileID: 21300000, guid: 4cf316d8eb75068409698c7719dd8f6f, type: 3}
-  HP: 2500
-  MP: 1000
-  ATK: 100
-  DEF: 50
-  MATK: 75
-  MDEF: 50
-  AGI: 15
-  DEX: 15
-  DropExp: 500
-  DropMoney: 500
-  Fire: -25
-  Ice: 0
-  Lightning: 0
+  ID: 4
+  EnemyName: Wisp
+  EnemyImage: {fileID: 21300000, guid: 57256dd30a42b9a468c1a44296531655, type: 3}
+  HP: 100
+  MP: 200
+  ATK: 20
+  DEF: 10
+  MATK: 30
+  MDEF: 20
+  AGI: 12
+  DEX: 12
+  DropExp: 40
+  DropMoney: 20
+  Fire: 50
+  Ice: 50
+  Lightning: 50
   Earth: 50
   Wind: 50
-  Light: 0
-  Dark: 0
-  Hit: 25
-  Slash: 25
+  Light: 50
+  Dark: 50
+  Hit: 50
+  Slash: 50

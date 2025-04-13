@@ -57,5 +57,15 @@ public abstract class BattleEntity
             manager.EndTurn(this);
         }
     }
+
+    public void Heal(int amount)
+    {
+        CurrentHP = Mathf.Min(CurrentHP + amount, Stats.HP);
+    }
+
+    public void RestoreMP(int amount)
+    {
+        CurrentMP = Mathf.Min(CurrentMP + amount, Stats.MP);
+    }
     
 }

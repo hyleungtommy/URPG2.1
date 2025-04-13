@@ -2,6 +2,7 @@ public class Constant
 {
     public static int MaxLevel = 70; // Maximum level a character can reach
     public static int StartMoney = 100000;
+    public static int InventorySize = 50;
     public static int[] ExpForEachLevel = {
             100,
             150,

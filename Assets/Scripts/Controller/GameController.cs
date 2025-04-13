@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [Header("Global Game State")]
     public int money;
     public Party party;
+    public StorageSystem Inventory {get;private set;}
 
     [Header("Setup Templates")]
     public PartyTemplate StartingPartyTemplate;
@@ -56,6 +57,7 @@ public class GameController : MonoBehaviour
         // Starting money (optional)
         money = Constant.StartMoney; // or load from save data
         mapPanel?.gameObject.SetActive(false);
+        Inventory = new StorageSystem(Constant.InventorySize);
     }
 
     // Utility methods for money
