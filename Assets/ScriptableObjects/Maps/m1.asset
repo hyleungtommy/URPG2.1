@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00255ead2ddd16245b00ce51187a80a1, type: 3}
+  m_Name: m1
+  m_EditorClassIdentifier: 
+  MapName: Emerald Forest
+  Description: A peaceful forest near emerald village, some small monster reside
+    here but it was never a dangerous place
+  PreviewImage: {fileID: 21300000, guid: 98c827314c05ccf47be56ae37fd8e3ac, type: 3}
+  BattleBackground: {fileID: 21300000, guid: 089f768ba53cf964283533e7fe06f745, type: 3}
+  RecommendedMinLevel: 1
+  RecommendedMaxLevel: 10
+  Enemies:
+  - {fileID: 11400000, guid: 5e925c0e3ad259f4b9a4add2163e415d, type: 2}
+  - {fileID: 11400000, guid: a441a629317dbf24886d6342cd0639b7, type: 2}
+  - {fileID: 11400000, guid: 14e5daa28f60e2241829f7a6ac3a37f7, type: 2}
+  - {fileID: 11400000, guid: 7a4eab9202d50e545869fd390d13d721, type: 2}
+  AppearanceWeights: 19000000190000001900000019000000
+  Boss: {fileID: 11400000, guid: 17d6d5ffbeffac247969de53a68c0a91, type: 2}
+  NumberOfZones: 15

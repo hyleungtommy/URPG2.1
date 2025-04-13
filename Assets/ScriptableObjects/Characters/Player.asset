@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456f6a12d2f3a3740a0e2b2e4adb3d5a, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  CharacterName: Player
+  StartingLv: 1
+  Portrait: {fileID: 21300000, guid: cba4bee8f978de3429372f34541d3400, type: 3}
+  Face: {fileID: 21300000, guid: 1c610f9d94d3d3b4a8874936c9a5b11e, type: 3}
+  BattlePortrait: {fileID: -5444090553864570395, guid: ba4e678e21ccf0c49bc71f25a63865c6,
+    type: 3}
+  StartingSkillPoints: 5
+  StartingUpgradePoints: 5
+  UnlockedAtStart: 1
+  Class: {fileID: 11400000, guid: e66ce9fedffe28e4e8ef7ef2f7799015, type: 2}

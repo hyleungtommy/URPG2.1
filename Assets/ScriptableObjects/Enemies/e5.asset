@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42021614db77be54896ef8e0653bcda7, type: 3}
+  m_Name: e5
+  m_EditorClassIdentifier: 
+  ID: 5
+  EnemyName: Angry Bull
+  EnemyImage: {fileID: 21300000, guid: 4cf316d8eb75068409698c7719dd8f6f, type: 3}
+  HP: 2500
+  MP: 1000
+  ATK: 100
+  DEF: 50
+  MATK: 75
+  MDEF: 50
+  AGI: 15
+  DEX: 15
+  DropExp: 500
+  DropMoney: 500
+  Fire: -25
+  Ice: 0
+  Lightning: 0
+  Earth: 50
+  Wind: 50
+  Light: 0
+  Dark: 0
+  Hit: 25
+  Slash: 25

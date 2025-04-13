@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42021614db77be54896ef8e0653bcda7, type: 3}
+  m_Name: e3
+  m_EditorClassIdentifier: 
+  ID: 3
+  EnemyName: Bird
+  EnemyImage: {fileID: 21300000, guid: 5279ceba0783b9444916fb74e5859a31, type: 3}
+  HP: 175
+  MP: 100
+  ATK: 40
+  DEF: 20
+  MATK: 20
+  MDEF: 20
+  AGI: 12
+  DEX: 12
+  DropExp: 50
+  DropMoney: 20
+  Fire: -50
+  Ice: 0
+  Lightning: -50
+  Earth: 50
+  Wind: 50
+  Light: 0
+  Dark: 0
+  Hit: -25
+  Slash: 25
