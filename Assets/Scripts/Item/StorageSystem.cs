@@ -4,6 +4,7 @@ using System.Linq;
 public class StorageSystem
 {
     public List<StorageSlot> StorageSlots;
+    public int Size { get {return StorageSlots.Count;}}
 
     public StorageSystem(int size)
     {

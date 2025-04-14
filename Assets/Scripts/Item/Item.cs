@@ -10,6 +10,7 @@ public abstract class Item
     public int Rarity;
     public Sprite Icon;
     public abstract int MaxStackSize { get; }
+    public abstract string ItemType { get; }
 
     public Item(ItemTemplate template)
     {

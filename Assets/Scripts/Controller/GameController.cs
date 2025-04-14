@@ -40,6 +40,14 @@ public class GameController : MonoBehaviour
         {
             OpenMapPanel(testMap);
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            UIController.Instance.ToggleUIScene("Inventory");
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            UIController.Instance.ToggleUIScene("Shop");
+        }
     }
 
     private void InitializeGame()

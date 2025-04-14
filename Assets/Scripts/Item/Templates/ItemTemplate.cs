@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemTemplate : ScriptableObject
+public abstract class ItemTemplate : ScriptableObject
 {
     public int id;
     public string Name;
@@ -11,4 +11,6 @@ public class ItemTemplate : ScriptableObject
     [Range(0, 4)]
     public int Rarity;
     public Sprite Icon;
+
+    public abstract Item GetItem();
 }

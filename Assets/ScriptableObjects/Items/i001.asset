@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6f991368e3fec4595cbd30d235c9a6, type: 3}
   m_Name: i001
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  Price: 0
-  SellPrice: 0
+  id: 1
+  Name: Healing Potion I
+  Description: Recover 10% HP, recover at minium 500 HP
+  Price: 100
+  SellPrice: 10
   Rarity: 0
-  Icon: {fileID: 0}
-  HPRestorePercentage: 0
-  MinHPRestore: 0
+  Icon: {fileID: 21300000, guid: c79944f42380ec04f8fdf5a8c06963fa, type: 3}
+  HPRestorePercentage: 10
+  MinHPRestore: 500
   AOE: 0

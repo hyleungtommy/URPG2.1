@@ -5,6 +5,7 @@ public class ItemHPPotion : BattleFunctionalItem
     public int MinHPRestore;
     public bool AOE;
     public override int MaxStackSize { get { return 10; } }
+    public override string ItemType { get { return "HP Potion"; } }
     public ItemHPPotion(ItemHPPotionTemplate template) : base(template)
     {
         HPRestorePercentage = template.HPRestorePercentage;
