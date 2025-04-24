@@ -91,17 +91,17 @@ public class StorageSystem
         return quantity;
     }
 
-    public BattleItemInventory GetBattleItemInventory()
+    public List<ItemWithQuantity> GetBattleFunctionalItemList()
     {
-        BattleItemInventory battleItemInventory = new BattleItemInventory();
+        List<ItemWithQuantity> battleFunctionalItems = new List<ItemWithQuantity>();
         foreach (var slot in StorageSlots)
         {
             if (slot.Item != null && slot.Item is BattleFunctionalItem)
             {
-                battleItemInventory.items.Add(new ItemWithQuantity(slot.Item, slot.Quantity));
+                battleFunctionalItems.Add(new ItemWithQuantity(slot.Item, slot.Quantity));
             }
         }
-        return battleItemInventory;
+        return battleFunctionalItems;
     }
     
 }

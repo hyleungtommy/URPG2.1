@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ShopBox : MonoBehaviour
 {
-    [SerializeField] Image ItemImage;
-    [SerializeField] Image Rarity;
+    [SerializeField] BasicItemBox itemBox;
     [SerializeField] Text ItemName;
     [SerializeField] Text ItemPrice;
     private ItemTemplate itemTemplate;
@@ -16,17 +15,8 @@ public class ShopBox : MonoBehaviour
     }
 
     public void Render(){
-        ItemImage.sprite = itemTemplate.Icon;
+        itemBox.Render(itemTemplate);
         ItemName.text = itemTemplate.Name;
         ItemPrice.text = itemTemplate.Price.ToString();
-        if (itemTemplate.Rarity > 0)
-        {
-            Rarity.gameObject.SetActive(true);
-            Rarity.color = Constant.itemRarityColor[itemTemplate.Rarity];
-        }
-        else
-        {
-            Rarity.gameObject.SetActive(false);
-        }
     }
 }

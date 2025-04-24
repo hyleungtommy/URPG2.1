@@ -45,16 +45,6 @@ public class BattleScene : MonoBehaviour
 
     public void PrepareBattle()
     {
-        //add items for testing
-        var hpPotion1 = DBManager.Instance.GetItem(1);
-        var hpPotion2 = DBManager.Instance.GetItem(2);
-        // Create test MP Potions
-        var mpPotion1 = DBManager.Instance.GetItem(6);
-        // Add items to inventory
-        GameController.Instance.Inventory.InsertItem(hpPotion1, 1);  // Add 5 Healing Potion I
-        GameController.Instance.Inventory.InsertItem(hpPotion2, 1);  // Add 3 Healing Potion II
-        GameController.Instance.Inventory.InsertItem(mpPotion1, 1);  // Add 8 Magic Potion I
-
         if (testMode)
         {
             BattleSceneLoader.LoadTestBattleScene(testMap, testPartyTemplate, testBossBattle);
@@ -66,19 +56,18 @@ public class BattleScene : MonoBehaviour
             Debug.LogError("BattleManager failed to initialize properly.");
             return;
         }
-
         if (BattleSceneLoader.CurrentMap.Mode == Map.MapMode.Zone)
         {
             zonePanel.gameObject.SetActive(true);
             zonePanel.Render(BattleSceneLoader.CurrentMap);
-            if (BattleSceneLoader.IsBossBattle){
-                battleBossList.gameObject.SetActive(true);
-                battleEnemyList.gameObject.SetActive(false);
+            battleBossList.gameObject.SetActive(BattleSceneLoader.IsBossBattle);
+            battleEnemyList.gameObject.SetActive(!BattleSceneLoader.IsBossBattle);
+            if (BattleSceneLoader.IsBossBattle)
+            {
                 battleBossList.Setup(manager.enemies[0]);
             }
-            else{
-                battleBossList.gameObject.SetActive(false);
-                battleEnemyList.gameObject.SetActive(true);
+            else
+            {
                 battleEnemyList.Setup(manager.enemies);
             }
         }
@@ -114,7 +103,7 @@ public class BattleScene : MonoBehaviour
         actionOrder.Render(manager.turnOrder);
         HidePlayerOptions();
         battleTopBar.Hide();
-        itemPanel.gameObject.SetActive(false);
+        itemPanel.Close();
         rewardPanel.gameObject.SetActive(false);
         StartBattleLoop();
     }
@@ -184,9 +173,12 @@ public class BattleScene : MonoBehaviour
     public void UpdateUI()
     {
         battlePlayerList.Render();
-        if (BattleSceneLoader.IsBossBattle){
+        if (BattleSceneLoader.IsBossBattle)
+        {
             battleBossList.Render();
-        }else{
+        }
+        else
+        {
             battleEnemyList.Render();
         }
         actionOrder.Render(manager.GetUpcomingTurnOrder(6));
@@ -216,10 +208,7 @@ public class BattleScene : MonoBehaviour
         if (selectionMode == SelectionMode.NormalAttack)
         {
             manager.OnPlayerAction(selectionMode, enemy);
-            selectionMode = SelectionMode.None;
-            battleTopBar.Hide();
-            StopWaitingForPlayerInput();
-            HidePlayerOptions();
+            OnPlayerInputEnded();
         }
     }
     public void OnClickPlayer(int index)
@@ -228,33 +217,39 @@ public class BattleScene : MonoBehaviour
         if (selectionMode == SelectionMode.UseOnPartner)
         {
             manager.OnPlayerAction(selectionMode, player);
-            selectionMode = SelectionMode.None;
-            battleTopBar.Hide();
-            StopWaitingForPlayerInput();
-            HidePlayerOptions();
+            OnPlayerInputEnded();
         }
     }
 
     public void OnSelectItem(Item item)
     {
         BattleFunctionalItem battleItem = item as BattleFunctionalItem;
-        //todo: use item on opponent
-        if (!battleItem.IsUseOnOpponent()) {
-            if (battleItem.IsAOE()) {
+        if (!battleItem.IsUseOnOpponent())
+        {
+            if (battleItem.IsAOE())
+            {
                 selectionMode = SelectionMode.UseOnPartnerAOE;
                 manager.ItemToUse = battleItem;
                 manager.OnPlayerAction(selectionMode, null);
-                selectionMode = SelectionMode.None;
-                battleTopBar.Hide();
-                StopWaitingForPlayerInput();
-                HidePlayerOptions();
-            } else {
+                itemPanel.Close();
+                OnPlayerInputEnded();
+            }
+            else
+            {
                 battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select target to use item on");
                 selectionMode = SelectionMode.UseOnPartner;
                 manager.ItemToUse = battleItem;
                 itemPanel.Close();
             }
         }
+    }
+
+    private void OnPlayerInputEnded()
+    {
+        selectionMode = SelectionMode.None;
+        battleTopBar.Hide();
+        StopWaitingForPlayerInput();
+        HidePlayerOptions();
     }
 
     public void ShowRewardPanel(BattleReward reward)

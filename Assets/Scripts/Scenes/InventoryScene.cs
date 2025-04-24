@@ -23,7 +23,7 @@ public class InventoryScene : MonoBehaviour
         inventory = GameController.Instance.Inventory;
         
         // Test code to populate inventory
-        AddTestItems();
+        //AddTestItems();
         
         Render();
     }

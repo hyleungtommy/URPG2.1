@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
         {
             UIController.Instance.ToggleUIScene("Inventory");
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             UIController.Instance.ToggleUIScene("Shop");
         }
