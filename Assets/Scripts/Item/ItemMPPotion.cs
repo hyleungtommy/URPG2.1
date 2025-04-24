@@ -6,6 +6,8 @@ public class ItemMPPotion : BattleFunctionalItem
     public bool AOE;
     public override int MaxStackSize { get { return 10; } }
     public override string ItemType { get { return "MP Potion"; } }
+    public override bool IsAOE() { return AOE; }
+    public override bool IsUseOnOpponent() { return false; }
     public ItemMPPotion(ItemMPPotionTemplate template) : base(template)
     {
         MPRestorePercentage = template.MPRestorePercentage;

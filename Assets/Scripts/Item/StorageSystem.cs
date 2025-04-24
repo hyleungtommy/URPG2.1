@@ -90,6 +90,20 @@ public class StorageSystem
         // Return the quantity that was removed (should be equal to the requested quantity)
         return quantity;
     }
+
+    public BattleItemInventory GetBattleItemInventory()
+    {
+        BattleItemInventory battleItemInventory = new BattleItemInventory();
+        foreach (var slot in StorageSlots)
+        {
+            if (slot.Item != null && slot.Item is BattleFunctionalItem)
+            {
+                battleItemInventory.items.Add(new ItemWithQuantity(slot.Item, slot.Quantity));
+            }
+        }
+        return battleItemInventory;
+    }
+    
 }
 
 

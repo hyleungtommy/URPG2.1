@@ -18,6 +18,7 @@ public class BattleScene : MonoBehaviour
     [SerializeField] MapTemplate testMap;
     [SerializeField] PartyTemplate testPartyTemplate;
     [SerializeField] RewardPanel rewardPanel;
+    [SerializeField] ItemPanel itemPanel;
     BattleManager manager;
     private bool isWaitingForPlayerInput = false;
     public SelectionMode selectionMode = SelectionMode.None;
@@ -44,6 +45,16 @@ public class BattleScene : MonoBehaviour
 
     public void PrepareBattle()
     {
+        //add items for testing
+        var hpPotion1 = DBManager.Instance.GetItem(1);
+        var hpPotion2 = DBManager.Instance.GetItem(2);
+        // Create test MP Potions
+        var mpPotion1 = DBManager.Instance.GetItem(6);
+        // Add items to inventory
+        GameController.Instance.Inventory.InsertItem(hpPotion1, 1);  // Add 5 Healing Potion I
+        GameController.Instance.Inventory.InsertItem(hpPotion2, 1);  // Add 3 Healing Potion II
+        GameController.Instance.Inventory.InsertItem(mpPotion1, 1);  // Add 8 Magic Potion I
+
         if (testMode)
         {
             BattleSceneLoader.LoadTestBattleScene(testMap, testPartyTemplate, testBossBattle);
@@ -103,6 +114,7 @@ public class BattleScene : MonoBehaviour
         actionOrder.Render(manager.turnOrder);
         HidePlayerOptions();
         battleTopBar.Hide();
+        itemPanel.gameObject.SetActive(false);
         rewardPanel.gameObject.SetActive(false);
         StartBattleLoop();
     }
@@ -189,6 +201,7 @@ public class BattleScene : MonoBehaviour
     public void OnClickItem()
     {
         battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select An Item to use");
+        itemPanel.Open();
     }
     public void OnClickSkill()
     {
@@ -209,11 +222,38 @@ public class BattleScene : MonoBehaviour
             HidePlayerOptions();
         }
     }
-    public void OnClickPlayer(BattlePlayerEntity player)
+    public void OnClickPlayer(int index)
     {
-        if (selectionMode == SelectionMode.UseOnOpponent)
+        BattlePlayerEntity player = manager.players[index];
+        if (selectionMode == SelectionMode.UseOnPartner)
         {
-            //todo: healing and buffs goes here
+            manager.OnPlayerAction(selectionMode, player);
+            selectionMode = SelectionMode.None;
+            battleTopBar.Hide();
+            StopWaitingForPlayerInput();
+            HidePlayerOptions();
+        }
+    }
+
+    public void OnSelectItem(Item item)
+    {
+        BattleFunctionalItem battleItem = item as BattleFunctionalItem;
+        //todo: use item on opponent
+        if (!battleItem.IsUseOnOpponent()) {
+            if (battleItem.IsAOE()) {
+                selectionMode = SelectionMode.UseOnPartnerAOE;
+                manager.ItemToUse = battleItem;
+                manager.OnPlayerAction(selectionMode, null);
+                selectionMode = SelectionMode.None;
+                battleTopBar.Hide();
+                StopWaitingForPlayerInput();
+                HidePlayerOptions();
+            } else {
+                battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select target to use item on");
+                selectionMode = SelectionMode.UseOnPartner;
+                manager.ItemToUse = battleItem;
+                itemPanel.Close();
+            }
         }
     }
 
