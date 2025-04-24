@@ -18,6 +18,7 @@ public class BattleScene : MonoBehaviour
     [SerializeField] MapTemplate testMap;
     [SerializeField] PartyTemplate testPartyTemplate;
     [SerializeField] RewardPanel rewardPanel;
+    [SerializeField] ItemPanel itemPanel;
     BattleManager manager;
     private bool isWaitingForPlayerInput = false;
     public SelectionMode selectionMode = SelectionMode.None;
@@ -55,19 +56,18 @@ public class BattleScene : MonoBehaviour
             Debug.LogError("BattleManager failed to initialize properly.");
             return;
         }
-
         if (BattleSceneLoader.CurrentMap.Mode == Map.MapMode.Zone)
         {
             zonePanel.gameObject.SetActive(true);
             zonePanel.Render(BattleSceneLoader.CurrentMap);
-            if (BattleSceneLoader.IsBossBattle){
-                battleBossList.gameObject.SetActive(true);
-                battleEnemyList.gameObject.SetActive(false);
+            battleBossList.gameObject.SetActive(BattleSceneLoader.IsBossBattle);
+            battleEnemyList.gameObject.SetActive(!BattleSceneLoader.IsBossBattle);
+            if (BattleSceneLoader.IsBossBattle)
+            {
                 battleBossList.Setup(manager.enemies[0]);
             }
-            else{
-                battleBossList.gameObject.SetActive(false);
-                battleEnemyList.gameObject.SetActive(true);
+            else
+            {
                 battleEnemyList.Setup(manager.enemies);
             }
         }
@@ -103,6 +103,7 @@ public class BattleScene : MonoBehaviour
         actionOrder.Render(manager.turnOrder);
         HidePlayerOptions();
         battleTopBar.Hide();
+        itemPanel.Close();
         rewardPanel.gameObject.SetActive(false);
         StartBattleLoop();
     }
@@ -172,9 +173,12 @@ public class BattleScene : MonoBehaviour
     public void UpdateUI()
     {
         battlePlayerList.Render();
-        if (BattleSceneLoader.IsBossBattle){
+        if (BattleSceneLoader.IsBossBattle)
+        {
             battleBossList.Render();
-        }else{
+        }
+        else
+        {
             battleEnemyList.Render();
         }
         actionOrder.Render(manager.GetUpcomingTurnOrder(6));
@@ -189,6 +193,7 @@ public class BattleScene : MonoBehaviour
     public void OnClickItem()
     {
         battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select An Item to use");
+        itemPanel.Open();
     }
     public void OnClickSkill()
     {
@@ -203,18 +208,48 @@ public class BattleScene : MonoBehaviour
         if (selectionMode == SelectionMode.NormalAttack)
         {
             manager.OnPlayerAction(selectionMode, enemy);
-            selectionMode = SelectionMode.None;
-            battleTopBar.Hide();
-            StopWaitingForPlayerInput();
-            HidePlayerOptions();
+            OnPlayerInputEnded();
         }
     }
-    public void OnClickPlayer(BattlePlayerEntity player)
+    public void OnClickPlayer(int index)
     {
-        if (selectionMode == SelectionMode.UseOnOpponent)
+        BattlePlayerEntity player = manager.players[index];
+        if (selectionMode == SelectionMode.UseOnPartner)
         {
-            //todo: healing and buffs goes here
+            manager.OnPlayerAction(selectionMode, player);
+            OnPlayerInputEnded();
         }
+    }
+
+    public void OnSelectItem(Item item)
+    {
+        BattleFunctionalItem battleItem = item as BattleFunctionalItem;
+        if (!battleItem.IsUseOnOpponent())
+        {
+            if (battleItem.IsAOE())
+            {
+                selectionMode = SelectionMode.UseOnPartnerAOE;
+                manager.ItemToUse = battleItem;
+                manager.OnPlayerAction(selectionMode, null);
+                itemPanel.Close();
+                OnPlayerInputEnded();
+            }
+            else
+            {
+                battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select target to use item on");
+                selectionMode = SelectionMode.UseOnPartner;
+                manager.ItemToUse = battleItem;
+                itemPanel.Close();
+            }
+        }
+    }
+
+    private void OnPlayerInputEnded()
+    {
+        selectionMode = SelectionMode.None;
+        battleTopBar.Hide();
+        StopWaitingForPlayerInput();
+        HidePlayerOptions();
     }
 
     public void ShowRewardPanel(BattleReward reward)

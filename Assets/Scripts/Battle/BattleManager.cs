@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BattleManager
@@ -10,6 +11,7 @@ public class BattleManager
     public BattleEntity CurrentTurnEntity { get; private set; }
     public BattleScene scene { get; private set; }
     public bool IsVictory { get; set; }
+    public BattleFunctionalItem ItemToUse { get; set; }
 
     public BattleManager(BattleScene scene)
     {
@@ -99,6 +101,20 @@ public class BattleManager
         {
             CurrentTurnEntity = actionQueue.Dequeue();
             CurrentTurnEntity.PerformNormalAttack(target);
+            EndTurn(CurrentTurnEntity);
+        }else if (selectionMode == SelectionMode.UseOnPartner) {
+            CurrentTurnEntity = actionQueue.Dequeue();
+            if(ItemToUse != null) {
+                ItemToUse.Use(new List<BattleEntity> { target });
+                GameController.Instance.Inventory.RemoveItem(ItemToUse.id, 1);
+            }
+            EndTurn(CurrentTurnEntity);
+        }else if (selectionMode == SelectionMode.UseOnPartnerAOE) {
+            CurrentTurnEntity = actionQueue.Dequeue();
+            if(ItemToUse != null) {
+                ItemToUse.Use(players.Cast<BattleEntity>().ToList());
+                GameController.Instance.Inventory.RemoveItem(ItemToUse.id, 1);
+            }
             EndTurn(CurrentTurnEntity);
         }
     }

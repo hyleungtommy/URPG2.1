@@ -1,7 +1,26 @@
+using UnityEngine;
+
 public class Constant
 {
     public static int MaxLevel = 70; // Maximum level a character can reach
     public static int StartMoney = 100000;
+    public static int InventorySize = 50;
+    public static Color32[] itemRarityColor = {
+            new Color32(0,0,0,255),
+            new Color32(72,209,55,255),
+            new Color32(0,168,255,255),
+            new Color32(142,68,173,255),
+            new Color32(230,126,34,255)
+        };
+    
+    public static string[] itemRarityName = {
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Epic",
+        "Legendary"
+    };
+    
     public static int[] ExpForEachLevel = {
             100,
             150,
