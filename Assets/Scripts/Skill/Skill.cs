@@ -12,8 +12,10 @@ public abstract class Skill
     public string Description { get; private set; }
     public float ModifierStart { get; private set; }
     public float Modifier{ get{ return ModifierStart + (SkillLv - 1) * ModifierIncrease; } }
+    public float ModifierNextLevel{ get{ return ModifierStart + SkillLv * ModifierIncrease; } }
     public int MpCostStart { get; private set; }
     public int MpCost{ get{ return MpCostStart + (SkillLv - 1) * MpCostIncrease; } }
+    public int MpCostNextLevel{ get{ return MpCostStart + SkillLv * MpCostIncrease; } }
     public int Cooldown { get; private set; }
     public int PriceStart { get; private set; }
     public int Price{ get{ return PriceStart + (SkillLv - 1) * PriceIncrease; } }

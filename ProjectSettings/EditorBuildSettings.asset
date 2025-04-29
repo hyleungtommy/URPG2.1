@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 567b53cd089d2074da1e3cf7a52c0794
+  - enabled: 1
+    path: Assets/Scenes/SkillCenter.unity
+    guid: ac0aabbffc0060c469f23b6f288766ac
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e6ead7aeacafda849941ede99d0d8470,
       type: 2}

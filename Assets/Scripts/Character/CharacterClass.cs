@@ -9,6 +9,7 @@ public class CharacterClass
     public int[] AutoAllocationPatternPerLevel { get; private set; } // [Str, Mana, Stamina, Agi, Dex]
     public Skill[] FullSkillList { get; private set; }
     public Skill[] LearntSkillsList {get {return FullSkillList.Where(skill => skill.SkillLv > 0).ToArray();}}
+    public Skill[] LearnableSkillsList {get {return FullSkillList.Where(skill => skill.SkillLv < skill.MaxSkillLv).ToArray();}}
 
     public CharacterClass(CharacterClassTemplate template)
     {
