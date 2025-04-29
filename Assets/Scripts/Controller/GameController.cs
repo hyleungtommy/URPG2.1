@@ -48,6 +48,10 @@ public class GameController : MonoBehaviour
         {
             UIController.Instance.ToggleUIScene("Shop");
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            UIController.Instance.ToggleUIScene("SkillCenter");
+        }
     }
 
     private void InitializeGame()

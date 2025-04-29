@@ -14,4 +14,7 @@ public class CharacterClassTemplate : ScriptableObject
     // Auto allocation priority, sum should be 5
     // Determines how points are auto-spent: [Str, Mana, Stamina, Agi, Dex]
     public int[] AutoAllocationPatternPerLevel = new int[5];
+
+    // Available skills of the class
+    public SkillTemplate[] AvailableSkills;
 }

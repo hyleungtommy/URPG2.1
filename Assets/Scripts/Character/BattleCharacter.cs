@@ -105,4 +105,13 @@ public class BattleCharacter
         SkillPointSpent += amount;
     }
 
+    public void LearnSkill(Skill skill){
+        if(skill.Price > GameController.Instance.money){
+            return;
+        }
+        GameController.Instance.money -= skill.Price;
+        skill.SkillLv++;
+        SkillPointSpent++;
+    }
+
 }

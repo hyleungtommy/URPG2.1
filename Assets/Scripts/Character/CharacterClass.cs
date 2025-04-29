@@ -7,6 +7,9 @@ public class CharacterClass
     public int[] StartingStats { get; private set; } // [Str, Mana, Stamina, Agi, Dex]
     public int[] StatGrowthPerLevel { get; private set; } // [Str, Mana, Stamina, Agi, Dex]
     public int[] AutoAllocationPatternPerLevel { get; private set; } // [Str, Mana, Stamina, Agi, Dex]
+    public Skill[] FullSkillList { get; private set; }
+    public Skill[] LearntSkillsList {get {return FullSkillList.Where(skill => skill.SkillLv > 0).ToArray();}}
+    public Skill[] LearnableSkillsList {get {return FullSkillList.Where(skill => skill.SkillLv < skill.MaxSkillLv).ToArray();}}
 
     public CharacterClass(CharacterClassTemplate template)
     {
@@ -14,7 +17,11 @@ public class CharacterClass
         StartingStats = new int[5];
         StatGrowthPerLevel = new int[5];
         AutoAllocationPatternPerLevel = new int[5];
-
+        FullSkillList = new Skill[template.AvailableSkills.Length];
+        for (int i = 0; i < template.AvailableSkills.Length; i++)
+        {
+            FullSkillList[i] = CreateSkillObject(template.AvailableSkills[i]);
+        }
         for (int i = 0; i < 5; i++)
         {
             StartingStats[i] = template.StartingStats[i];
@@ -56,5 +63,13 @@ public class CharacterClass
         }
 
         return result;
+    }
+
+    public Skill CreateSkillObject(SkillTemplate template){
+        if(template.type == SkillType.Attack){
+            return new SkillAttack(template);
+        }
+        Debug.LogError("Skill type not found for skill: " + template.name + " type: " + template.type);
+        return null;
     }
 }
