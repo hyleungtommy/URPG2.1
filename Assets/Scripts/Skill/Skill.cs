@@ -1,0 +1,63 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public abstract class Skill
+{
+    public int Id { get; private set; }
+    public Sprite Icon { get; private set; }
+    public string Name { get; private set; }
+    public SkillType Type { get; private set; }
+    public int HitCount { get; private set; }
+    public int SkillLv { get; set; }
+    public string Description { get; private set; }
+    public float ModifierStart { get; private set; }
+    public float Modifier{ get{ return ModifierStart + (SkillLv - 1) * ModifierIncrease; } }
+    public int MpCostStart { get; private set; }
+    public int MpCost{ get{ return MpCostStart + (SkillLv - 1) * MpCostIncrease; } }
+    public int Cooldown { get; private set; }
+    public int PriceStart { get; private set; }
+    public int Price{ get{ return PriceStart + (SkillLv - 1) * PriceIncrease; } }
+    public int MpCostIncrease { get; private set; }
+    public float ModifierIncrease { get; private set; }
+    public int MaxSkillLv { get; private set; }
+    public int RequireLvIncrease { get; private set; }
+    public int PriceIncrease { get; private set; }
+    public int RequireLvStart { get; private set; }
+    public int RequireLv{ get{ return RequireLvStart + (SkillLv - 1) * RequireLvIncrease; } }
+    public bool IsAOE {get {
+        return Type == SkillType.AttackAOE || Type == SkillType.HealAOE || Type == SkillType.BuffAOE || Type == SkillType.DebuffAOE;
+    }}
+
+    public bool IsUseOnOpponent {get {
+        return Type == SkillType.Attack;
+    }}
+
+    public Skill(SkillTemplate template)
+    {
+        Id = template.id;
+        Name = template.skillName;
+        Icon = template.icon;
+        Type = template.type;
+        HitCount = template.hitCount;
+        SkillLv = 1;
+        Description = template.description;
+        ModifierStart = template.modifier;
+        MpCostStart = template.mpCost;
+        Cooldown = template.cooldown;
+        PriceStart = template.price;
+        MpCostIncrease = template.mpCostIncrease;
+        ModifierIncrease = template.modifierIncrease;
+        MaxSkillLv = template.maxSkillLv;
+        RequireLvStart = template.requireLv;
+        PriceIncrease = template.priceIncrease;
+        RequireLvIncrease = template.requireLvIncrease;
+        RequireLvStart = template.requireLv;
+    }
+
+    public virtual void Use(BattleEntity user,List<BattleEntity> targets){
+        user.CurrentMP -= MpCost;
+    }
+
+
+    
+}

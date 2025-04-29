@@ -12,6 +12,7 @@ public class BattleManager
     public BattleScene scene { get; private set; }
     public bool IsVictory { get; set; }
     public BattleFunctionalItem ItemToUse { get; set; }
+    public Skill SkillToUse { get; set; }
 
     public BattleManager(BattleScene scene)
     {
@@ -107,6 +108,8 @@ public class BattleManager
             if(ItemToUse != null) {
                 ItemToUse.Use(new List<BattleEntity> { target });
                 GameController.Instance.Inventory.RemoveItem(ItemToUse.id, 1);
+            }else if (SkillToUse != null){
+                SkillToUse.Use(CurrentTurnEntity, new List<BattleEntity> { target });
             }
             EndTurn(CurrentTurnEntity);
         }else if (selectionMode == SelectionMode.UseOnPartnerAOE) {
@@ -114,6 +117,20 @@ public class BattleManager
             if(ItemToUse != null) {
                 ItemToUse.Use(players.Cast<BattleEntity>().ToList());
                 GameController.Instance.Inventory.RemoveItem(ItemToUse.id, 1);
+            }else if (SkillToUse != null){
+                SkillToUse.Use(CurrentTurnEntity, players.Cast<BattleEntity>().ToList());
+            }
+            EndTurn(CurrentTurnEntity);
+        }else if (selectionMode == SelectionMode.UseOnOpponent) {
+            CurrentTurnEntity = actionQueue.Dequeue();
+            if (SkillToUse != null){
+                SkillToUse.Use(CurrentTurnEntity, new List<BattleEntity> { target });
+            }
+            EndTurn(CurrentTurnEntity);
+        }else if (selectionMode == SelectionMode.UseOnOpponentAOE) {
+            CurrentTurnEntity = actionQueue.Dequeue();
+            if (SkillToUse != null){
+                SkillToUse.Use(CurrentTurnEntity, enemies.Cast<BattleEntity>().ToList());
             }
             EndTurn(CurrentTurnEntity);
         }
@@ -132,6 +149,8 @@ public class BattleManager
     public void EndTurn(BattleEntity entity)
     {
         Debug.Log($"{entity.Name} ended their turn.");
+        ItemToUse = null;
+        SkillToUse = null;
         actionQueue.Enqueue(entity);
         scene.UpdateUI();
         bool isBattleEnded = CheckBattleOutcome();
