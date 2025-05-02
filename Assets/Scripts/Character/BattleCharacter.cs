@@ -38,7 +38,7 @@ public class BattleCharacter
         }
     }
 
-    public BaseStat BaseStat => BattleStat.ToBaseStat();
+    public BaseStat BaseStat => BattleStat.ToBaseStat(Class.EquipmentManager);
 
     public BattleCharacter(BattleCharacterTemplate template)
     {

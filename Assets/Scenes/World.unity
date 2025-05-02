@@ -11873,6 +11873,154 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: weaponTemplates.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d218f1613f47a15419bdea38c7bbd392,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f659b6a0581bfa47a29fc1851cc3352,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3cd4e1b3637eaca4280a520dd4380d49,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c45ac2d90b924454e9a2bab194758e75,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 97a00cc4732a1284d91ca8d0119dced8,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f7f19d968cdb62469070fc26ab88968,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2dfa67966720e4741abe3a5c9f62cd7e,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: dc13a127822cf934ba22d4c368891ca4,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b60da69847d0b441b93c745fb558117,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 99526e84bc42b91458732c8ebafb0f34,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 961e0e4210d336e4d971ca87b3effa78,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 03c90629dae807740bdf5f65dc0281e0,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9bcd27fbb8b316446b6c1a4c98f6a241,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[13]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5defc26f1ae46d7439a332d3ab50a6cd,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: armorTemplates.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a5e170c161f0f148b41a907443f67af,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: weaponTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: db5594fd795b85a49bdaab3c575f10cb,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: weaponTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c0543785677338542b754fce02aa24d2,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: weaponTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9cfb3a966c2f041499b0e760a05a27ba,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: weaponTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: fb5281f275c25ef4e87593da1f90746e,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: weaponTemplates.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: df83dd40c87784c4cb606bd1b2cc341f,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: weaponTemplates.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 532aa3a6ab4d72b44b11b73381ade651,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: weaponTemplates.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: bc7a7da9cfa8cf54abd125862ffb5484,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: weaponTemplates.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: f011b244bec40414abddf1fa4b9909da,
+        type: 2}
     - target: {fileID: 3492383314277791200, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
       propertyPath: m_Name

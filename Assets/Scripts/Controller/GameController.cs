@@ -70,6 +70,8 @@ public class GameController : MonoBehaviour
         money = Constant.StartMoney; // or load from save data
         mapPanel?.gameObject.SetActive(false);
         Inventory = new StorageSystem(Constant.InventorySize);
+
+        
     }
 
     // Utility methods for money
@@ -100,4 +102,6 @@ public class GameController : MonoBehaviour
             Debug.LogWarning("MapPanel is not assigned in GameController.");
         }
     }
+
+    
 }

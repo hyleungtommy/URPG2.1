@@ -103,6 +103,16 @@ public class StorageSystem
         }
         return battleFunctionalItems;
     }
+
+    public List<StorageSlot> GetEquipmentList(){
+        List<StorageSlot> equipmentList = new List<StorageSlot>();
+        foreach (var slot in StorageSlots){
+            if (slot.Item != null && slot.Item is Equipment){
+                equipmentList.Add(slot);
+            }
+        }
+        return equipmentList;
+    }
     
 }
 
