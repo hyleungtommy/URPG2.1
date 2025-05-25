@@ -19,6 +19,32 @@ public class BasicItemBox : MonoBehaviour
         }
     }
 
+    public void Render(WeaponTemplate weaponTemplate)
+    {
+        if (weaponTemplate == null)
+        {
+            RenderNull();
+            return;
+        }
+        else
+        {
+            RenderItem(weaponTemplate.Icon, 0);
+        }
+    }
+
+    public void Render(ArmorTemplate armorTemplate)
+    {
+        if (armorTemplate == null)
+        {
+            RenderNull();
+            return;
+        }
+        else
+        {
+            RenderItem(armorTemplate.Icon, 0);
+        }
+    }
+
     public void Render(Item item) {
         if (item == null)
         {

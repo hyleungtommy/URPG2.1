@@ -52,6 +52,10 @@ public class GameController : MonoBehaviour
         {
             UIController.Instance.ToggleUIScene("SkillCenter");
         }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            UIController.Instance.ToggleUIScene("Blacksmith");
+        }
     }
 
     private void InitializeGame()

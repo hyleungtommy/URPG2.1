@@ -34,6 +34,22 @@ public class EquipmentPowerText : MonoBehaviour
         }
     }
 
+    public void Render(WeaponTemplate weaponTemplate){
+        weaponDamage.SetActive(true);
+        weaponMagicDamage.SetActive(true);
+        armorDefense.SetActive(false);
+        armorMagicDefense.SetActive(false);
+        weaponDamageText.text = weaponTemplate.Damage.ToString();
+    }
+
+    public void Render(ArmorTemplate armorTemplate){
+        weaponDamage.SetActive(false);
+        weaponMagicDamage.SetActive(false);
+        armorDefense.SetActive(true);
+        armorMagicDefense.SetActive(true);
+        armorDefenseText.text = armorTemplate.Defense.ToString();
+    }
+
     public void RenderNull(){
         weaponDamage.SetActive(false);
         weaponMagicDamage.SetActive(false);
