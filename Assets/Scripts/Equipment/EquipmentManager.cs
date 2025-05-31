@@ -149,7 +149,7 @@ public class EquipmentManager
         return false;
     }
 
-    public BaseStat GetEquippedStat(){
+    public BaseStat GetEquipmentStat(){
         BaseStat stat = new BaseStat(0, 0, 0, 0, 0, 0, 0, 0);
         if (MainHand != null){
             stat = stat.Add(MainHand.GetStat());

@@ -27,7 +27,7 @@ public class SkillCenterScene : MemberListScene
     public override void OnMemberSelected(BattleCharacter member)
     {
         this.member = member;
-        skills = member.Class.FullSkillList;
+        skills = member.CharacterClass.FullSkillList;
         foreach (Transform child in skillCenterPanelRowContainer)
         {
             Destroy(child.gameObject);

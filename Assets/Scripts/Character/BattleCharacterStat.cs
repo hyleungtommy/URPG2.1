@@ -27,7 +27,7 @@ public class BattleCharacterStat
         int dex = Dexterity;
 
         BaseStat stat = new BaseStat(hp, mp, atk, def, matk, mdef, agi, dex);
-        BaseStat equippedStat = equipmentManager.GetEquippedStat();
+        BaseStat equippedStat = equipmentManager.GetEquipmentStat();
         return stat.Add(equippedStat);
     }
 }

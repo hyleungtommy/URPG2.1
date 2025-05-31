@@ -8,7 +8,7 @@ public class BattlePlayerEntity : BattleEntity
     public BattlePlayerEntity(BattleCharacter character, BattleManager manager) : base(character.Name, character.Face, character.BaseStat, manager)
     {
         BattlePortrait = character.BattlePortrait;
-        SkillList = character.Class.LearntSkillsList;
+        SkillList = character.CharacterClass.LearntSkillsList;
     }
 
     public override void TakeTurn()

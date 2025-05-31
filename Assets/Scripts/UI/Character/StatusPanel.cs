@@ -34,7 +34,7 @@ public class StatusPanel : MonoBehaviour
     private string FormatTitle(BattleCharacter character)
     {
         return "Lv. " + character.Lv + 
-                " " + character.Class.ClassName;
+                " " + character.CharacterClass.ClassName;
     }
 
     private string FormatBaseStat(BattleCharacter character)

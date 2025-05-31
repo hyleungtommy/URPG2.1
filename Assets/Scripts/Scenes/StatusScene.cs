@@ -12,7 +12,7 @@ public class StatusScene : MemberListScene
     private int selectedIndex = 0;
 
     void Awake(){
-        AddTestEquipment();
+        //AddTestEquipment();
     }
 
     public override void OnMemberSelected(BattleCharacter character)
@@ -23,7 +23,7 @@ public class StatusScene : MemberListScene
         }
 
         statusPanel.Setup(character);
-        skillPanel.Setup(character.Class.LearntSkillsList, character);
+        skillPanel.Setup(character.CharacterClass.LearntSkillsList, character);
         equipmentPanel.Setup(character);
 
         CloseOtherPanels();

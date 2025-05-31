@@ -40,7 +40,7 @@ public class EquipmentPanel : MonoBehaviour
             box.Render(equipments[i].Item as Equipment);
             basicItemBoxes.Add(box);
         }
-        currentEquipmentGroup.Render(character.Class.EquipmentManager);
+        currentEquipmentGroup.Render(character.CharacterClass.EquipmentManager);
         equipButton.gameObject.SetActive(false);
         unequipButton.gameObject.SetActive(false);
         characterName.text = character.Name;
@@ -70,7 +70,7 @@ public class EquipmentPanel : MonoBehaviour
 
     public void OnClickEquip()
     {
-        character.Class.EquipmentManager.Equip(selectedEquipment.Item as Equipment);
+        character.CharacterClass.EquipmentManager.Equip(selectedEquipment.Item as Equipment);
         selectedEquipment.Clear();
         selectedEquipmentInfoPanel.Clear();
         equipButton.gameObject.SetActive(false);
@@ -78,7 +78,7 @@ public class EquipmentPanel : MonoBehaviour
     }
 
     public void OnClickUnequip(){
-        character.Class.EquipmentManager.Unequip(selectedCurrentEquipment);
+        character.CharacterClass.EquipmentManager.Unequip(selectedCurrentEquipment);
         currentEquipmentInfoPanel.Clear();
         unequipButton.gameObject.SetActive(false);
         Render();
@@ -86,39 +86,39 @@ public class EquipmentPanel : MonoBehaviour
 
     public void OnClickCurrentEquipment(int index){
         if(index == 0){
-            currentEquipmentInfoPanel.Render(character.Class.EquipmentManager.MainHand);
-            selectedCurrentEquipment = character.Class.EquipmentManager.MainHand;
-            unequipButton.gameObject.SetActive(character.Class.EquipmentManager.MainHand != null);
+            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.MainHand);
+            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.MainHand;
+            unequipButton.gameObject.SetActive(character.CharacterClass.EquipmentManager.MainHand != null);
         }
         else if(index == 1){
-            currentEquipmentInfoPanel.Render(character.Class.EquipmentManager.OffHand);
-            selectedCurrentEquipment = character.Class.EquipmentManager.OffHand;
-            unequipButton.gameObject.SetActive(character.Class.EquipmentManager.OffHand != null);
+            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.OffHand);
+            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.OffHand;
+            unequipButton.gameObject.SetActive(character.CharacterClass.EquipmentManager.OffHand != null);
         }
         else if(index == 2){
-            currentEquipmentInfoPanel.Render(character.Class.EquipmentManager.Head);
-            selectedCurrentEquipment = character.Class.EquipmentManager.Head;
-            unequipButton.gameObject.SetActive(character.Class.EquipmentManager.Head != null);
+            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Head);
+            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Head;
+            unequipButton.gameObject.SetActive(character.CharacterClass.EquipmentManager.Head != null);
         }
         else if(index == 3){
-            currentEquipmentInfoPanel.Render(character.Class.EquipmentManager.Body);
-            selectedCurrentEquipment = character.Class.EquipmentManager.Body;
-            unequipButton.gameObject.SetActive(character.Class.EquipmentManager.Body != null);
+            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Body);
+            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Body;
+            unequipButton.gameObject.SetActive(character.CharacterClass.EquipmentManager.Body != null);
         }
         else if(index == 4){
-            currentEquipmentInfoPanel.Render(character.Class.EquipmentManager.Hands);
-            selectedCurrentEquipment = character.Class.EquipmentManager.Hands;
-            unequipButton.gameObject.SetActive(character.Class.EquipmentManager.Hands != null);
+            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Hands);
+            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Hands;
+            unequipButton.gameObject.SetActive(character.CharacterClass.EquipmentManager.Hands != null);
         }
         else if(index == 5){
-            currentEquipmentInfoPanel.Render(character.Class.EquipmentManager.Legs);
-            selectedCurrentEquipment = character.Class.EquipmentManager.Legs;
-            unequipButton.gameObject.SetActive(character.Class.EquipmentManager.Legs != null);
+            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Legs);
+            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Legs;
+            unequipButton.gameObject.SetActive(character.CharacterClass.EquipmentManager.Legs != null);
         }
         else if(index == 6){
-            currentEquipmentInfoPanel.Render(character.Class.EquipmentManager.Feet);
-            selectedCurrentEquipment = character.Class.EquipmentManager.Feet;
-            unequipButton.gameObject.SetActive(character.Class.EquipmentManager.Feet != null);
+            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Feet);
+            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Feet;
+            unequipButton.gameObject.SetActive(character.CharacterClass.EquipmentManager.Feet != null);
         }
         else if(index == 7){
             //currentEquipmentInfoPanel.Render(character.Class.EquipmentManager.Accessory1);
