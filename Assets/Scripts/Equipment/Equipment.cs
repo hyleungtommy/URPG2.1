@@ -19,10 +19,10 @@ public class Weapon: Equipment{
     public int MagicDamage {get; private set;}
     public override string ItemType {get{return WeaponType.ToString();}}
 
-    public Weapon(ShopWeapon shopWeapon): base(shopWeapon.EquipmentName, shopWeapon.Description, shopWeapon.Icon, shopWeapon.Price, shopWeapon.RequireLv){
-        this.WeaponType = shopWeapon.WeaponType;
-        this.Damage = shopWeapon.Damage;
-        this.MagicDamage = shopWeapon.MagicDamage;
+    public Weapon(WeaponTemplate weaponTemplate): base(weaponTemplate.WeaponName, weaponTemplate.Description, weaponTemplate.Icon, weaponTemplate.Price, weaponTemplate.requireLv){
+        this.WeaponType = weaponTemplate.WeaponType;
+        this.Damage = weaponTemplate.Damage;
+        this.MagicDamage = weaponTemplate.MagicDamage;
     }
 
     public override BaseStat GetStat(){
@@ -37,11 +37,11 @@ public class Armor: Equipment{
     public int MagicDefense {get; private set;}
     public override string ItemType {get{return ArmorType.ToString();}}
 
-    public Armor(ShopArmor shopArmor): base(shopArmor.EquipmentName, shopArmor.Description, shopArmor.Icon, shopArmor.Price, shopArmor.RequireLv){
-        this.ArmorType = shopArmor.ArmorType;
-        this.ArmorCategory = shopArmor.ArmorCategory;
-        this.Defense = shopArmor.Defense;
-        this.MagicDefense = shopArmor.MagicDefense;
+    public Armor(ArmorTemplate armorTemplate): base(armorTemplate.ArmorName, armorTemplate.Description, armorTemplate.Icon, armorTemplate.Price, armorTemplate.requireLv){
+        this.ArmorType = armorTemplate.ArmorType;
+        this.ArmorCategory = armorTemplate.ArmorCategory;
+        this.Defense = armorTemplate.Defense;
+        this.MagicDefense = armorTemplate.MagicDefense;
     }
 
     public override BaseStat GetStat(){
