@@ -10,7 +10,7 @@ public class CharacterClass
     public Skill[] FullSkillList { get; private set; }
     public Skill[] LearntSkillsList {get {return FullSkillList.Where(skill => skill.SkillLv > 0).ToArray();}}
     public Skill[] LearnableSkillsList {get {return FullSkillList.Where(skill => skill.SkillLv < skill.MaxSkillLv).ToArray();}}
-
+    public EquipmentManager EquipmentManager { get; private set; }
     public CharacterClass(CharacterClassTemplate template)
     {
         ClassName = template.ClassName;
@@ -28,6 +28,7 @@ public class CharacterClass
             StatGrowthPerLevel[i] = template.StatGrowthPerLevel[i];
             AutoAllocationPatternPerLevel[i] = template.AutoAllocationPatternPerLevel[i];
         }
+        EquipmentManager = new EquipmentManager();
     }
 
     // Returns stat gain array for given level increase

@@ -22,6 +22,15 @@ public abstract class Item
         Rarity = template.Rarity;
         Icon = template.Icon;
     }
+
+    public Item(int id, string name, string description, int price, int sellPrice, int rarity, Sprite icon){
+        this.id = id;
+        this.Name = name;
+        this.Description = description;
+        this.Price = price;
+        this.SellPrice = sellPrice;
+        this.Icon = icon;
+    }
 }
 
 

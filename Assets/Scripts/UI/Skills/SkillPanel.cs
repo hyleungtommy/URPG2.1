@@ -9,14 +9,16 @@ public class SkillPanel : MonoBehaviour
     [SerializeField] Text skillName;
     [SerializeField] Text skillDescription;
     [SerializeField] Text skillType;
+    [SerializeField] Text characterName;
 
     private List<SkillPanelRow> skillPanelRows = new List<SkillPanelRow>();
 
     private Skill[] skills;
-
-    public void Setup(Skill[] skills)
+    private BattleCharacter character;
+    public void Setup(Skill[] skills, BattleCharacter character)
     {
         this.skills = skills;
+        this.character = character;
     }
 
     public void Show()
@@ -35,6 +37,7 @@ public class SkillPanel : MonoBehaviour
             row.Render(skills[i]);
             skillPanelRows.Add(row);
         }
+        characterName.text = character.Name;
     }
 
     private void OnSkillPanelRowClicked(int index)

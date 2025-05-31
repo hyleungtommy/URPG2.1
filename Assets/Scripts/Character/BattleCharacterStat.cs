@@ -15,7 +15,7 @@ public class BattleCharacterStat
         Dexterity = dexterity;
     }
 
-    public BaseStat ToBaseStat()
+    public BaseStat ToBaseStat(EquipmentManager equipmentManager)
     {
         int hp = (Strength * 5) + (Stamina * 20);
         int mp = Mana * 5;
@@ -26,6 +26,8 @@ public class BattleCharacterStat
         int agi = Agility;
         int dex = Dexterity;
 
-        return new BaseStat(hp, mp, atk, def, matk, mdef, agi, dex);
+        BaseStat stat = new BaseStat(hp, mp, atk, def, matk, mdef, agi, dex);
+        BaseStat equippedStat = equipmentManager.GetEquipmentStat();
+        return stat.Add(equippedStat);
     }
 }

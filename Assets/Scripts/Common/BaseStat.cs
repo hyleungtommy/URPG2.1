@@ -21,4 +21,8 @@ public class BaseStat
         AGI = agi;
         DEX = dex;
     }
+
+    public BaseStat Add(BaseStat stat){
+        return new BaseStat(HP + stat.HP, MP + stat.MP, ATK + stat.ATK, DEF + stat.DEF, MATK + stat.MATK, MDEF + stat.MDEF, AGI + stat.AGI, DEX + stat.DEX);
+    }
 }

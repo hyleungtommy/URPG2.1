@@ -19,7 +19,7 @@ public class BattleCharacter
     public int UpgradePointEarned { get; private set; }
     public int[] UpgradePointAllocation { get; private set; } // [Str, Mana, Stamina, Agi, Dex]
     public int UpgradePointAvailable { get { return UpgradePointEarned - UpgradePointAllocation.Sum(); } }
-    public CharacterClass Class { get; private set; }
+    public CharacterClass CharacterClass { get; private set; }
     public bool Unlocked {get; set;} = false;
 
     public BattleCharacterStat BattleStat
@@ -29,7 +29,7 @@ public class BattleCharacter
             int[] total = new int[5];
             for (int i = 0; i < 5; i++)
             {
-                total[i] = Class.StartingStats[i] + UpgradePointAllocation[i];
+                total[i] = CharacterClass.StartingStats[i] + UpgradePointAllocation[i];
             }
 
             return new BattleCharacterStat(
@@ -38,7 +38,7 @@ public class BattleCharacter
         }
     }
 
-    public BaseStat BaseStat => BattleStat.ToBaseStat();
+    public BaseStat BaseStat => BattleStat.ToBaseStat(CharacterClass.EquipmentManager);
 
     public BattleCharacter(BattleCharacterTemplate template)
     {
@@ -55,7 +55,7 @@ public class BattleCharacter
         UpgradePointEarned = template.StartingUpgradePoints;
         UpgradePointAllocation = new int[5]; // [Str, Mana, Stamina, Agi, Dex]
 
-        Class = new CharacterClass(template.Class);
+        CharacterClass = new CharacterClass(template.Class);
     }
 
     public bool GainEXP(int exp)
