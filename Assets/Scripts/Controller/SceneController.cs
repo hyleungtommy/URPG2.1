@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
-    [SerializeField] Animator SceneTransitAnimator;
+    [SerializeField] FadeController FadeController;
     public static SceneList.TileMap CurrentTileMap { get; private set; }
     void Awake()
     {
@@ -26,14 +26,8 @@ public class SceneController : MonoBehaviour
     }
 
     public void AnimateSceneTransit(SceneList.TileMap tileMap){
-        StartCoroutine(TransitWithAnimation(tileMap));
+        CurrentTileMap = tileMap;
+        FadeController.FadeToScene(tileMap.ToString());
     }
 
-    IEnumerator TransitWithAnimation(SceneList.TileMap tileMap){
-        SceneTransitAnimator.SetTrigger("End");
-        yield return new WaitForSeconds(1f);
-        CurrentTileMap = tileMap;
-        SceneManager.LoadSceneAsync(tileMap.ToString());
-        SceneTransitAnimator.SetTrigger("Start");
-    }
 }

@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public int money;
     public Party party;
     public StorageSystem Inventory {get;private set;}
+    public State state {get; set;} = State.Idle;
 
     [Header("Setup Templates")]
     public PartyTemplate StartingPartyTemplate;
@@ -105,6 +106,12 @@ public class GameController : MonoBehaviour
         {
             Debug.LogWarning("MapPanel is not assigned in GameController.");
         }
+    }
+
+    public enum State{
+        Dialog,
+        OpenUI,
+        Idle
     }
 
     

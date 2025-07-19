@@ -8,6 +8,7 @@ public class SceneTransitController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("SceneTransitController: OnTriggerEnter2D " + other.name);
         if (other.CompareTag("Player"))
         {
             SceneController.Instance.AnimateSceneTransit(tileMap);

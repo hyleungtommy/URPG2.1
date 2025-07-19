@@ -4,43 +4,85 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;  // Movement speed
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    public float moveSpeed;
+    private bool isMoving;
+    private Vector2 input;
     private Animator animator;
-    private Vector2 lastMoveDirection; // Stores last movement direction
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();  
-        animator = GetComponent<Animator>(); // Get Animator
+    public LayerMask solidObjectLayers;
+    public LayerMask interactableLayers;
+
+    void Awake(){
+        animator = GetComponent<Animator>();
     }
 
-    void Update()
+    // Update is called once per frame
+    public void Update()
     {
-        // Get input from WASD or Arrow Keys
-        float moveX = Input.GetAxisRaw("Horizontal"); 
-        float moveY = Input.GetAxisRaw("Vertical");  
-
-        // Disable diagonal movement
-        if (moveX != 0) moveY = 0; 
-
-        movement = new Vector2(moveX, moveY);
-
-        if (movement != Vector2.zero)
+        if(GameController.Instance == null){
+            return;
+        }
+        if(GameController.Instance?.state == GameController.State.Dialog || GameController.Instance?.state == GameController.State.OpenUI){
+            return;
+        }
+        if (!isMoving)
         {
-            lastMoveDirection = movement; // Store last movement direction
+            input.x = Input.GetAxisRaw("Horizontal");
+            input.y = Input.GetAxisRaw("Vertical");
+
+            //Only walking in 1 direction
+            if (input.x != 0) input.y = 0;
+
+            if (input != Vector2.zero)
+            {
+
+                animator.SetFloat("MoveX", input.x);
+                animator.SetFloat("MoveY", input.y);
+
+                var targetPos = transform.position;
+                targetPos.x += input.x;
+                targetPos.y += input.y;
+
+                if(IsWalkable(targetPos))
+                    StartCoroutine(Move(targetPos));
+                
+            }
         }
 
-        // Send values to Animator
-        animator.SetFloat("MoveX", lastMoveDirection.x);
-        animator.SetFloat("MoveY", lastMoveDirection.y);
-        animator.SetBool("IsWalking", movement != Vector2.zero);
+        animator.SetBool("IsWalking", isMoving);
     }
 
-    void FixedUpdate()
+    IEnumerator Move(Vector3 targerPos)
     {
-        // Move the player
-        rb.velocity = movement * moveSpeed;
+        isMoving = true;
+
+        while ((targerPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+        {
+            //Time.deltaTime: ensure the moveSpeed is constant for different frame rate
+            transform.position = Vector3.MoveTowards(transform.position, targerPos, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        transform.position = targerPos;
+
+        isMoving = false;
+    }
+
+    public void Interact(){
+        var facingDir = new Vector3(animator.GetFloat("MoveX"), animator.GetFloat("MoveY"));
+        var interactPos = transform.position + facingDir;
+
+        //Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
+
+        var collider = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayers);
+        if(collider != null){
+            //collider.GetComponent<Interactable>()?.Interact();
+        }
+    }
+
+    private bool IsWalkable(Vector3 targetPos){
+        if(Physics2D.OverlapCircle(targetPos, 0.05f, solidObjectLayers | interactableLayers) != null){
+            return false;
+        }
+        return true;
     }
 }
