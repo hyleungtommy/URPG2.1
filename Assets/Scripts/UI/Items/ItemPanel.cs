@@ -13,7 +13,6 @@ public class ItemPanel : MonoBehaviour
     {
         gameObject.SetActive(true);
         battleFunctionalItems = GameController.Instance.Inventory.GetBattleFunctionalItemList();
-        Debug.Log("battleFunctionalItems: " + battleFunctionalItems.Count);
         // Clear existing boxes
         foreach (Transform child in itemSelectionRowContainer)
         {
@@ -26,7 +25,6 @@ public class ItemPanel : MonoBehaviour
             int j = i;
             GameObject box = Instantiate(itemSelectionRowPrefab, itemSelectionRowContainer);
             ItemSelectionRow itemSelectionRow = box.GetComponent<ItemSelectionRow>();
-            Debug.Log("battleFunctionalItems[i]: " + battleFunctionalItems[i].Item.Name + " " + battleFunctionalItems[i].Quantity);
             itemSelectionRow.Setup(battleFunctionalItems[i]);
             box.GetComponent<Button>().onClick.AddListener(() => this.OnItemSelectionRowClicked(j));
             itemSelectionRow.Render();
@@ -37,7 +35,6 @@ public class ItemPanel : MonoBehaviour
 
     public void OnItemSelectionRowClicked(int index)
     {
-        Debug.Log("ItemSelectionRowClicked: " + index);
         BattleScene.Instance.OnSelectItem(battleFunctionalItems[index].Item);
     }
 

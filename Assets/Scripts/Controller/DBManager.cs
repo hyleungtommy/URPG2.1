@@ -18,6 +18,7 @@ public class DBManager:MonoBehaviour
     }
 
     public void LoadTestItems(){
+        /*
         GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(10), 10);
         GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(11), 10);
         GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(12), 10);
@@ -30,6 +31,7 @@ public class DBManager:MonoBehaviour
         GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(19), 10);
         GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(20), 10);
         GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(21), 10);
+        */
     }
 
     public ItemTemplate[] GetAllItems()

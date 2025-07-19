@@ -20,13 +20,14 @@ public abstract class BattleEntity
         Name = name;
         Portrait = portrait;
         BaseStats = baseStat;
+        Buffs = new List<Buff>();
         AGI = Stats.AGI;
 
         CurrentHP = Stats.HP;
         CurrentMP = Stats.MP;
 
         this.manager = manager;
-        Buffs = new List<Buff>();
+        
     }
 
     public abstract void TakeTurn();
