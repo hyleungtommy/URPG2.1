@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Falone.unity
     guid: 49999e4e03a8463469f910b14902cc7c
+  - enabled: 1
+    path: Assets/Scenes/FaloneShop.unity
+    guid: 68883bb1f6e3fcd45b46554fb779314b
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e6ead7aeacafda849941ede99d0d8470,
       type: 2}
