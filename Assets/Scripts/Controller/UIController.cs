@@ -59,9 +59,20 @@ public class UIController : MonoBehaviour
     public void ToggleUIScene(string sceneName)
     {
         if (loadedUIScenes.Contains(sceneName))
+        {
             CloseUIScene(sceneName);
+            if(GameController.Instance != null){
+                GameController.Instance.state = GameController.State.Idle;
+            }
+        }
         else
+        {
             OpenUIScene(sceneName);
+            if(GameController.Instance != null){
+                GameController.Instance.state = GameController.State.OpenUI;
+            }
+        }
+
     }
 
     /// <summary>
@@ -81,7 +92,9 @@ public class UIController : MonoBehaviour
         {
             SceneManager.UnloadSceneAsync(sceneName);
         }
-
+        if(GameController.Instance != null){
+            GameController.Instance.state = GameController.State.Idle;
+        }
         loadedUIScenes.Clear();
     }
 }
