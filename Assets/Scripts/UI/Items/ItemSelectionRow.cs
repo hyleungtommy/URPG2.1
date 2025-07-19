@@ -17,6 +17,7 @@ public class ItemSelectionRow : MonoBehaviour
 
     public void Render()
     {
+        Debug.Log("itemWithQuantity: " + itemWithQuantity.Item.Name + " " + itemWithQuantity.Quantity);
         itemBox.Render(itemWithQuantity.Item);
         Quantity.text = itemWithQuantity.Quantity.ToString();
         ItemName.text = itemWithQuantity.Item.Name;

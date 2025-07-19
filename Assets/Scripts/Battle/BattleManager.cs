@@ -149,6 +149,7 @@ public class BattleManager
     public void EndTurn(BattleEntity entity)
     {
         Debug.Log($"{entity.Name} ended their turn.");
+        entity.OnEndTurn();
         ItemToUse = null;
         SkillToUse = null;
         actionQueue.Enqueue(entity);

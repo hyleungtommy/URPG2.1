@@ -1,3 +1,5 @@
+using System;
+
 public class BaseStat
 {
     public int HP { get; set; }    // Health Points
@@ -24,5 +26,9 @@ public class BaseStat
 
     public BaseStat Add(BaseStat stat){
         return new BaseStat(HP + stat.HP, MP + stat.MP, ATK + stat.ATK, DEF + stat.DEF, MATK + stat.MATK, MDEF + stat.MDEF, AGI + stat.AGI, DEX + stat.DEX);
+    }
+
+    public BaseStat Multiply(BuffMatrix buffMatrix){
+        return new BaseStat(HP , MP , (int)Math.Round(ATK * buffMatrix.ATK), (int)Math.Round(DEF * buffMatrix.DEF), (int)Math.Round(MATK * buffMatrix.MATK), (int)Math.Round(MDEF * buffMatrix.MDEF), (int)Math.Round(AGI * buffMatrix.AGI), (int)Math.Round(DEX * buffMatrix.DEX));
     }
 }

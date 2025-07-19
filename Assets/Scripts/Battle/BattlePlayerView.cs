@@ -7,6 +7,7 @@ public class BattlePlayerView : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Image icon;
     [SerializeField] private Bar hpBar;
     [SerializeField] private Bar mpBar;
+    [SerializeField] private EntityBuffDisplay buffDisplay;
 
     public BattlePlayerEntity Entity { get; private set; }
 
@@ -22,6 +23,7 @@ public class BattlePlayerView : MonoBehaviour, IPointerClickHandler
         if(Entity == null) return;
         hpBar.Render(Entity.CurrentHP, Entity.Stats.HP);
         mpBar.Render(Entity.CurrentMP, Entity.Stats.MP);
+        buffDisplay.Render(Entity.Buffs.ToArray());
     }
 
     public void OnPointerClick(PointerEventData eventData)
