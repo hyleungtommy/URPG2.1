@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour
     [Header("Global Game State")]
     public int money;
     public Party party;
-    public StorageSystem Inventory {get;private set;}
-    public State state {get; set;} = State.Idle;
+    public StorageSystem Inventory { get; private set; }
+    public State state { get; set; } = State.Idle;
 
     [Header("Setup Templates")]
     public PartyTemplate StartingPartyTemplate;
@@ -33,29 +33,51 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (state == State.Battle)
         {
-            UIController.Instance.ToggleUIScene("Status");
+            return; // Don't allow input during battle
         }
-        if (Input.GetKeyDown(KeyCode.M))
+        else if (state == State.Dialog)
         {
-            OpenMapPanel(testMap);
+            return; // Don't allow input during dialog
         }
-        if (Input.GetKeyDown(KeyCode.I))
+        else if (state == State.OpenUI)
         {
-            UIController.Instance.ToggleUIScene("Inventory");
+            // Can only press escape when opened a UI
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                UIController.Instance.CloseAllUIScenes();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        else if (state == State.Idle)
         {
-            UIController.Instance.ToggleUIScene("Shop");
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            UIController.Instance.ToggleUIScene("SkillCenter");
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            UIController.Instance.ToggleUIScene("Blacksmith");
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                UIController.Instance.ToggleUIScene("Status");
+            }
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                OpenMapPanel(testMap);
+            }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                UIController.Instance.ToggleUIScene("Inventory");
+            }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                UIController.Instance.ToggleUIScene("Shop");
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                UIController.Instance.ToggleUIScene("SkillCenter");
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                UIController.Instance.ToggleUIScene("Blacksmith");
+            }
+            if (Input.GetKeyDown(KeyCode.Space)){
+                FindObjectOfType<PlayerController>()?.Interact();
+            }
         }
     }
 
@@ -75,7 +97,7 @@ public class GameController : MonoBehaviour
         money = Constant.StartMoney; // or load from save data
         mapPanel?.gameObject.SetActive(false);
         Inventory = new StorageSystem(Constant.InventorySize);
-        
+
     }
 
 
@@ -101,6 +123,7 @@ public class GameController : MonoBehaviour
         {
             mapPanel.gameObject.SetActive(true);
             mapPanel.SetMap(map);
+            state = State.OpenUI;
         }
         else
         {
@@ -108,11 +131,13 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public enum State{
+    public enum State
+    {
         Dialog,
         OpenUI,
-        Idle
+        Idle,
+        Battle
     }
 
-    
+
 }
