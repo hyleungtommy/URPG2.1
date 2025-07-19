@@ -6,13 +6,32 @@ public class DBManager:MonoBehaviour
     [SerializeField] ItemTemplate[] itemTemplates;
     [SerializeField] WeaponTemplate[] weaponTemplates;
     [SerializeField] ArmorTemplate[] armorTemplates;
+    [SerializeField] BuffTemplate[] buffTemplates;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            LoadTestItems();
         }
+    }
+
+    public void LoadTestItems(){
+        /*
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(10), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(11), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(12), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(13), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(14), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(15), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(16), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(17), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(18), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(19), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(20), 10);
+        GameController.Instance.Inventory.InsertItem(DBManager.Instance.GetItem(21), 10);
+        */
     }
 
     public ItemTemplate[] GetAllItems()
@@ -43,6 +62,11 @@ public class DBManager:MonoBehaviour
     public WeaponTemplate GetWeapon(int weaponId)
     {
         return weaponTemplates[weaponId];
+    }
+
+    public BuffTemplate GetBuff(int buffId)
+    {
+        return buffTemplates[buffId];
     }
     
     

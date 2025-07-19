@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public abstract class BattleEntity
 {
     public string Name { get; private set; }
@@ -8,20 +8,26 @@ public abstract class BattleEntity
     public Sprite Portrait { get; private set; }
     public int CurrentHP { get; set; }
     public int CurrentMP { get; set; }
-    public BaseStat Stats { get; private set; }
+    public BaseStat BaseStats { get; private set; }
+    public BaseStat Stats { get{
+        return BaseStats.Multiply(new BuffMatrix(Buffs.ToArray()));
+    }}
+    public List<Buff> Buffs { get; private set; }
     protected BattleManager manager;
 
     public BattleEntity(string name, Sprite portrait, BaseStat baseStat, BattleManager manager)
     {
         Name = name;
         Portrait = portrait;
-        Stats = baseStat;
+        BaseStats = baseStat;
+        Buffs = new List<Buff>();
         AGI = Stats.AGI;
 
         CurrentHP = Stats.HP;
         CurrentMP = Stats.MP;
 
         this.manager = manager;
+        
     }
 
     public abstract void TakeTurn();
@@ -40,7 +46,12 @@ public abstract class BattleEntity
 
     public virtual void OnEndTurn()
     {
-
+        foreach (Buff buff in Buffs){
+            buff.duration--;
+            if (buff.duration <= 0){
+                Buffs.Remove(buff);
+            }
+        }
     }
 
     public void PerformEscapeAttempt()
@@ -66,6 +77,18 @@ public abstract class BattleEntity
     public void RestoreMP(int amount)
     {
         CurrentMP = Mathf.Min(CurrentMP + amount, Stats.MP);
+    }
+
+    public void AddBuff(BuffTemplate buffTemplate, int duration){
+        Buff buff = new Buff(buffTemplate, duration);
+        Buffs.Add(buff);
+        Debug.Log($"{Name} has been buffed with {buff.buffType} for {buff.duration} turns!");
+        foreach (int replaceBuffId in buffTemplate.replaceBuffIds){
+            Buff replaceBuff = Buffs.Find(b => b.id == replaceBuffId);
+            if (replaceBuff != null){
+                Buffs.Remove(replaceBuff);
+            }
+        }
     }
     
 }

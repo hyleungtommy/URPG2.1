@@ -74,9 +74,9 @@ public class GameController : MonoBehaviour
         money = Constant.StartMoney; // or load from save data
         mapPanel?.gameObject.SetActive(false);
         Inventory = new StorageSystem(Constant.InventorySize);
-
         
     }
+
 
     // Utility methods for money
     public void AddMoney(int amount)

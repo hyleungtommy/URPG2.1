@@ -74,6 +74,9 @@ public class BattleScene : MonoBehaviour
         }
         else if (BattleSceneLoader.CurrentMap.Mode == Map.MapMode.Explore)
         {
+            battleEnemyList.gameObject.SetActive(true);
+            battleBossList.gameObject.SetActive(false);
+            battleEnemyList.Setup(manager.enemies);
             zonePanel.gameObject.SetActive(false);
         }
 

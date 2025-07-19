@@ -35,7 +35,6 @@ public class ItemPanel : MonoBehaviour
 
     public void OnItemSelectionRowClicked(int index)
     {
-        Debug.Log("ItemSelectionRowClicked: " + index);
         BattleScene.Instance.OnSelectItem(battleFunctionalItems[index].Item);
     }
 

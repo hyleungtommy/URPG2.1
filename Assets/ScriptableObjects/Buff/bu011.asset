@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddda58448748d7a448fb202428dd9dbd, type: 3}
+  m_Name: bu011
+  m_EditorClassIdentifier: 
+  id: 11
+  buffName: Focus
+  type: 6
+  isDebuff: 0
+  icon: {fileID: 21300000, guid: 686d6e485554b43428372cf63294cd7b, type: 3}
+  value: 25
+  replaceBuffIds: 0c000000
