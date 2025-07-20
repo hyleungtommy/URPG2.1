@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     public PartyTemplate StartingPartyTemplate;
     [Header("Map UI")]
     [SerializeField] MapTemplate testMap;
-    [SerializeField] MapPanel mapPanel;
+    public MapTemplate CurrentMap { get; set; }
 
     private void Awake()
     {
@@ -95,7 +95,6 @@ public class GameController : MonoBehaviour
 
         // Starting money (optional)
         money = Constant.StartMoney; // or load from save data
-        mapPanel?.gameObject.SetActive(false);
         Inventory = new StorageSystem(Constant.InventorySize);
 
     }
@@ -119,16 +118,9 @@ public class GameController : MonoBehaviour
 
     public void OpenMapPanel(MapTemplate map)
     {
-        if (mapPanel != null)
-        {
-            mapPanel.gameObject.SetActive(true);
-            mapPanel.SetMap(map);
-            state = State.OpenUI;
-        }
-        else
-        {
-            Debug.LogWarning("MapPanel is not assigned in GameController.");
-        }
+        UIController.Instance.OpenUIScene("Map");
+        CurrentMap = map;
+        state = State.OpenUI;
     }
 
     public enum State

@@ -60,7 +60,9 @@ public abstract class BattleEntity
         if (success)
         {
             Debug.Log($"{Name} escaped!");
-            //manager.HandleEscapeSuccess();
+            // TODO: Implement escape success handling
+            // For now, just end the turn
+            manager.EndTurn(this);
         }
         else
         {

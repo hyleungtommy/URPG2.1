@@ -41,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FaloneBlacksmith.unity
     guid: 44a39ed8e64c2b64a86b906d92ac4d48
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: 92b7427ae56831944af7b9b11de9ab23
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e6ead7aeacafda849941ede99d0d8470,
       type: 2}

@@ -21,6 +21,7 @@ public class ActionButtonGroup : MonoBehaviour
     }
     public void OnClickAttack()
     {
+        Debug.Log("OnClickAttack");
         battleScene.OnClickAttack();
     }
     public void OnClickItem()

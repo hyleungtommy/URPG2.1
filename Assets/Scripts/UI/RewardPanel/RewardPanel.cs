@@ -80,6 +80,7 @@ public class RewardPanel : MonoBehaviour
             BattleSceneLoader.CurrentMap.ResetZoneProgress();
         }
         SceneManager.LoadScene("World");
+        GameController.Instance.state = GameController.State.Idle;
     }
 
     public void OnClickNextZone()

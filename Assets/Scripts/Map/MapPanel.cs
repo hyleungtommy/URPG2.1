@@ -12,6 +12,10 @@ public class MapPanel : MonoBehaviour
 
     private MapTemplate currentTemplate;
 
+    void Awake(){
+        SetMap(GameController.Instance.CurrentMap);
+    }
+
     public void SetMap(MapTemplate template)
     {
         currentTemplate = template;
@@ -52,6 +56,7 @@ public class MapPanel : MonoBehaviour
     }
 
     public void OnClickX(){
-        gameObject.SetActive(false);
+        UIController.Instance.CloseUIScene("Map");
+        GameController.Instance.state = GameController.State.Idle;
     }
 }

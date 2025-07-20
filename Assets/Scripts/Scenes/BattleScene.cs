@@ -110,6 +110,13 @@ public class BattleScene : MonoBehaviour
         itemPanel.Close();
         skillPanel.Close();
         rewardPanel.gameObject.SetActive(false);
+        
+        // Set GameController state to Battle
+        if (GameController.Instance != null)
+        {
+            GameController.Instance.state = GameController.State.Battle;
+        }
+        
         StartBattleLoop();
     }
 
@@ -210,7 +217,13 @@ public class BattleScene : MonoBehaviour
     }
     public void OnClickEscape()
     {
-
+        // Attempt to escape from battle
+        BattleEntity currentEntity = manager.PeekNextEntity();
+        if (currentEntity is BattlePlayerEntity playerEntity)
+        {
+            playerEntity.PerformEscapeAttempt();
+            OnPlayerInputEnded();
+        }
     }
     public void OnClickEnemy(BattleEnemyEntity enemy)
     {
