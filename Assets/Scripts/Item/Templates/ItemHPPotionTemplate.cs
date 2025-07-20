@@ -10,4 +10,9 @@ public class ItemHPPotionTemplate : ItemTemplate
     {
         return new ItemHPPotion(this);
     }
+
+    public override string GetItemType()
+    {
+        return "HP Potion";
+    }
 }

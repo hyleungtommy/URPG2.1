@@ -21,9 +21,11 @@ public class BlacksmithScene : MonoBehaviour
     List<ArmorTemplate> armors = new List<ArmorTemplate>();
     int selectedTab = 0;
     int selectedIndex = 0;
+    [SerializeField] GameObject InfoPanel;
 
     void Start(){
         Render();
+        InfoPanel.SetActive(false);
     }
 
     void Render(){
@@ -63,6 +65,8 @@ public class BlacksmithScene : MonoBehaviour
 
     public void OnBlacksmithShopBoxClicked(int index){
         if(selectedTab == 0){
+            InfoPanel.SetActive(true);
+            infoPanelEquipmentIcon.gameObject.SetActive(true);
             infoPanelEquipmentName.text = weapons[index].WeaponName;
             infoPanelEquipmentDescription.text = weapons[index].Description;
             infoPanelEquipmentType.text = weapons[index].WeaponType.ToString();
@@ -82,6 +86,8 @@ public class BlacksmithScene : MonoBehaviour
             selectedIndex = index;
         }
         else if(selectedTab == 1){
+            InfoPanel.SetActive(true);
+            infoPanelEquipmentIcon.gameObject.SetActive(true);
             infoPanelEquipmentName.text = armors[index].ArmorName;
             infoPanelEquipmentDescription.text = armors[index].Description;
             infoPanelEquipmentType.text = armors[index].ArmorType.ToString();

@@ -48,8 +48,10 @@ public class BattleScene : MonoBehaviour
     {
         if (testMode)
         {
-            manager = new BattleManager(this,testMap, testPartyTemplate, testBossBattle);
-        }else{
+            manager = new BattleManager(this, testMap, testPartyTemplate, testBossBattle);
+        }
+        else
+        {
             manager = new BattleManager(this);
         }
 
@@ -110,13 +112,8 @@ public class BattleScene : MonoBehaviour
         itemPanel.Close();
         skillPanel.Close();
         rewardPanel.gameObject.SetActive(false);
-        
-        // Set GameController state to Battle
-        if (GameController.Instance != null)
-        {
-            Game.State = GameState.Battle;
-        }
-        
+        Game.State = GameState.Battle;
+
         StartBattleLoop();
     }
 
@@ -210,7 +207,8 @@ public class BattleScene : MonoBehaviour
     public void OnClickSkill()
     {
         battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select a skill to use");
-        if (manager.PeekNextEntity() is BattlePlayerEntity){
+        if (manager.PeekNextEntity() is BattlePlayerEntity)
+        {
             skillPanel.Open(((BattlePlayerEntity)manager.PeekNextEntity()).SkillList, manager.PeekNextEntity());
         }
 
@@ -231,7 +229,9 @@ public class BattleScene : MonoBehaviour
         {
             manager.OnPlayerAction(selectionMode, enemy);
             OnPlayerInputEnded();
-        }else if (selectionMode == SelectionMode.UseOnOpponent){
+        }
+        else if (selectionMode == SelectionMode.UseOnOpponent)
+        {
             manager.OnPlayerAction(selectionMode, enemy);
             OnPlayerInputEnded();
         }
@@ -269,29 +269,38 @@ public class BattleScene : MonoBehaviour
         }
     }
 
-    public void OnSelectSkill(Skill skill){
-        if (!skill.IsUseOnOpponent){
-            if(skill.IsAOE){
+    public void OnSelectSkill(Skill skill)
+    {
+        if (!skill.IsUseOnOpponent)
+        {
+            if (skill.IsAOE)
+            {
                 selectionMode = SelectionMode.UseOnPartnerAOE;
                 manager.SkillToUse = skill;
                 manager.OnPlayerAction(selectionMode, null);
                 skillPanel.Close();
                 OnPlayerInputEnded();
             }
-            else{
+            else
+            {
                 battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select target to use skill on");
                 selectionMode = SelectionMode.UseOnPartner;
                 manager.SkillToUse = skill;
                 skillPanel.Close();
             }
-        }else {
-            if(skill.IsAOE){
+        }
+        else
+        {
+            if (skill.IsAOE)
+            {
                 selectionMode = SelectionMode.UseOnOpponentAOE;
                 manager.SkillToUse = skill;
                 manager.OnPlayerAction(selectionMode, null);
                 skillPanel.Close();
                 OnPlayerInputEnded();
-            }else {
+            }
+            else
+            {
                 battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select target to use skill on");
                 selectionMode = SelectionMode.UseOnOpponent;
                 manager.SkillToUse = skill;

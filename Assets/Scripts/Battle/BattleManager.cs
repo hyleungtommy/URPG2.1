@@ -116,14 +116,12 @@ public class BattleManager
         if (CurrentTurnEntity is BattleEnemyEntity enemy)
         {
             enemy.TakeTurn();
-            return;
         }
         else
         {
             // Player's turn, show options
             Debug.Log("Player's turn: " + CurrentTurnEntity.Name);
             scene.ShowPlayerOptions();
-            return;
         }
     }
 
@@ -195,8 +193,8 @@ public class BattleManager
 
     bool CheckBattleOutcome()
     {
-        bool allEnemiesDefeated = turnOrder.FindAll(e => e is BattleEnemyEntity && e.IsAlive).Count == 0;
-        bool allPlayersDefeated = turnOrder.FindAll(e => e is BattlePlayerEntity && e.IsAlive).Count == 0;
+        bool allEnemiesDefeated = GetAliveEnemies().Length == 0;
+        bool allPlayersDefeated = GetAlivePlayers().Length == 0;
         bool isBattleEnded = allEnemiesDefeated || allPlayersDefeated;
         if (allEnemiesDefeated)
         {
@@ -218,8 +216,6 @@ public class BattleManager
         ApplyRewards(reward);
         scene.ShowRewardPanel(reward);
     }
-
-
 
     public BattleEntity[] GetAlivePlayers()
     {

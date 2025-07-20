@@ -14,7 +14,9 @@ public class SkillCenterScene : MemberListScene
     [SerializeField] Text skillTypeText;
     [SerializeField] Text availableSkillPointText;
     [SerializeField] Image skillIcon;
+    [SerializeField] Button buySkillButton;
     private List<SkillCenterPanelRow> skillCenterPanelRows = new List<SkillCenterPanelRow>();
+    [SerializeField] GameObject InfoPanel;
     private Skill[] skills;
     private BattleCharacter member;
     private Skill selectedSkill;
@@ -22,6 +24,7 @@ public class SkillCenterScene : MemberListScene
     void Start()
     {
         moneyText.text = Game.Money.ToString();
+        InfoPanel.SetActive(false);
     }
 
     public override void OnMemberSelected(BattleCharacter member)
@@ -45,6 +48,7 @@ public class SkillCenterScene : MemberListScene
 
     private void OnSkillCenterPanelRowClicked(int index)
     {
+        InfoPanel.SetActive(true);
         selectedSkill = skills[index];
         skillNameText.text = selectedSkill.Name;
         skillDescriptionText.text = selectedSkill.Description.Replace("%mod%", (selectedSkill.Modifier * 100).ToString("F0") + "%");
@@ -52,6 +56,7 @@ public class SkillCenterScene : MemberListScene
         skillTypeText.text = FormatSkillType(selectedSkill);
         availableSkillPointText.text = "Available Skill Point: " + member.SkillPointAvailable.ToString();
         skillIcon.sprite = selectedSkill.Icon;
+        buySkillButton.gameObject.SetActive(true);
     }
 
     public void OnClickBuySkill()

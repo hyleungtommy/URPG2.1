@@ -6,6 +6,11 @@ public class ItemResourceTemplate : ItemTemplate
     {
         return new ItemResource(this);
     }
+
+    public override string GetItemType()
+    {
+        return "Resource";
+    }
 }
 
 

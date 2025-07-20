@@ -19,14 +19,15 @@ public class ShopScene : MonoBehaviour
     [SerializeField] Button BuyButton;
     [SerializeField] Text TextMoney;
     [SerializeField] GameObject BuyAmountPanel;
+    [SerializeField] GameObject InfoPanel;
     private List<ItemTemplate> shopItems;
     private int buyAmount = 1;
     private ItemTemplate selectedItem;
     // Start is called before the first frame update
     void Start()
     {
-
         Render();
+        InfoPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -57,10 +58,12 @@ public class ShopScene : MonoBehaviour
             box.Render();
             shopBoxes.Add(box);
         }
+
     }
 
     private void OnShopBoxClicked(int slotId)
     {
+        InfoPanel.SetActive(true);
         selectedItem = shopItems[slotId];
         ItemName.text = selectedItem.Name;
         ItemDescription.text = selectedItem.Description;
@@ -68,12 +71,13 @@ public class ShopScene : MonoBehaviour
         ItemIcon.sprite = selectedItem.Icon;
         ItemIconFrame.gameObject.SetActive(true);
         buyAmount = 1;
+        BuyAmountPanel.SetActive(true);
         UpdateBuyAmount();
     }
 
     private void FormatItemDetails(ItemTemplate itemTemplate)
     {
-        ItemType.text = itemTemplate.GetType().Name + "\n" + Constant.itemRarityName[itemTemplate.Rarity];
+        ItemType.text = itemTemplate.GetItemType() + "\n" + Constant.itemRarityName[itemTemplate.Rarity];
     }
 
     void UpdateBuyAmount()

@@ -13,4 +13,5 @@ public abstract class ItemTemplate : ScriptableObject
     public Sprite Icon;
 
     public abstract Item GetItem();
+    public abstract string GetItemType();
 }
