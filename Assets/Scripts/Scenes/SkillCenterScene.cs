@@ -21,7 +21,7 @@ public class SkillCenterScene : MemberListScene
 
     void Start()
     {
-        moneyText.text = GameController.Instance.money.ToString();
+        moneyText.text = Game.Money.ToString();
     }
 
     public override void OnMemberSelected(BattleCharacter member)
@@ -56,10 +56,10 @@ public class SkillCenterScene : MemberListScene
 
     public void OnClickBuySkill()
     {
-        if (member.SkillPointAvailable > 0 && GameController.Instance.money >= selectedSkill.Price)
+        if (member.SkillPointAvailable > 0 && Game.Money >= selectedSkill.Price)
         {
             member.LearnSkill(selectedSkill);
-            moneyText.text = GameController.Instance.money.ToString();
+            moneyText.text = Game.Money.ToString();
             skillNameText.text = selectedSkill.Name;
             skillDescriptionText.text = selectedSkill.Description.Replace("%mod%", (selectedSkill.Modifier * 100).ToString("F0") + "%");
             skillPriceText.text = selectedSkill.Price.ToString();

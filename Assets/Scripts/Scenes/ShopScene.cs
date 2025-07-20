@@ -37,7 +37,7 @@ public class ShopScene : MonoBehaviour
 
     void Render()
     {
-        TextMoney.text = GameController.Instance.money.ToString();
+        TextMoney.text = Game.Money.ToString();
         // Clear existing boxes
         foreach (Transform child in ShopBoxContainer)
         {
@@ -81,7 +81,7 @@ public class ShopScene : MonoBehaviour
         TextBuyAmount.text = buyAmount.ToString();
         int price = selectedItem.Price * buyAmount;
         TextBuyPrice.text = price.ToString();
-        if (price > GameController.Instance.money)
+        if (price > Game.Money)
         {
             BuyButton.interactable = false;
         }
@@ -135,13 +135,13 @@ public class ShopScene : MonoBehaviour
     public void OnClickBuy()
     {
         int price = selectedItem.Price * buyAmount;
-        if (price > GameController.Instance.money)
+        if (price > Game.Money)
         {
             return;
         }
-        GameController.Instance.money -= price;
-        GameController.Instance.Inventory.InsertItem(selectedItem.GetItem(), buyAmount);
-        TextMoney.text = GameController.Instance.money.ToString();
+        Game.Money -= price;
+        Game.Inventory.InsertItem(selectedItem.GetItem(), buyAmount);
+        TextMoney.text = Game.Money.ToString();
 
     }
 

@@ -13,15 +13,46 @@ public class BattleManager
     public bool IsVictory { get; set; }
     public BattleFunctionalItem ItemToUse { get; set; }
     public Skill SkillToUse { get; set; }
+    public List<BattleCharacter> PlayerParty {get; private set;}
+
+    public bool IsBossBattle 
+    { 
+        get 
+        { 
+            return Game.CurrentMap?.Mode == Map.MapMode.Zone && 
+                   Game.CurrentMap?.CurrentZone == Game.CurrentMap?.Template?.NumberOfZones; 
+        } 
+    }
 
     public BattleManager(BattleScene scene)
     {
         this.scene = scene;
+        PlayerParty = Game.Party.GetUnlockedMembers();
+        InitializeBattle();
+    }
+
+    public BattleManager(BattleScene scene, MapTemplate testMap, PartyTemplate testPartyTemplate, bool testBossBattle){
+        this.scene = scene;
+        Game.CurrentMap = new Map(testMap, Map.MapMode.Zone);
+        if (testBossBattle)
+        {
+            Game.CurrentMap.TestBossBattle();
+        }
+        PlayerParty = new Party(testPartyTemplate).GetUnlockedMembers();
         InitializeBattle();
     }
 
     void InitializeBattle()
     {
+        if (Game.CurrentMap == null){
+            Debug.LogError("Game.CurrentMap is null, cannot start battle");
+            return;
+        }
+        List<EnemyTemplate> EnemiesToSpawn = Game.CurrentMap.GenerateEnemies();
+        
+        if (PlayerParty.Count > 4)
+            PlayerParty = PlayerParty.GetRange(0, 4);
+
         turnOrder = new List<BattleEntity>();
         actionQueue = new Queue<BattleEntity>();
 
@@ -30,23 +61,23 @@ public class BattleManager
         // Instantiate all entities into battle
         List<BattleEntity> entities = new List<BattleEntity>();
 
-        foreach (var player in BattleSceneLoader.PlayerParty)
+        foreach (var player in PlayerParty)
         {
             BattlePlayerEntity entity = new BattlePlayerEntity(player, this);
             entities.Add(entity);
             players.Add(entity);
         }
 
-        if (BattleSceneLoader.IsBossBattle)
+        if (IsBossBattle)
         {
             Debug.Log("Boss battle");
-            BattleBossEntity entity = new BattleBossEntity(BattleSceneLoader.EnemiesToSpawn[0], this);
+            BattleBossEntity entity = new BattleBossEntity(EnemiesToSpawn[0], this);
             entities.Add(entity);
             enemies.Add(entity);
         }
         else
         {
-            foreach (var enemyTemplate in BattleSceneLoader.EnemiesToSpawn)
+            foreach (var enemyTemplate in EnemiesToSpawn)
             {
                 BattleEnemyEntity entity = new BattleEnemyEntity(enemyTemplate, this);
                 entities.Add(entity);
@@ -107,7 +138,7 @@ public class BattleManager
             CurrentTurnEntity = actionQueue.Dequeue();
             if(ItemToUse != null) {
                 ItemToUse.Use(new List<BattleEntity> { target });
-                GameController.Instance.Inventory.RemoveItem(ItemToUse.id, 1);
+                Game.Inventory.RemoveItem(ItemToUse.id, 1);
             }else if (SkillToUse != null){
                 SkillToUse.Use(CurrentTurnEntity, new List<BattleEntity> { target });
             }
@@ -116,7 +147,7 @@ public class BattleManager
             CurrentTurnEntity = actionQueue.Dequeue();
             if(ItemToUse != null) {
                 ItemToUse.Use(players.Cast<BattleEntity>().ToList());
-                GameController.Instance.Inventory.RemoveItem(ItemToUse.id, 1);
+                Game.Inventory.RemoveItem(ItemToUse.id, 1);
             }else if (SkillToUse != null){
                 SkillToUse.Use(CurrentTurnEntity, players.Cast<BattleEntity>().ToList());
             }
@@ -233,15 +264,16 @@ public class BattleManager
                 reward.EXP += enemy.dropEXP;
             }
         }
+        reward.PlayerParty = PlayerParty;
         return reward;
     }
 
     public void ApplyRewards(BattleReward reward)
     {
         // Apply rewards to players
-        GameController.Instance.AddMoney(reward.Money);
+        Game.AddMoney(reward.Money);
         int i = 0;
-        foreach (var player in BattleSceneLoader.PlayerParty)
+        foreach (var player in PlayerParty)
         {
             if (reward.IsVictory)
             {

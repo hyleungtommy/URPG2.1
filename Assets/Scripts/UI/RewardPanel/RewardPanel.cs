@@ -49,7 +49,7 @@ public class RewardPanel : MonoBehaviour
         SetupCharacterPanels(battleReward);
         
         // Configure action buttons based on battle outcome and map mode
-        ConfigureActionButtons(battleReward.IsVictory);
+        ConfigureActionButtons(battleReward);
     }
 
     /// <summary>
@@ -59,9 +59,8 @@ public class RewardPanel : MonoBehaviour
     /// <param name="battleReward">The battle reward containing level-up information</param>
     private void SetupCharacterPanels(BattleReward battleReward)
     {
-        List<BattleCharacter> playerParty = BattleSceneLoader.PlayerParty;
         
-        if (playerParty == null)
+        if (battleReward.PlayerParty == null)
         {
             Debug.LogWarning("Player party is null, cannot setup character panels");
             return;
@@ -69,10 +68,10 @@ public class RewardPanel : MonoBehaviour
 
         for (int i = 0; i < characterPanels.Length; i++)
         {
-            if (i < playerParty.Count)
+            if (i < battleReward.PlayerParty.Count)
             {
                 characterPanels[i].gameObject.SetActive(true);
-                characterPanels[i].Render(playerParty[i], battleReward.isLevelUp[i]);
+                characterPanels[i].Render(battleReward.PlayerParty[i], battleReward.isLevelUp[i]);
             }
             else
             {
@@ -86,23 +85,23 @@ public class RewardPanel : MonoBehaviour
     /// Different button combinations are shown for victory/defeat and zone/explore modes.
     /// </summary>
     /// <param name="battleReward">The battle reward containing victory status</param>
-    private void ConfigureActionButtons(bool IsVictory)
+    private void ConfigureActionButtons(BattleReward battleReward)
     {
-        if (IsVictory && BattleSceneLoader.CurrentMap?.Mode == Map.MapMode.Zone)
+        if (battleReward.IsVictory && Game.CurrentMap.Mode == Map.MapMode.Zone)
         {
             // Zone mode victory - show next zone button if not on last zone
-            buttonNextZone.gameObject.SetActive(!BattleSceneLoader.CurrentMap.IsLastZone);
+            buttonNextZone.gameObject.SetActive(!Game.CurrentMap.IsLastZone);
             buttonRebattle.gameObject.SetActive(false);
             buttonLeave.gameObject.SetActive(true);
         }
-        else if (IsVictory && BattleSceneLoader.CurrentMap?.Mode == Map.MapMode.Explore)
+        else if (battleReward.IsVictory && Game.CurrentMap.Mode == Map.MapMode.Explore)
         {
             // Explore mode victory - allow re-battling
             buttonNextZone.gameObject.SetActive(false);
             buttonRebattle.gameObject.SetActive(true);
             buttonLeave.gameObject.SetActive(true);
         }
-        else if (!IsVictory)
+        else if (!battleReward.IsVictory)
         {
             // Defeat - only allow leaving
             buttonNextZone.gameObject.SetActive(false);
@@ -117,13 +116,7 @@ public class RewardPanel : MonoBehaviour
     /// </summary>
     public void OnClickRebattle()
     {
-        if (BattleSceneLoader.CurrentMap == null)
-        {
-            Debug.LogError("Current map is null, cannot start re-battle");
-            return;
-        }
-
-        BattleSceneLoader.LoadBattleScene(BattleSceneLoader.CurrentMap);
+        SceneManager.LoadScene("Battle");
     }
 
     /// <summary>
@@ -133,14 +126,13 @@ public class RewardPanel : MonoBehaviour
     /// </summary>
     public void OnClickLeave()
     {
-        if (BattleSceneLoader.CurrentMap?.IsLastZone == true)
+        if (Game.CurrentMap?.IsLastZone == true)
         {
-            BattleSceneLoader.CurrentMap.ResetZoneProgress();
+            Game.CurrentMap.ResetZoneProgress();
         }
         
         SceneManager.LoadScene("World");
-        GameController.Instance.state = GameController.State.Idle;
-        BattleSceneLoader.ClearBattleData();
+        Game.State = GameState.Idle;
     }
 
     /// <summary>
@@ -149,14 +141,13 @@ public class RewardPanel : MonoBehaviour
     /// </summary>
     public void OnClickNextZone()
     {
-        if (BattleSceneLoader.CurrentMap == null)
+        if (Game.CurrentMap == null)
         {
             Debug.LogError("Current map is null, cannot progress to next zone");
             return;
         }
-
-        BattleSceneLoader.CurrentMap.ProgressZone();
-        Debug.Log($"Next zone: {BattleSceneLoader.CurrentMap.CurrentZone}");
-        BattleSceneLoader.LoadBattleScene(BattleSceneLoader.CurrentMap);
+        Game.CurrentMap.ProgressZone();
+        Debug.Log($"Next zone: {Game.CurrentMap.CurrentZone}");
+        SceneManager.LoadScene("Battle");
     }
 }

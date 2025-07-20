@@ -6,17 +6,11 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
 
-    [Header("Global Game State")]
-    public int money;
-    public Party party;
-    public StorageSystem Inventory { get; private set; }
-    public State state { get; set; } = State.Idle;
-
     [Header("Setup Templates")]
     public PartyTemplate StartingPartyTemplate;
     [Header("Map UI")]
     [SerializeField] MapTemplate testMap;
-    public MapTemplate CurrentMap { get; set; }
+    
 
     private void Awake()
     {
@@ -33,15 +27,15 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (state == State.Battle)
+        if (Game.State == GameState.Battle)
         {
             return; // Don't allow input during battle
         }
-        else if (state == State.Dialog)
+        else if (Game.State == GameState.Dialog)
         {
             return; // Don't allow input during dialog
         }
-        else if (state == State.OpenUI)
+        else if (Game.State == GameState.OpenUI)
         {
             // Can only press escape when opened a UI
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -49,7 +43,7 @@ public class GameController : MonoBehaviour
                 UIController.Instance.CloseAllUIScenes();
             }
         }
-        else if (state == State.Idle)
+        else if (Game.State == GameState.Idle)
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
@@ -86,7 +80,7 @@ public class GameController : MonoBehaviour
         // Initialize party
         if (StartingPartyTemplate != null)
         {
-            party = new Party(StartingPartyTemplate);
+            Game.Initialize(StartingPartyTemplate);
         }
         else
         {
@@ -94,42 +88,15 @@ public class GameController : MonoBehaviour
         }
 
         // Starting money (optional)
-        money = Constant.StartMoney; // or load from save data
-        Inventory = new StorageSystem(Constant.InventorySize);
+        Game.Money = Constant.StartMoney; // or load from save data
+        Game.Inventory = new StorageSystem(Constant.InventorySize);
 
-    }
-
-
-    // Utility methods for money
-    public void AddMoney(int amount)
-    {
-        money += amount;
-    }
-
-    public bool SpendMoney(int amount)
-    {
-        if (money >= amount)
-        {
-            money -= amount;
-            return true;
-        }
-        return false;
     }
 
     public void OpenMapPanel(MapTemplate map)
     {
         UIController.Instance.OpenUIScene("Map");
-        CurrentMap = map;
-        state = State.OpenUI;
+        Game.MapPanelSelectedMap = map;
+        Game.State = GameState.OpenUI;
     }
-
-    public enum State
-    {
-        Dialog,
-        OpenUI,
-        Idle,
-        Battle
-    }
-
-
 }

@@ -27,7 +27,7 @@ public class BlacksmithScene : MonoBehaviour
     }
 
     void Render(){
-        TextMoney.text = GameController.Instance.money.ToString();
+        TextMoney.text = Game.Money.ToString();
         foreach (Transform child in blacksmithScrollContainer)
         {
             Destroy(child.gameObject);
@@ -69,7 +69,7 @@ public class BlacksmithScene : MonoBehaviour
             infoPanelEquipmentIcon.sprite = weapons[index].Icon;
             infoPanelEquipmentPower.Render(weapons[index]);
             infoPanelEquipmentPrice.text = weapons[index].Price.ToString();
-            if (GameController.Instance.money < weapons[index].Price){
+            if (Game.Money < weapons[index].Price){
                 TextError.gameObject.SetActive(true);
                 TextError.text = "Money not enough";
                 infoPanelEquipmentBuyButton.gameObject.SetActive(false);
@@ -88,7 +88,7 @@ public class BlacksmithScene : MonoBehaviour
             infoPanelEquipmentIcon.sprite = armors[index].Icon;
             infoPanelEquipmentPower.Render(armors[index]);
             infoPanelEquipmentPrice.text = armors[index].Price.ToString();
-            if (GameController.Instance.money < armors[index].Price){
+            if (Game.Money < armors[index].Price){
                 TextError.gameObject.SetActive(true);
                 TextError.text = "Money not enough";
                 infoPanelEquipmentBuyButton.gameObject.SetActive(false);
@@ -109,14 +109,14 @@ public class BlacksmithScene : MonoBehaviour
 
     public void OnBuyButtonClicked(){
         if(selectedTab == 0){
-            GameController.Instance.money -= weapons[selectedIndex].Price;
-            GameController.Instance.Inventory.InsertItem(new Weapon(weapons[selectedIndex]), 1);
+            Game.Money -= weapons[selectedIndex].Price;
+            Game.Inventory.InsertItem(new Weapon(weapons[selectedIndex]), 1);
         }
         else if(selectedTab == 1){
-            GameController.Instance.money -= armors[selectedIndex].Price;
-            GameController.Instance.Inventory.InsertItem(new Armor(armors[selectedIndex]), 1);
+            Game.Money -= armors[selectedIndex].Price;
+            Game.Inventory.InsertItem(new Armor(armors[selectedIndex]), 1);
         }
-        TextMoney.text = GameController.Instance.money.ToString();
+        TextMoney.text = Game.Money.ToString();
     }
     
     

@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         if(GameController.Instance == null){
             return;
         }
-        if(GameController.Instance?.state == GameController.State.Dialog || GameController.Instance?.state == GameController.State.OpenUI){
+        if(Game.State == GameState.Dialog || Game.State == GameState.OpenUI){
             return;
         }
         if (!isMoving)

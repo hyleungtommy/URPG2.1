@@ -61,6 +61,7 @@ public class StatusScene : MemberListScene
     }
 
     public void AddTestEquipment(){
+        /*
         Weapon testSword = new Weapon(DBManager.Instance.GetWeapon(0));
         GameController.Instance.Inventory.InsertItem(testSword, 1);
         Weapon testShield = new Weapon(DBManager.Instance.GetWeapon(1));
@@ -107,5 +108,6 @@ public class StatusScene : MemberListScene
         GameController.Instance.Inventory.InsertItem(testLightBoots, 1);
         Armor testMediumBoots = new Armor(DBManager.Instance.GetArmor(14));
         GameController.Instance.Inventory.InsertItem(testMediumBoots, 1);
+        */
     }
 }

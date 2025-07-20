@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MapPanel : MonoBehaviour
@@ -13,7 +14,7 @@ public class MapPanel : MonoBehaviour
     private MapTemplate currentTemplate;
 
     void Awake(){
-        SetMap(GameController.Instance.CurrentMap);
+        SetMap(Game.MapPanelSelectedMap);
     }
 
     public void SetMap(MapTemplate template)
@@ -38,8 +39,8 @@ public class MapPanel : MonoBehaviour
         Debug.Log("Zone Mode Selected for: " + currentTemplate.MapName);
         UIController.Instance.CloseAllUIScenes();
 
-        Map map = new Map(currentTemplate, Map.MapMode.Zone);
-        BattleSceneLoader.LoadBattleScene(map);
+        Game.CurrentMap = new Map(currentTemplate, Map.MapMode.Zone);
+        SceneManager.LoadScene("Battle");
         //MapManager.Instance.StartMap(map);
     }
 
@@ -50,13 +51,13 @@ public class MapPanel : MonoBehaviour
         Debug.Log("Explore Mode Selected for: " + currentTemplate.MapName);
         UIController.Instance.CloseAllUIScenes();
 
-        Map map = new Map(currentTemplate, Map.MapMode.Explore);
-        BattleSceneLoader.LoadBattleScene(map);
+        Game.CurrentMap = new Map(currentTemplate, Map.MapMode.Explore);
+        SceneManager.LoadScene("Battle");
         //MapManager.Instance.StartMap(map);
     }
 
     public void OnClickX(){
         UIController.Instance.CloseUIScene("Map");
-        GameController.Instance.state = GameController.State.Idle;
+        Game.State = GameState.Idle;
     }
 }

@@ -96,7 +96,7 @@ public class EquipmentManager
         if (weapon != null)
         {
             Debug.Log("Unequip " + weapon.Name);
-            GameController.Instance.Inventory.InsertItem(weapon, 1);
+            Game.Inventory.InsertItem(weapon, 1);
         }
     }
 
@@ -105,7 +105,7 @@ public class EquipmentManager
         if (armor != null)
         {
             Debug.Log("Unequip " + armor.Name);
-            GameController.Instance.Inventory.InsertItem(armor, 1);
+            Game.Inventory.InsertItem(armor, 1);
         }
     }
 

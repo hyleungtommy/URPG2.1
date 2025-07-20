@@ -48,22 +48,22 @@ public class BattleScene : MonoBehaviour
     {
         if (testMode)
         {
-            BattleSceneLoader.LoadTestBattleScene(testMap, testPartyTemplate, testBossBattle);
+            manager = new BattleManager(this,testMap, testPartyTemplate, testBossBattle);
+        }else{
+            manager = new BattleManager(this);
         }
-        manager = new BattleManager(this);
 
-        if (BattleSceneLoader.CurrentMap == null)
+        if (Game.CurrentMap == null)
         {
-            Debug.LogError("BattleManager failed to initialize properly.");
-            return;
+            Debug.LogError("Game.CurrentMap is null, cannot start battle");
         }
-        if (BattleSceneLoader.CurrentMap.Mode == Map.MapMode.Zone)
+        if (Game.CurrentMapMode == Map.MapMode.Zone)
         {
             zonePanel.gameObject.SetActive(true);
-            zonePanel.Render(BattleSceneLoader.CurrentMap);
-            battleBossList.gameObject.SetActive(BattleSceneLoader.IsBossBattle);
-            battleEnemyList.gameObject.SetActive(!BattleSceneLoader.IsBossBattle);
-            if (BattleSceneLoader.IsBossBattle)
+            zonePanel.Render(Game.CurrentMap);
+            battleBossList.gameObject.SetActive(manager.IsBossBattle);
+            battleEnemyList.gameObject.SetActive(!manager.IsBossBattle);
+            if (manager.IsBossBattle)
             {
                 battleBossList.Setup(manager.enemies[0]);
             }
@@ -72,7 +72,7 @@ public class BattleScene : MonoBehaviour
                 battleEnemyList.Setup(manager.enemies);
             }
         }
-        else if (BattleSceneLoader.CurrentMap.Mode == Map.MapMode.Explore)
+        else if (Game.CurrentMapMode == Map.MapMode.Explore)
         {
             battleEnemyList.gameObject.SetActive(true);
             battleBossList.gameObject.SetActive(false);
@@ -114,7 +114,7 @@ public class BattleScene : MonoBehaviour
         // Set GameController state to Battle
         if (GameController.Instance != null)
         {
-            GameController.Instance.state = GameController.State.Battle;
+            Game.State = GameState.Battle;
         }
         
         StartBattleLoop();
@@ -185,7 +185,7 @@ public class BattleScene : MonoBehaviour
     public void UpdateUI()
     {
         battlePlayerList.Render();
-        if (BattleSceneLoader.IsBossBattle)
+        if (manager.IsBossBattle)
         {
             battleBossList.Render();
         }

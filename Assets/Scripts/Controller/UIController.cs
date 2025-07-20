@@ -62,14 +62,14 @@ public class UIController : MonoBehaviour
         {
             CloseUIScene(sceneName);
             if(GameController.Instance != null){
-                GameController.Instance.state = GameController.State.Idle;
+                Game.State = GameState.Idle;
             }
         }
         else
         {
             OpenUIScene(sceneName);
             if(GameController.Instance != null){
-                GameController.Instance.state = GameController.State.OpenUI;
+                Game.State = GameState.OpenUI;
             }
         }
 
@@ -93,7 +93,7 @@ public class UIController : MonoBehaviour
             SceneManager.UnloadSceneAsync(sceneName);
         }
         if(GameController.Instance != null){
-            GameController.Instance.state = GameController.State.Idle;
+            Game.State = GameState.Idle;
         }
         loadedUIScenes.Clear();
     }

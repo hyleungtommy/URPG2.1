@@ -20,7 +20,7 @@ public class InventoryScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventory = GameController.Instance.Inventory;
+        inventory = Game.Inventory;
         
         // Test code to populate inventory
         //AddTestItems();

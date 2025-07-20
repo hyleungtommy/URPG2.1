@@ -26,7 +26,7 @@ public class EquipmentPanel : MonoBehaviour
 
     void Render()
     {
-        equipments = GameController.Instance.Inventory.GetEquipmentList();
+        equipments = Game.Inventory.GetEquipmentList();
         foreach (Transform child in basicItemBoxParent)
         {
             Destroy(child.gameObject);
