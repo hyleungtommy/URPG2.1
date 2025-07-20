@@ -13,6 +13,7 @@ public class BattleEnemyEntity: BattleEntity
 
     public override void TakeTurn(){
         // Basic AI: normal attack a random player
+        // TODO: if enemy has taunt debuff attack the player who taunted them
         BattleEntity[] possibleTargets = manager.GetAlivePlayers();
         if (possibleTargets.Length == 0)
         {

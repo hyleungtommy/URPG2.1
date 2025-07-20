@@ -14,9 +14,7 @@ public class SkillAttack : Skill
         {
             for (int i = 0; i < HitCount; i++)
             {
-                int rawDamage = Mathf.Max(1, user.Stats.ATK - target.Stats.DEF);
-                int damage = (int)(rawDamage * Modifier);
-                target.OnReceiveDamage(damage);
+                user.PerformSkillAttack(target, this);
             }
 
         }
