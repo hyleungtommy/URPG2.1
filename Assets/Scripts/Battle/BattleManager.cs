@@ -240,13 +240,14 @@ public class BattleManager
     {
         // Apply rewards to players
         GameController.Instance.AddMoney(reward.Money);
+        int i = 0;
         foreach (var player in BattleSceneLoader.PlayerParty)
         {
-            int i = 0;
             if (reward.IsVictory)
             {
                 reward.isLevelUp[i] = player.GainEXP(reward.EXP);
             }
+            i++;
         }
     }
 }
