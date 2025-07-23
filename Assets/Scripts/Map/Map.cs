@@ -14,10 +14,12 @@ public class Map
     public int CurrentZone { get; private set; } = 1;
     public bool HasBeenCompleted { get; private set; } = false;
     public bool IsLastZone { get { return CurrentZone >= Template.NumberOfZones; } }
+    public Sprite Background { get; private set; }
     public Map(MapTemplate template, MapMode mode)
     {
         Template = template;
         Mode = mode;
+        Background = template.BattleBackground;
     }
 
     /// <summary>

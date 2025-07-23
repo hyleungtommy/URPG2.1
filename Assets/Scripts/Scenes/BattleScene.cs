@@ -7,6 +7,7 @@ public class BattleScene : MonoBehaviour
 {
     [SerializeField] BattleTopBar battleTopBar;
     [SerializeField] ZonePanel zonePanel;
+    [SerializeField] Image backgroundImage;
     [SerializeField] BattlePlayerList battlePlayerList;
     [SerializeField] BattleEnemyList battleEnemyList;
     [SerializeField] BattleBossList battleBossList;
@@ -107,6 +108,7 @@ public class BattleScene : MonoBehaviour
         }
 
         actionOrder.Render(manager.turnOrder);
+        backgroundImage.sprite = Game.CurrentMap.Background;
         HidePlayerOptions();
         battleTopBar.Hide();
         itemPanel.Close();

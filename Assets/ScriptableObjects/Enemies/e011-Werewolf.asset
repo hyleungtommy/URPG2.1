@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42021614db77be54896ef8e0653bcda7, type: 3}
-  m_Name: e002
+  m_Name: e011-Werewolf
   m_EditorClassIdentifier: 
-  ID: 2
-  EnemyName: Bee
-  EnemyImage: {fileID: 21300000, guid: 36174d7906963cf48998ab38380f99ef, type: 3}
-  HP: 150
-  MP: 100
-  ATK: 25
-  DEF: 15
-  MATK: 10
-  MDEF: 10
-  AGI: 12
-  DEX: 12
-  DropExp: 30
-  DropMoney: 15
+  ID: 11
+  EnemyName: Werewolf
+  EnemyImage: {fileID: 21300000, guid: 67c22393b6ff63545b521449b6f21114, type: 3}
+  HP: 2000
+  MP: 800
+  ATK: 200
+  DEF: 120
+  MATK: 150
+  MDEF: 100
+  AGI: 24
+  DEX: 55
+  DropExp: 80
+  DropMoney: 40
   Fire: -50
   Ice: 0
-  Lightning: 50
-  Earth: -50
-  Wind: 50
+  Lightning: 0
+  Earth: 0
+  Wind: 0
   Light: 0
   Dark: 0
   Hit: 0

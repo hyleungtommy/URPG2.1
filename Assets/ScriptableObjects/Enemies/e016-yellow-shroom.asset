@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42021614db77be54896ef8e0653bcda7, type: 3}
-  m_Name: e001
+  m_Name: e016-yellow-shroom
   m_EditorClassIdentifier: 
-  ID: 1
-  EnemyName: Slime
-  EnemyImage: {fileID: 21300000, guid: 1f2cd0130135b034eaf25333a8b9991e, type: 3}
-  HP: 100
-  MP: 100
-  ATK: 25
-  DEF: 10
-  MATK: 20
-  MDEF: 10
-  AGI: 10
-  DEX: 10
-  DropExp: 20
-  DropMoney: 10
-  Fire: 0
+  ID: 16
+  EnemyName: Yellow Shroom
+  EnemyImage: {fileID: 21300000, guid: aab6c1395db958e4a95d18143740c875, type: 3}
+  HP: 3500
+  MP: 1200
+  ATK: 525
+  DEF: 180
+  MATK: 300
+  MDEF: 176
+  AGI: 32
+  DEX: 90
+  DropExp: 180
+  DropMoney: 108
+  Fire: -25
   Ice: 0
   Lightning: 0
-  Earth: 0
+  Earth: 50
   Wind: 0
   Light: 0
   Dark: 0
-  Hit: -50
-  Slash: 50
+  Hit: 0
+  Slash: 0

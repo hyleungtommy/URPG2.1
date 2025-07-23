@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1121222571}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.99556863
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4357,6 +4357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleTopBar: {fileID: 124266233}
   zonePanel: {fileID: 521492013}
+  backgroundImage: {fileID: 1235055585}
   battlePlayerList: {fileID: 589989216}
   battleEnemyList: {fileID: 1574691085}
   battleBossList: {fileID: 1807400477}
