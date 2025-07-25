@@ -106,10 +106,10 @@ public class BattleCharacter
     }
 
     public void LearnSkill(Skill skill){
-        if(skill.Price > GameController.Instance.money){
+        if(skill.Price > Game.Money){
             return;
         }
-        GameController.Instance.money -= skill.Price;
+        Game.Money -= skill.Price;
         skill.SkillLv++;
         SkillPointSpent++;
     }

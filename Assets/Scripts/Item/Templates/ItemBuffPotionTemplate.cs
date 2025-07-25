@@ -8,4 +8,9 @@ public class ItemBuffPotionTemplate : ItemTemplate
     public override Item GetItem(){
         return new ItemBuffPotion(this);
     }
+
+    public override string GetItemType()
+    {
+        return "Buff Potion";
+    }
 }

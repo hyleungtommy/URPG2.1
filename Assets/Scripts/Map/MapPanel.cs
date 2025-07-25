@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MapPanel : MonoBehaviour
@@ -11,6 +12,10 @@ public class MapPanel : MonoBehaviour
     [SerializeField] private Text zoneProgressText;
 
     private MapTemplate currentTemplate;
+
+    void Awake(){
+        SetMap(Game.MapPanelSelectedMap);
+    }
 
     public void SetMap(MapTemplate template)
     {
@@ -31,11 +36,10 @@ public class MapPanel : MonoBehaviour
     {
         if (currentTemplate == null) return;
 
-        Debug.Log("Zone Mode Selected for: " + currentTemplate.MapName);
         UIController.Instance.CloseAllUIScenes();
 
-        Map map = new Map(currentTemplate, Map.MapMode.Zone);
-        BattleSceneLoader.LoadBattleScene(map);
+        Game.CurrentMap = new Map(currentTemplate, Map.MapMode.Zone);
+        SceneManager.LoadScene("Battle");
         //MapManager.Instance.StartMap(map);
     }
 
@@ -43,15 +47,15 @@ public class MapPanel : MonoBehaviour
     {
         if (currentTemplate == null) return;
 
-        Debug.Log("Explore Mode Selected for: " + currentTemplate.MapName);
         UIController.Instance.CloseAllUIScenes();
 
-        Map map = new Map(currentTemplate, Map.MapMode.Explore);
-        BattleSceneLoader.LoadBattleScene(map);
+        Game.CurrentMap = new Map(currentTemplate, Map.MapMode.Explore);
+        SceneManager.LoadScene("Battle");
         //MapManager.Instance.StartMap(map);
     }
 
     public void OnClickX(){
-        gameObject.SetActive(false);
+        UIController.Instance.CloseUIScene("Map");
+        Game.State = GameState.Idle;
     }
 }

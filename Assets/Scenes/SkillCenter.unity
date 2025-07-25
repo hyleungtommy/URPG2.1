@@ -884,6 +884,8 @@ MonoBehaviour:
   skillTypeText: {fileID: 2016036946}
   availableSkillPointText: {fileID: 25260831}
   skillIcon: {fileID: 2001655080}
+  buySkillButton: {fileID: 678008940}
+  InfoPanel: {fileID: 473236492}
 --- !u!114 &434785035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1050,7 +1052,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1812087368}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9955971
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1265,7 +1267,7 @@ GameObject:
   - component: {fileID: 678008941}
   - component: {fileID: 678008940}
   m_Layer: 5
-  m_Name: Button Buy
+  m_Name: Button Learn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1865,6 +1867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1205664272}
   - component: {fileID: 1205664273}
+  - component: {fileID: 1205664274}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1888,8 +1891,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000019073486, y: 0.00003442175}
-  m_SizeDelta: {x: -20.440002, y: 600.85297}
+  m_AnchoredPosition: {x: 20.44, y: 0.00042095076}
+  m_SizeDelta: {x: -20.440002, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1205664273
 MonoBehaviour:
@@ -1916,6 +1919,20 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &1205664274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205664271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1263833147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,7 +2112,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy
+  m_Text: 'Learn
+
+'
 --- !u!222 &1412620998
 CanvasRenderer:
   m_ObjectHideFlags: 0

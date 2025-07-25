@@ -19,14 +19,15 @@ public class ShopScene : MonoBehaviour
     [SerializeField] Button BuyButton;
     [SerializeField] Text TextMoney;
     [SerializeField] GameObject BuyAmountPanel;
+    [SerializeField] GameObject InfoPanel;
     private List<ItemTemplate> shopItems;
     private int buyAmount = 1;
     private ItemTemplate selectedItem;
     // Start is called before the first frame update
     void Start()
     {
-
         Render();
+        InfoPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,7 +38,7 @@ public class ShopScene : MonoBehaviour
 
     void Render()
     {
-        TextMoney.text = GameController.Instance.money.ToString();
+        TextMoney.text = Game.Money.ToString();
         // Clear existing boxes
         foreach (Transform child in ShopBoxContainer)
         {
@@ -57,10 +58,12 @@ public class ShopScene : MonoBehaviour
             box.Render();
             shopBoxes.Add(box);
         }
+
     }
 
     private void OnShopBoxClicked(int slotId)
     {
+        InfoPanel.SetActive(true);
         selectedItem = shopItems[slotId];
         ItemName.text = selectedItem.Name;
         ItemDescription.text = selectedItem.Description;
@@ -68,12 +71,13 @@ public class ShopScene : MonoBehaviour
         ItemIcon.sprite = selectedItem.Icon;
         ItemIconFrame.gameObject.SetActive(true);
         buyAmount = 1;
+        BuyAmountPanel.SetActive(true);
         UpdateBuyAmount();
     }
 
     private void FormatItemDetails(ItemTemplate itemTemplate)
     {
-        ItemType.text = itemTemplate.GetType().Name + "\n" + Constant.itemRarityName[itemTemplate.Rarity];
+        ItemType.text = itemTemplate.GetItemType() + "\n" + Constant.itemRarityName[itemTemplate.Rarity];
     }
 
     void UpdateBuyAmount()
@@ -81,7 +85,7 @@ public class ShopScene : MonoBehaviour
         TextBuyAmount.text = buyAmount.ToString();
         int price = selectedItem.Price * buyAmount;
         TextBuyPrice.text = price.ToString();
-        if (price > GameController.Instance.money)
+        if (price > Game.Money)
         {
             BuyButton.interactable = false;
         }
@@ -135,13 +139,13 @@ public class ShopScene : MonoBehaviour
     public void OnClickBuy()
     {
         int price = selectedItem.Price * buyAmount;
-        if (price > GameController.Instance.money)
+        if (price > Game.Money)
         {
             return;
         }
-        GameController.Instance.money -= price;
-        GameController.Instance.Inventory.InsertItem(selectedItem.GetItem(), buyAmount);
-        TextMoney.text = GameController.Instance.money.ToString();
+        Game.Money -= price;
+        Game.Inventory.InsertItem(selectedItem.GetItem(), buyAmount);
+        TextMoney.text = Game.Money.ToString();
 
     }
 

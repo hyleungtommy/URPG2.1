@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42021614db77be54896ef8e0653bcda7, type: 3}
+  m_Name: e009-Wolf
+  m_EditorClassIdentifier: 
+  ID: 9
+  EnemyName: Wolf
+  EnemyImage: {fileID: 21300000, guid: ad728add613b02a43be0e419082de039, type: 3}
+  HP: 1000
+  MP: 600
+  ATK: 250
+  DEF: 100
+  MATK: 100
+  MDEF: 100
+  AGI: 28
+  DEX: 52
+  DropExp: 85
+  DropMoney: 55
+  Fire: 0
+  Ice: 0
+  Lightning: 0
+  Earth: 0
+  Wind: 0
+  Light: 0
+  Dark: 0
+  Hit: 0
+  Slash: 0

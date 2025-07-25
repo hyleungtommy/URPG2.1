@@ -12,7 +12,7 @@ public class ItemPanel : MonoBehaviour
     public void Open()
     {
         gameObject.SetActive(true);
-        battleFunctionalItems = GameController.Instance.Inventory.GetBattleFunctionalItemList();
+        battleFunctionalItems = Game.Inventory.GetBattleFunctionalItemList();
         // Clear existing boxes
         foreach (Transform child in itemSelectionRowContainer)
         {

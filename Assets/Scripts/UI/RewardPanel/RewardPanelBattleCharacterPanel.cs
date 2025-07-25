@@ -9,6 +9,7 @@ public class RewardPanelBattleCharacterPanel : MonoBehaviour
     [SerializeField] Bar expBar;
     [SerializeField] Image levelupImage;
     [SerializeField] Image characterIcon;
+    [SerializeField] Text level;
     public void Render(BattleCharacter character, bool levelUp)
     {
         // Set character icon
@@ -17,6 +18,7 @@ public class RewardPanelBattleCharacterPanel : MonoBehaviour
         expBar.Render(character.CurrentEXP, character.RequiredEXP);
         // Show level up image if level up
         levelupImage.gameObject.SetActive(levelUp);
+        level.text = "Lv." + character.Lv;
 
     }
 }

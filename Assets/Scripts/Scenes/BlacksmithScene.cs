@@ -21,13 +21,15 @@ public class BlacksmithScene : MonoBehaviour
     List<ArmorTemplate> armors = new List<ArmorTemplate>();
     int selectedTab = 0;
     int selectedIndex = 0;
+    [SerializeField] GameObject InfoPanel;
 
     void Start(){
         Render();
+        InfoPanel.SetActive(false);
     }
 
     void Render(){
-        TextMoney.text = GameController.Instance.money.ToString();
+        TextMoney.text = Game.Money.ToString();
         foreach (Transform child in blacksmithScrollContainer)
         {
             Destroy(child.gameObject);
@@ -63,13 +65,15 @@ public class BlacksmithScene : MonoBehaviour
 
     public void OnBlacksmithShopBoxClicked(int index){
         if(selectedTab == 0){
+            InfoPanel.SetActive(true);
+            infoPanelEquipmentIcon.gameObject.SetActive(true);
             infoPanelEquipmentName.text = weapons[index].WeaponName;
             infoPanelEquipmentDescription.text = weapons[index].Description;
             infoPanelEquipmentType.text = weapons[index].WeaponType.ToString();
             infoPanelEquipmentIcon.sprite = weapons[index].Icon;
             infoPanelEquipmentPower.Render(weapons[index]);
             infoPanelEquipmentPrice.text = weapons[index].Price.ToString();
-            if (GameController.Instance.money < weapons[index].Price){
+            if (Game.Money < weapons[index].Price){
                 TextError.gameObject.SetActive(true);
                 TextError.text = "Money not enough";
                 infoPanelEquipmentBuyButton.gameObject.SetActive(false);
@@ -82,13 +86,15 @@ public class BlacksmithScene : MonoBehaviour
             selectedIndex = index;
         }
         else if(selectedTab == 1){
+            InfoPanel.SetActive(true);
+            infoPanelEquipmentIcon.gameObject.SetActive(true);
             infoPanelEquipmentName.text = armors[index].ArmorName;
             infoPanelEquipmentDescription.text = armors[index].Description;
             infoPanelEquipmentType.text = armors[index].ArmorType.ToString();
             infoPanelEquipmentIcon.sprite = armors[index].Icon;
             infoPanelEquipmentPower.Render(armors[index]);
             infoPanelEquipmentPrice.text = armors[index].Price.ToString();
-            if (GameController.Instance.money < armors[index].Price){
+            if (Game.Money < armors[index].Price){
                 TextError.gameObject.SetActive(true);
                 TextError.text = "Money not enough";
                 infoPanelEquipmentBuyButton.gameObject.SetActive(false);
@@ -109,14 +115,14 @@ public class BlacksmithScene : MonoBehaviour
 
     public void OnBuyButtonClicked(){
         if(selectedTab == 0){
-            GameController.Instance.money -= weapons[selectedIndex].Price;
-            GameController.Instance.Inventory.InsertItem(new Weapon(weapons[selectedIndex]), 1);
+            Game.Money -= weapons[selectedIndex].Price;
+            Game.Inventory.InsertItem(new Weapon(weapons[selectedIndex]), 1);
         }
         else if(selectedTab == 1){
-            GameController.Instance.money -= armors[selectedIndex].Price;
-            GameController.Instance.Inventory.InsertItem(new Armor(armors[selectedIndex]), 1);
+            Game.Money -= armors[selectedIndex].Price;
+            Game.Inventory.InsertItem(new Armor(armors[selectedIndex]), 1);
         }
-        TextMoney.text = GameController.Instance.money.ToString();
+        TextMoney.text = Game.Money.ToString();
     }
     
     

@@ -11,6 +11,11 @@ public class ItemMPPotionTemplate : ItemTemplate
     {
         return new ItemMPPotion(this);
     }
+
+    public override string GetItemType()
+    {
+        return "MP Potion";
+    }
 }
 
 

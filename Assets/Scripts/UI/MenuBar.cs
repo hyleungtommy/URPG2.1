@@ -21,7 +21,7 @@ public class MenuBar : MonoBehaviour
 
     public void Render()
     {
-        textMoney.text = "Money: " + GameController.Instance.money;
+        textMoney.text = "Money: " + Game.Money;
     }
 
     public void OnClickStatus()

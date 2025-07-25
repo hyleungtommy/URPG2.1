@@ -7,6 +7,7 @@ public class BattleScene : MonoBehaviour
 {
     [SerializeField] BattleTopBar battleTopBar;
     [SerializeField] ZonePanel zonePanel;
+    [SerializeField] Image backgroundImage;
     [SerializeField] BattlePlayerList battlePlayerList;
     [SerializeField] BattleEnemyList battleEnemyList;
     [SerializeField] BattleBossList battleBossList;
@@ -48,22 +49,24 @@ public class BattleScene : MonoBehaviour
     {
         if (testMode)
         {
-            BattleSceneLoader.LoadTestBattleScene(testMap, testPartyTemplate, testBossBattle);
+            manager = new BattleManager(this, testMap, testPartyTemplate, testBossBattle);
         }
-        manager = new BattleManager(this);
-
-        if (BattleSceneLoader.CurrentMap == null)
+        else
         {
-            Debug.LogError("BattleManager failed to initialize properly.");
-            return;
+            manager = new BattleManager(this);
         }
-        if (BattleSceneLoader.CurrentMap.Mode == Map.MapMode.Zone)
+
+        if (Game.CurrentMap == null)
+        {
+            Debug.LogError("Game.CurrentMap is null, cannot start battle");
+        }
+        if (Game.CurrentMapMode == Map.MapMode.Zone)
         {
             zonePanel.gameObject.SetActive(true);
-            zonePanel.Render(BattleSceneLoader.CurrentMap);
-            battleBossList.gameObject.SetActive(BattleSceneLoader.IsBossBattle);
-            battleEnemyList.gameObject.SetActive(!BattleSceneLoader.IsBossBattle);
-            if (BattleSceneLoader.IsBossBattle)
+            zonePanel.Render(Game.CurrentMap);
+            battleBossList.gameObject.SetActive(manager.IsBossBattle);
+            battleEnemyList.gameObject.SetActive(!manager.IsBossBattle);
+            if (manager.IsBossBattle)
             {
                 battleBossList.Setup(manager.enemies[0]);
             }
@@ -72,7 +75,7 @@ public class BattleScene : MonoBehaviour
                 battleEnemyList.Setup(manager.enemies);
             }
         }
-        else if (BattleSceneLoader.CurrentMap.Mode == Map.MapMode.Explore)
+        else if (Game.CurrentMapMode == Map.MapMode.Explore)
         {
             battleEnemyList.gameObject.SetActive(true);
             battleBossList.gameObject.SetActive(false);
@@ -105,11 +108,14 @@ public class BattleScene : MonoBehaviour
         }
 
         actionOrder.Render(manager.turnOrder);
+        backgroundImage.sprite = Game.CurrentMap.Background;
         HidePlayerOptions();
         battleTopBar.Hide();
         itemPanel.Close();
         skillPanel.Close();
         rewardPanel.gameObject.SetActive(false);
+        Game.State = GameState.Battle;
+
         StartBattleLoop();
     }
 
@@ -178,7 +184,7 @@ public class BattleScene : MonoBehaviour
     public void UpdateUI()
     {
         battlePlayerList.Render();
-        if (BattleSceneLoader.IsBossBattle)
+        if (manager.IsBossBattle)
         {
             battleBossList.Render();
         }
@@ -203,14 +209,21 @@ public class BattleScene : MonoBehaviour
     public void OnClickSkill()
     {
         battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select a skill to use");
-        if (manager.PeekNextEntity() is BattlePlayerEntity){
+        if (manager.PeekNextEntity() is BattlePlayerEntity)
+        {
             skillPanel.Open(((BattlePlayerEntity)manager.PeekNextEntity()).SkillList, manager.PeekNextEntity());
         }
 
     }
     public void OnClickEscape()
     {
-
+        // Attempt to escape from battle
+        BattleEntity currentEntity = manager.PeekNextEntity();
+        if (currentEntity is BattlePlayerEntity playerEntity)
+        {
+            playerEntity.PerformEscapeAttempt();
+            OnPlayerInputEnded();
+        }
     }
     public void OnClickEnemy(BattleEnemyEntity enemy)
     {
@@ -218,7 +231,9 @@ public class BattleScene : MonoBehaviour
         {
             manager.OnPlayerAction(selectionMode, enemy);
             OnPlayerInputEnded();
-        }else if (selectionMode == SelectionMode.UseOnOpponent){
+        }
+        else if (selectionMode == SelectionMode.UseOnOpponent)
+        {
             manager.OnPlayerAction(selectionMode, enemy);
             OnPlayerInputEnded();
         }
@@ -256,29 +271,38 @@ public class BattleScene : MonoBehaviour
         }
     }
 
-    public void OnSelectSkill(Skill skill){
-        if (!skill.IsUseOnOpponent){
-            if(skill.IsAOE){
+    public void OnSelectSkill(Skill skill)
+    {
+        if (!skill.IsUseOnOpponent)
+        {
+            if (skill.IsAOE)
+            {
                 selectionMode = SelectionMode.UseOnPartnerAOE;
                 manager.SkillToUse = skill;
                 manager.OnPlayerAction(selectionMode, null);
                 skillPanel.Close();
                 OnPlayerInputEnded();
             }
-            else{
+            else
+            {
                 battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select target to use skill on");
                 selectionMode = SelectionMode.UseOnPartner;
                 manager.SkillToUse = skill;
                 skillPanel.Close();
             }
-        }else {
-            if(skill.IsAOE){
+        }
+        else
+        {
+            if (skill.IsAOE)
+            {
                 selectionMode = SelectionMode.UseOnOpponentAOE;
                 manager.SkillToUse = skill;
                 manager.OnPlayerAction(selectionMode, null);
                 skillPanel.Close();
                 OnPlayerInputEnded();
-            }else {
+            }
+            else
+            {
                 battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select target to use skill on");
                 selectionMode = SelectionMode.UseOnOpponent;
                 manager.SkillToUse = skill;

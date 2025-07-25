@@ -9,7 +9,7 @@ public class MemberList : MonoBehaviour
 
     void Start()
     {
-        List<BattleCharacter> allMembers = GameController.Instance.party.GetAllMembers();
+        List<BattleCharacter> allMembers = Game.Party.GetAllMembers();
         // Initialize the member icons with the characters from the party
         for (int i = 0; i < memberIcons.Length; i++)
         {

@@ -11,7 +11,7 @@ public class FadeController : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject); // Persist between scenes
+
     }
 
     private void Start()

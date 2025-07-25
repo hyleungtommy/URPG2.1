@@ -177,7 +177,6 @@ MonoBehaviour:
   StartingPartyTemplate: {fileID: 11400000, guid: bfc50a8e80b10764794bbdb1e0f3833f,
     type: 2}
   testMap: {fileID: 0}
-  mapPanel: {fileID: 0}
 --- !u!114 &2339381322500659444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

@@ -9,7 +9,7 @@ public class BattleBossView : BattleEnemyView
     public override void Setup(BattleEnemyEntity enemyEntity)
     {
         base.Setup(enemyEntity);
-        if (enemyEntity is BattleBossEntity boss)
+        if (enemyEntity is BattleBossEntity)
         {
             shieldBar.gameObject.SetActive(true);
             damageMultiplierText.gameObject.SetActive(true);

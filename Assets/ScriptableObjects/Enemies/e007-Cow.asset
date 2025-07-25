@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42021614db77be54896ef8e0653bcda7, type: 3}
+  m_Name: e007-Cow
+  m_EditorClassIdentifier: 
+  ID: 7
+  EnemyName: Cow
+  EnemyImage: {fileID: 21300000, guid: 22a6de8959b2b1b49b3d4b1a285c80a9, type: 3}
+  HP: 1500
+  MP: 300
+  ATK: 200
+  DEF: 130
+  MATK: 80
+  MDEF: 120
+  AGI: 22
+  DEX: 42
+  DropExp: 60
+  DropMoney: 36
+  Fire: 0
+  Ice: 0
+  Lightning: 0
+  Earth: 0
+  Wind: 0
+  Light: 0
+  Dark: 0
+  Hit: 0
+  Slash: 0

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42021614db77be54896ef8e0653bcda7, type: 3}
+  m_Name: e017-earth-elemental
+  m_EditorClassIdentifier: 
+  ID: 17
+  EnemyName: Earth Elemental
+  EnemyImage: {fileID: 21300000, guid: 61a56211a8ce3a74f9825d7f22e54f8c, type: 3}
+  HP: 4000
+  MP: 1500
+  ATK: 550
+  DEF: 200
+  MATK: 135
+  MDEF: 140
+  AGI: 25
+  DEX: 75
+  DropExp: 215
+  DropMoney: 115
+  Fire: -25
+  Ice: -25
+  Lightning: 0
+  Earth: 100
+  Wind: 0
+  Light: 0
+  Dark: 0
+  Hit: 0
+  Slash: 0
