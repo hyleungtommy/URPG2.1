@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7c7bfb59d83e4641a5afec34b435c46, type: 3}
-  m_Name: w006
+  m_Name: w024
   m_EditorClassIdentifier: 
-  WeaponName: Beginner's Staff
-  WeaponType: 4
-  Description: A magical staff that's suitable for beginners
-  Icon: {fileID: 21300000, guid: 38dcea02237052749ab6ebb6d0c8f711, type: 3}
-  Price: 100
-  Damage: 50
-  MagicDamage: 100
-  requireLv: 1
+  WeaponName: Steel Dagger
+  WeaponType: 7
+  Description: Durable steel dagger
+  Icon: {fileID: 21300000, guid: a0827cac8beaaaf4b87d87cc8cd936b7, type: 3}
+  Price: 500
+  Damage: 150
+  MagicDamage: 150
+  requireLv: 20

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7c7bfb59d83e4641a5afec34b435c46, type: 3}
-  m_Name: w006
+  m_Name: w020
   m_EditorClassIdentifier: 
-  WeaponName: Beginner's Staff
-  WeaponType: 4
-  Description: A magical staff that's suitable for beginners
-  Icon: {fileID: 21300000, guid: 38dcea02237052749ab6ebb6d0c8f711, type: 3}
-  Price: 100
-  Damage: 50
-  MagicDamage: 100
-  requireLv: 1
+  WeaponName: Improved Wand
+  WeaponType: 3
+  Description: A better wand
+  Icon: {fileID: 21300000, guid: 6a13cde7c6bbd6743968d3a1994da267, type: 3}
+  Price: 500
+  Damage: 75
+  MagicDamage: 150
+  requireLv: 20
