@@ -36,7 +36,6 @@ public class MapPanel : MonoBehaviour
     {
         if (currentTemplate == null) return;
 
-        Debug.Log("Zone Mode Selected for: " + currentTemplate.MapName);
         UIController.Instance.CloseAllUIScenes();
 
         Game.CurrentMap = new Map(currentTemplate, Map.MapMode.Zone);
@@ -48,7 +47,6 @@ public class MapPanel : MonoBehaviour
     {
         if (currentTemplate == null) return;
 
-        Debug.Log("Explore Mode Selected for: " + currentTemplate.MapName);
         UIController.Instance.CloseAllUIScenes();
 
         Game.CurrentMap = new Map(currentTemplate, Map.MapMode.Explore);
