@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 public static class Game
 {
     public static int Money { get; set; }
@@ -7,6 +9,8 @@ public static class Game
     public static MapTemplate MapPanelSelectedMap { get; set; }
     public static Map CurrentMap { get; set; }
     public static Map.MapMode CurrentMapMode { get; set; }
+    public static QuestManager QuestManager { get; set; }
+    public static QuestBoardMode QuestBoardMode { get; set; } = QuestBoardMode.Available;
 
     public static void Initialize(PartyTemplate partyTemplate)
     {
@@ -14,6 +18,7 @@ public static class Game
         Party = new Party(partyTemplate);
         Inventory = new StorageSystem(Constant.InventorySize);
         State = GameState.Idle;
+        QuestManager = new QuestManager();
     }
 
     // Utility methods for money

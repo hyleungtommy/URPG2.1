@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a56d86e004f9548a936572eda43178, type: 3}
+  m_Name: rq008
+  m_EditorClassIdentifier: 
+  Id: 8
+  QuestName: Wood Fairy Mischief
+  QuestType: 0
+  Description: "Wood Fairy Mischief\",\r\n            \"desc\": \"Wood Fairies have
+    been causing trouble in the enchanted forest, playing pranks on villagers and
+    stealing supplies. Teach them a lesson and restore peace to the forest."
+  RequireLevel: 20
+  MaxLevel: 30
+  RewardExp: 800
+  RewardMoney: 800
+  Requirements:
+  - Type: 1
+    ItemRequirement: {fileID: 0}
+    EnemyRequirement: {fileID: 11400000, guid: 11a3ec6b7f9edbf4490c6ffb83d46888, type: 2}
+    Amount: 3

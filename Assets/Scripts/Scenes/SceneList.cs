@@ -8,7 +8,8 @@ public class SceneList
         Falone,
         FaloneShop,
         FaloneBlacksmith,
-        FaloneSkillCenter
+        FaloneSkillCenter,
+        FaloneInn
     }
 
     public enum UI{
@@ -18,6 +19,7 @@ public class SceneList
         Inventory,
         Shop,
         SkillCenter,
-        Blacksmith
+        Blacksmith,
+        QuestBoard
     }
 }

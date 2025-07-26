@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class ItemTemplate : ScriptableObject
+public abstract class ItemTemplate : ScriptableObject, IQuestRequirement
 {
     public int id;
     public string Name;

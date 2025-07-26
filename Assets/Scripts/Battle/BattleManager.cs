@@ -277,5 +277,9 @@ public class BattleManager
             }
             i++;
         }
+        if(reward.IsVictory){
+            int[] enemyIds = enemies.Select(e => e.enemyId).ToArray();
+            Game.QuestManager.UpdateAllQuests(enemyIds);
+        }
     }
 }

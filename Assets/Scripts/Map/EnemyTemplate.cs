@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewEnemyTemplate", menuName = "RPG/Enemy")]
-public class EnemyTemplate : ScriptableObject
+public class EnemyTemplate : ScriptableObject, IQuestRequirement
 {
     [Header("Basic Info")]
     public string ID;
