@@ -50,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FaloneInn.unity
     guid: f71b80e14815e47448736ed0569944d7
+  - enabled: 1
+    path: Assets/Scenes/ExploreCamp.unity
+    guid: cf558b9ae11239744b76c064e07b2993
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e6ead7aeacafda849941ede99d0d8470,
       type: 2}

@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
+using System.Linq;
 public class ShopScene : MonoBehaviour
 {
     [SerializeField] GameObject ShopBoxPrefab;
@@ -46,7 +47,7 @@ public class ShopScene : MonoBehaviour
         }
         shopBoxes.Clear();
 
-        shopItems = new List<ItemTemplate>(DBManager.Instance.GetAllItems());
+        shopItems = new List<ItemTemplate>(DBManager.Instance.GetAllItems().Where(item => item.Price > 0));
         // Create new boxes for each slot
         for (int i = 0; i < shopItems.Count; i++)
         {
