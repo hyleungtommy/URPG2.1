@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a56d86e004f9548a936572eda43178, type: 3}
+  m_Name: rq010
+  m_EditorClassIdentifier: 
+  Id: 10
+  QuestName: Yellow Shroom Infestation
+  QuestType: 0
+  Description: The Yellow Shrooms have spread rapidly in the marshlands, poisoning
+    the water and soil. Eliminate them to save the environment and protect the local
+    wildlife.
+  RequireLevel: 20
+  MaxLevel: 30
+  RewardExp: 800
+  RewardMoney: 800
+  Requirements:
+  - Type: 1
+    ItemRequirement: {fileID: 0}
+    EnemyRequirement: {fileID: 11400000, guid: c0bac3ff7c869a149975a94df8ea39e2, type: 2}
+    Amount: 3

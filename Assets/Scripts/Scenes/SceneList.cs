@@ -8,7 +8,8 @@ public class SceneList
         Falone,
         FaloneShop,
         FaloneBlacksmith,
-        FaloneSkillCenter
+        FaloneSkillCenter,
+        FaloneInn
     }
 
     public enum UI{

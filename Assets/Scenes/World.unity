@@ -47178,7 +47178,7 @@ PrefabInstance:
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
       propertyPath: questTemplates.Array.size
-      value: 7
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
@@ -47505,6 +47505,24 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
+      propertyPath: questTemplates.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f46b458f6c83ff45a23cbbbde5cac34,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: questTemplates.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a78a3d2fb2b4034c88e2ce73ac42775,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: questTemplates.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: d84d35efbf7398c44b005a5f3289df82,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
       propertyPath: armorTemplates.Array.data[10]
       value: 
       objectReference: {fileID: 11400000, guid: 961e0e4210d336e4d971ca87b3effa78,
@@ -47712,6 +47730,24 @@ PrefabInstance:
       propertyPath: armorTemplates.Array.data[44]
       value: 
       objectReference: {fileID: 11400000, guid: 7c511a4f91a8665449509cb435c5fba2,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: questTemplates.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: c82a28ca220f42a41afedd74b0a023cb,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: questTemplates.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: e417be2171021de4487ba0f848a49fb4,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: questTemplates.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0766c9cc4a981b640bfaaa6abd245696,
         type: 2}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}

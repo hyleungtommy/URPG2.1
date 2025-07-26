@@ -4,11 +4,13 @@ public class BattleEnemyEntity: BattleEntity
 {
     public int dropMoney { get; private set; }
     public int dropEXP { get; private set; }
+    public int enemyId { get; private set; }
     public BattleEnemyEntity(EnemyTemplate enemyTemplate, BattleManager manager)
     :base(enemyTemplate.EnemyName, enemyTemplate.EnemyImage, enemyTemplate.ToBaseStat(), manager
     ){
         dropMoney = enemyTemplate.DropMoney;
         dropEXP = enemyTemplate.DropExp;
+        enemyId = int.Parse(enemyTemplate.ID);
     }
 
     public override void TakeTurn(){

@@ -8,7 +8,7 @@ public class QuestRequirement{
             return _currentAmount;
         }
         if(Requirement is ItemTemplate){
-            return Game.Inventory.GetTotalItemQuantity((Requirement as ItemTemplate).id);
+            return Math.Min(Game.Inventory.GetTotalItemQuantity((Requirement as ItemTemplate).id), Amount);
         }
         return 0;
     }}
@@ -18,9 +18,11 @@ public class QuestRequirement{
 
     public void Update(int[] enemyIds){
         if(Requirement is EnemyTemplate){
+            if(_currentAmount < Amount){
             foreach(var enemyId in enemyIds){
                 if(enemyId == Int32.Parse((Requirement as EnemyTemplate).ID)){
-                    _currentAmount++;
+                        _currentAmount++;
+                    }
                 }
             }
         }

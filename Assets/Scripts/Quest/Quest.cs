@@ -56,6 +56,7 @@ public class Quest{
             }
         }
         return new QuestReward{
+            QuestName = QuestName,
             Money = RewardMoney,
             Exp = RewardExp
         };

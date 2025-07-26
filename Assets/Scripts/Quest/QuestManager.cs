@@ -37,19 +37,28 @@ public class QuestManager{
         }
     }
     
-    public void CompleteQuest(int questId){
+    public QuestReward CompleteQuest(int questId){
         var quest = Quests.FirstOrDefault(q => q.Id == questId);
         if(quest.State == Quest.QuestState.Accepted){
             QuestReward reward = quest.Complete();
             Game.AddMoney(reward.Money);
             foreach(var player in Game.Party.GetAllMembers()){
-                player.GainEXP(reward.Exp);
+                if(player != null && player.Unlocked){
+                    player.GainEXP(reward.Exp);
+                }
             }
-            quest.State = Quest.QuestState.Completed;
+            if(quest.QuestType == QuestType.Repetable){
+                quest.State = Quest.QuestState.Available;
+            }else{
+                quest.State = Quest.QuestState.Completed;
+            }
+            return reward;
         }
+        return null;
     }
 
     public List<Quest> GetAvailableQuests(){
+        //TODO: add level check
         return Quests.Where(q => q.State == Quest.QuestState.Available).ToList();
     }
 

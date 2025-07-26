@@ -108,7 +108,11 @@ public class QuestScene : MonoBehaviour{
     }
 
     public void OnClickCompleteButton(){
-        Game.QuestManager.CompleteQuest(currentQuestId);
+        QuestReward reward = Game.QuestManager.CompleteQuest(currentQuestId);
+        if(reward != null){
+            QuestCompleteDialog.Setup(reward);
+            QuestCompleteDialog.Show();
+        }
         ClearInfoPanel();
         Render();
     }

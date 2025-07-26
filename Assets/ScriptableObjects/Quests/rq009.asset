@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a56d86e004f9548a936572eda43178, type: 3}
+  m_Name: rq009
+  m_EditorClassIdentifier: 
+  Id: 9
+  QuestName: Floral Frenzy
+  QuestType: 0
+  Description: The forest have become a battleground between Cannibal Flowers and
+    Flower Fairies. Both sides are causing chaos. Help bring balance by reducing
+    their numbers.
+  RequireLevel: 20
+  MaxLevel: 30
+  RewardExp: 1200
+  RewardMoney: 1200
+  Requirements:
+  - Type: 1
+    ItemRequirement: {fileID: 0}
+    EnemyRequirement: {fileID: 11400000, guid: 582ae2e10c4be7c46aaaadd436a4a9f9, type: 2}
+    Amount: 3
+  - Type: 1
+    ItemRequirement: {fileID: 0}
+    EnemyRequirement: {fileID: 11400000, guid: 33af09ae763a0b845bd57f8325b99336, type: 2}
+    Amount: 3

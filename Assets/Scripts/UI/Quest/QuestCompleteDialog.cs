@@ -5,10 +5,10 @@ public class QuestCompleteDialog : MonoBehaviour{
     public Text QuestName;
     public Text RewardMoney;
     public Text RewardExp;
-    public void Render(Quest quest){
-        QuestName.text = quest.QuestName;
-        RewardMoney.text = quest.RewardMoney.ToString();
-        RewardExp.text = quest.RewardExp.ToString();
+    public void Setup(QuestReward reward){
+        QuestName.text = reward.QuestName;
+        RewardMoney.text = reward.Money.ToString();
+        RewardExp.text = reward.Exp.ToString();
     }
 
     public void Show(){
