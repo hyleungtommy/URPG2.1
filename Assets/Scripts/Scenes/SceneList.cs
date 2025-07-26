@@ -18,6 +18,7 @@ public class SceneList
         Inventory,
         Shop,
         SkillCenter,
-        Blacksmith
+        Blacksmith,
+        QuestBoard
     }
 }

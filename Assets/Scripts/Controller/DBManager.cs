@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class DBManager:MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class DBManager:MonoBehaviour
     [SerializeField] WeaponTemplate[] weaponTemplates;
     [SerializeField] ArmorTemplate[] armorTemplates;
     [SerializeField] BuffTemplate[] buffTemplates;
+    [SerializeField] QuestTemplate[] questTemplates;
+    
 
     private void Awake()
     {
@@ -14,6 +17,7 @@ public class DBManager:MonoBehaviour
         {
             Instance = this;
             LoadTestItems();
+            Game.QuestManager.Initialize(questTemplates.Select(q => new Quest(q)).ToList());
         }
     }
 

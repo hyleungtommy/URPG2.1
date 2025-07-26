@@ -91,6 +91,12 @@ public class StorageSystem
         return quantity;
     }
 
+    public int GetTotalItemQuantity(int itemId){
+        return StorageSlots
+            .Where(slot => slot.Item != null && slot.Item.id == itemId)
+            .Sum(slot => slot.Quantity);
+    }
+
     public List<ItemWithQuantity> GetBattleFunctionalItemList()
     {
         List<ItemWithQuantity> battleFunctionalItems = new List<ItemWithQuantity>();

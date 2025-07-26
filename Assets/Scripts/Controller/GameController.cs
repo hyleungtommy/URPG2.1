@@ -69,6 +69,16 @@ public class GameController : MonoBehaviour
             {
                 UIController.Instance.ToggleUIScene("Blacksmith");
             }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Game.QuestBoardMode = QuestBoardMode.Available;
+                UIController.Instance.ToggleUIScene("QuestBoard");
+            }
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                Game.QuestBoardMode = QuestBoardMode.Accepted;
+                UIController.Instance.ToggleUIScene("QuestBoard");
+            }
             if (Input.GetKeyDown(KeyCode.Space)){
                 FindObjectOfType<PlayerController>()?.Interact();
             }
