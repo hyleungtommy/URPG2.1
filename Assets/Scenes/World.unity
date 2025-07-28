@@ -48289,6 +48289,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0956f380fd46d1c498c66c12bce75e69,
         type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b992371507c707b42b0f18ab587d82e6,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f3a078191982c9942a30134f9f4fe132,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: d0c9038e89d3bd84196613326cabfbc9,
+        type: 2}
     - target: {fileID: 1744191331368228046, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
       propertyPath: m_LocalPosition.z

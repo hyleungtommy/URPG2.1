@@ -79,6 +79,10 @@ public class GameController : MonoBehaviour
                 Game.QuestBoardMode = QuestBoardMode.Accepted;
                 UIController.Instance.ToggleUIScene("QuestBoard");
             }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                UIController.Instance.ToggleUIScene("ExploreCamp");
+            }
             if (Input.GetKeyDown(KeyCode.Space)){
                 FindObjectOfType<PlayerController>()?.Interact();
             }

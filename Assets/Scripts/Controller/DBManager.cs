@@ -9,6 +9,7 @@ public class DBManager:MonoBehaviour
     [SerializeField] ArmorTemplate[] armorTemplates;
     [SerializeField] BuffTemplate[] buffTemplates;
     [SerializeField] QuestTemplate[] questTemplates;
+    [SerializeField] ExploreSiteTemplate[] exploreSiteTemplates;
     
 
     private void Awake()
@@ -18,6 +19,7 @@ public class DBManager:MonoBehaviour
             Instance = this;
             LoadTestItems();
             Game.QuestManager.Initialize(questTemplates.Select(q => new Quest(q)).ToList());
+            Game.ExploreSiteList = exploreSiteTemplates.Select(e => new ExploreSite(e)).ToList();
         }
     }
 

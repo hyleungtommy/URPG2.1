@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a225db764a1df4b91be1d4cc9b6cba, type: 3}
+  m_Name: es03
+  m_EditorClassIdentifier: 
+  id: 3
+  siteName: Great Plain
+  description: A Great Plain
+  requiredLevel: 1
+  type: 2
+  requireTime: 15
+  obtainableItems:
+  - item: {fileID: 11400000, guid: 7f3850c28a87cd447816c2c72246f5a3, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 100
+  - item: {fileID: 11400000, guid: 0588baafb10df2b449b8fef68ae0bac0, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 75
+  - item: {fileID: 11400000, guid: 9fd9e89050ead7e4fa948ada73fe2a10, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 75
+  price: 100
