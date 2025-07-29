@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a225db764a1df4b91be1d4cc9b6cba, type: 3}
+  m_Name: es04
+  m_EditorClassIdentifier: 
+  id: 4
+  siteName: Hill
+  description: Small Hill
+  requiredLevel: 2
+  type: 0
+  requireTime: 30
+  obtainableItems:
+  - item: {fileID: 11400000, guid: 1caef984634eda9449e17612d2ad06eb, type: 2}
+    minAmount: 3
+    maxAmount: 8
+    chance: 100
+  - item: {fileID: 11400000, guid: 86e24a3074411564996993800db56d91, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 75
+  - item: {fileID: 11400000, guid: 5148ed9c6149fa744aafbaaa076721ce, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 75
+  price: 200

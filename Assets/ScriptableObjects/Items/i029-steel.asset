@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdae30c86b14a94c816fb6573ed7558, type: 3}
+  m_Name: i029-steel
+  m_EditorClassIdentifier: 
+  id: 29
+  Name: Steel
+  Description: A common durable metal
+  Price: 0
+  SellPrice: 50
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: c52451c9e3097bf41b7e47c418498fb9, type: 3}

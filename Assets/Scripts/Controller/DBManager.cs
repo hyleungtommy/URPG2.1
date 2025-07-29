@@ -9,6 +9,8 @@ public class DBManager:MonoBehaviour
     [SerializeField] ArmorTemplate[] armorTemplates;
     [SerializeField] BuffTemplate[] buffTemplates;
     [SerializeField] QuestTemplate[] questTemplates;
+    [SerializeField] ExploreSiteTemplate[] exploreSiteTemplates;
+    [SerializeField] Sprite[] exploreSiteSprites;
     
 
     private void Awake()
@@ -18,6 +20,7 @@ public class DBManager:MonoBehaviour
             Instance = this;
             LoadTestItems();
             Game.QuestManager.Initialize(questTemplates.Select(q => new Quest(q)).ToList());
+            Game.ExploreSiteList = exploreSiteTemplates.Select(e => new ExploreSite(e)).ToList();
         }
     }
 
@@ -71,6 +74,11 @@ public class DBManager:MonoBehaviour
     public BuffTemplate GetBuff(int buffId)
     {
         return buffTemplates[buffId];
+    }
+
+    public Sprite GetExploreSiteSprite(ExploreSiteType exploreSiteType)
+    {
+        return exploreSiteSprites[(int)exploreSiteType];
     }
     
     

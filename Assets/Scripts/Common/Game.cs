@@ -11,6 +11,8 @@ public static class Game
     public static Map.MapMode CurrentMapMode { get; set; }
     public static QuestManager QuestManager { get; set; }
     public static QuestBoardMode QuestBoardMode { get; set; } = QuestBoardMode.Available;
+    public static CraftSkillManager CraftSkillManager { get; set; } 
+    public static List<ExploreSite> ExploreSiteList { get; set; }
 
     public static void Initialize(PartyTemplate partyTemplate)
     {
@@ -19,6 +21,8 @@ public static class Game
         Inventory = new StorageSystem(Constant.InventorySize);
         State = GameState.Idle;
         QuestManager = new QuestManager();
+        CraftSkillManager = new CraftSkillManager();
+        ExploreSiteList = new List<ExploreSite>();
     }
 
     // Utility methods for money

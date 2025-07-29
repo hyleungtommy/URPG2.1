@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdae30c86b14a94c816fb6573ed7558, type: 3}
+  m_Name: i068-catalyst-root
+  m_EditorClassIdentifier: 
+  id: 68
+  Name: Catalyst Root
+  Description: General catalyst that used to strengthen the effect of potions.
+  Price: 0
+  SellPrice: 50
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 0af91ca6a759b5e4599785cc14cb7351, type: 3}

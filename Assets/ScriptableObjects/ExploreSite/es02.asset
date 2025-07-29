@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a225db764a1df4b91be1d4cc9b6cba, type: 3}
+  m_Name: es02
+  m_EditorClassIdentifier: 
+  id: 2
+  siteName: Nearby Forest
+  description: A Nearby Forest
+  requiredLevel: 1
+  type: 1
+  requireTime: 15
+  obtainableItems:
+  - item: {fileID: 11400000, guid: 33a5fc5990187c147a40548d0f9e4a5a, type: 2}
+    minAmount: 3
+    maxAmount: 8
+    chance: 100
+  - item: {fileID: 11400000, guid: 6c8fb2b323fc3064fa80135cdf398fe7, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 75
+  - item: {fileID: 11400000, guid: 31f3e84208d35d347a2e6b8c3caa3da9, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 75
+  price: 100

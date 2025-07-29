@@ -6,6 +6,7 @@ public class Constant
     public static int StartMoney = 100000;
     public static int InventorySize = 50;
     public static int MaxAcceptedQuest = 10;
+    public static int MaxExploreTeam = 3;
     public static Color32[] itemRarityColor = {
             new Color32(0,0,0,255),
             new Color32(72,209,55,255),
@@ -94,4 +95,17 @@ public class Constant
             8000000,
             10000000,//Lv. 70
         };
+
+    public static int[] CraftSkillRequiredExp = {
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+    };
 }

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a225db764a1df4b91be1d4cc9b6cba, type: 3}
+  m_Name: es07
+  m_EditorClassIdentifier: 
+  id: 7
+  siteName: Deep Cave
+  description: No one know how deep this cave goes
+  requiredLevel: 3
+  type: 0
+  requireTime: 60
+  obtainableItems:
+  - item: {fileID: 11400000, guid: c2c10d9c6f59e694c9e15ca21fb295f7, type: 2}
+    minAmount: 3
+    maxAmount: 6
+    chance: 100
+  - item: {fileID: 11400000, guid: 5148ed9c6149fa744aafbaaa076721ce, type: 2}
+    minAmount: 3
+    maxAmount: 6
+    chance: 75
+  - item: {fileID: 11400000, guid: 90f1f605e0f9aeb4fb793a2a766a4a6a, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 50
+  - item: {fileID: 11400000, guid: f3419c69601c96f41b3f3eee7abecae1, type: 2}
+    minAmount: 1
+    maxAmount: 2
+    chance: 25
+  price: 300

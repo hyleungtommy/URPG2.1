@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a225db764a1df4b91be1d4cc9b6cba, type: 3}
+  m_Name: es13
+  m_EditorClassIdentifier: 
+  id: 13
+  siteName: Volcano
+  description: Some of the most dangerous place, but is also rich with minerals
+  requiredLevel: 5
+  type: 0
+  requireTime: 360
+  obtainableItems:
+  - item: {fileID: 11400000, guid: 77c507d307aaa80469b6991f96da8b73, type: 2}
+    minAmount: 3
+    maxAmount: 6
+    chance: 100
+  - item: {fileID: 11400000, guid: 7a76a79f3abcdde429aa22e4d9487acb, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 50
+  - item: {fileID: 11400000, guid: b658e7eb7981098498a75b8f4549d8ec, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: 2cd32ebbd17355847a0a6c51db348b17, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: 3347283a3daee2641abc3346d1047e4d, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: 4a271eb238bfbda428459f313f4f7259, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: ef7bddd7a1c81ad4c869cc51bdd744ea, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: 02cf4a09f0570134e97e2654e3a84b75, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: f3419c69601c96f41b3f3eee7abecae1, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 15
+  price: 500

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a225db764a1df4b91be1d4cc9b6cba, type: 3}
+  m_Name: es01
+  m_EditorClassIdentifier: 
+  id: 1
+  siteName: Abondened Mine
+  description: An Abondened Mine
+  requiredLevel: 1
+  type: 0
+  requireTime: 15
+  obtainableItems:
+  - item: {fileID: 11400000, guid: 73cf21ead6c83504c961595729125d72, type: 2}
+    minAmount: 3
+    maxAmount: 8
+    chance: 100
+  - item: {fileID: 11400000, guid: 5148ed9c6149fa744aafbaaa076721ce, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 50
+  - item: {fileID: 11400000, guid: 6d474862c7e0f5d44b1f7ce5ebb2cead, type: 2}
+    minAmount: 2
+    maxAmount: 6
+    chance: 50
+  price: 100

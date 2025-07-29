@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0497fc820f6739942a8b6513a30452e5, type: 3}
+  m_Name: i007-mp-potion-2
+  m_EditorClassIdentifier: 
+  id: 7
+  Name: Magic Potion II
+  Description: Recover 20% MP, recover at minium 2500 MP
+  Price: 200
+  SellPrice: 20
+  Rarity: 1
+  Icon: {fileID: 21300000, guid: 8ea7b644a1aed164b8f65f7ed2620be5, type: 3}
+  MPRestorePercentage: 20
+  MinMPRestore: 2500
+  AOE: 0

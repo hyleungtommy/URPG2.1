@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a225db764a1df4b91be1d4cc9b6cba, type: 3}
+  m_Name: es15
+  m_EditorClassIdentifier: 
+  id: 15
+  siteName: Desert
+  description: A very tough place to explore
+  requiredLevel: 5
+  type: 2
+  requireTime: 360
+  obtainableItems:
+  - item: {fileID: 11400000, guid: b55560ad85364bc40810ef536270acea, type: 2}
+    minAmount: 3
+    maxAmount: 6
+    chance: 100
+  - item: {fileID: 11400000, guid: 5b09f9db64a6e2f4fb5f2c68bea0776d, type: 2}
+    minAmount: 3
+    maxAmount: 6
+    chance: 75
+  - item: {fileID: 11400000, guid: 8773d3a6e7e7fc640a39883274f2b18e, type: 2}
+    minAmount: 3
+    maxAmount: 6
+    chance: 75
+  price: 500

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a225db764a1df4b91be1d4cc9b6cba, type: 3}
+  m_Name: es10
+  m_EditorClassIdentifier: 
+  id: 10
+  siteName: Mountain
+  description: Mountains sometimes has rare minerals, but they are also very hard
+    to explore
+  requiredLevel: 4
+  type: 0
+  requireTime: 120
+  obtainableItems:
+  - item: {fileID: 11400000, guid: 1d42ad28b3719c84d907e6b0e795f755, type: 2}
+    minAmount: 3
+    maxAmount: 6
+    chance: 100
+  - item: {fileID: 11400000, guid: be94c5b8ff781b343bf8c1657ddc083a, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    chance: 75
+  - item: {fileID: 11400000, guid: 18880cb9cfe01d44fb93114d5f8a20f5, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: ef8b8a1005d325343a029963434756d6, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: ba465a754aa68a448858fe592b431c23, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: 5f49f4ef56706a642963148306cac87a, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: 5dd6b6c6e8cac0c45b26d96ed56c3f2d, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  - item: {fileID: 11400000, guid: f3419c69601c96f41b3f3eee7abecae1, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 25
+  price: 400
