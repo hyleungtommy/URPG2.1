@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ShopBox : MonoBehaviour
+public class ShopBox : ListBox
 {
     [SerializeField] BasicItemBox itemBox;
     [SerializeField] Text ItemName;
     [SerializeField] Text ItemPrice;
     private ItemTemplate itemTemplate;
 
-    public void Setup(ItemTemplate itemTemplate)
+    public override void Render()
     {
-        this.itemTemplate = itemTemplate;
-    }
-
-    public void Render(){
-        itemBox.Render(itemTemplate);
-        ItemName.text = itemTemplate.Name;
-        ItemPrice.text = itemTemplate.Price.ToString();
+        itemTemplate = obj as ItemTemplate;
+        if (itemTemplate != null)
+        {
+            itemBox.Render(itemTemplate);
+            ItemName.text = itemTemplate.Name;
+            ItemPrice.text = itemTemplate.Price.ToString();
+        }
     }
 }
