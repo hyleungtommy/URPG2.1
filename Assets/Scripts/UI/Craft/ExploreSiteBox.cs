@@ -7,6 +7,7 @@ public class ExploreSiteBox : MonoBehaviour
 {
     public Text siteName;
     public Text requireTime;
+    public Image exploreSiteImage;
     public ObtainableResourceList obtainableResourceList;
     private ExploreSite exploreSite;
 
@@ -32,7 +33,7 @@ public class ExploreSiteBox : MonoBehaviour
         {
             requireTime.text = new DateTime(new TimeSpan(0, 0, exploreSite.requireTime).Ticks).ToString("HH:mm:ss");
         }
-
+        exploreSiteImage.sprite = DBManager.Instance.GetExploreSiteSprite(exploreSite.type);
         obtainableResourceList.SetObtainableResourceList(exploreSite.obtainableItems.Select(item => new ItemWithQuantity(item.item.GetItem(), item.minAmount)).ToList());
     }
 

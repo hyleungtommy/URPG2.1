@@ -3,7 +3,7 @@ public class CraftSkill
     public CraftSkillType Type { get; set; }
     public int Level { get; set; }
     public int CurrentExp { get; set; }
-    public int RequiredExp { get { return Constant.CraftSkillRequiredExp[Level - 1]; } }
+    public int RequiredExp { get { return Level >= Constant.CraftSkillRequiredExp.Length ? 0 : Constant.CraftSkillRequiredExp[Level - 1]; } }
 
     public CraftSkill(CraftSkillType type){
         Type = type;
@@ -12,6 +12,9 @@ public class CraftSkill
     }
 
     public void GainExp(int exp){
+        if(Level >= Constant.CraftSkillRequiredExp.Length){
+            return;
+        }
         CurrentExp += exp;
         if(CurrentExp >= RequiredExp){
             Level++;

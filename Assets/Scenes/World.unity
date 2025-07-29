@@ -48129,6 +48129,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
+      propertyPath: exploreSiteSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
       propertyPath: questTemplates.Array.data[10]
       value: 
       objectReference: {fileID: 11400000, guid: c82a28ca220f42a41afedd74b0a023cb,
@@ -48292,8 +48297,26 @@ PrefabInstance:
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
       propertyPath: exploreSiteTemplates.Array.size
-      value: 3
+      value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: af0d31f90821e3840907f25627c6c78e,
+        type: 3}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 63d27367e3c35b14f94256836bd69b89,
+        type: 3}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: e4b31608cf5155d429c7112e426452a1,
+        type: 3}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
       propertyPath: exploreSiteTemplates.Array.data[0]
@@ -48311,6 +48334,96 @@ PrefabInstance:
       propertyPath: exploreSiteTemplates.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: d0c9038e89d3bd84196613326cabfbc9,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: bf0c5c57ac8b74b48878f0a800857091,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 259311919f97ff043a26fb90fa873dbb,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 466b3008c4f97c64ca2d756c73a704ed,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 52cebe2d92e303d4484d326e7372f69f,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 23c25cc7094556b4f961191144b6a555,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: ee663da30a9435d40aa8951392d8665a,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3563980b4256cab4b95374b9b821e2d1,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 455e9d1e2096eb342a56b4ca662a0bf5,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 612b3fdb0094003408f137f307974121,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: 55025eb6acdc2ce49be9f189da2251c4,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[13]
+      value: 
+      objectReference: {fileID: 11400000, guid: 50a8d5e4f40c4ef4baa5c8a5d53a8111,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: f2508f60454c70e43b7441a1c067eb45,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7b88534fd68f1a498b4dedacc7131ea,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[16]
+      value: 
+      objectReference: {fileID: 11400000, guid: a6c95b9c01539fc41a3147ac2b68874e,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: exploreSiteTemplates.Array.data[17]
+      value: 
+      objectReference: {fileID: 11400000, guid: d857f1dd46aeaf240ac913909c457d87,
         type: 2}
     - target: {fileID: 1744191331368228046, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}

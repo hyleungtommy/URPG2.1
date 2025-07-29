@@ -16,6 +16,7 @@ public class ExploreCampScene : MonoBehaviour
     [SerializeField] Text siteTime;
     [SerializeField] Text sitePrice;
     [SerializeField] Text availableExploreTeam;
+    [SerializeField] Image siteImage;
     [SerializeField] ObtainableResourceList siteReward;
     [SerializeField] Button exploreButton;
     [SerializeField] Button collectButton;
@@ -108,6 +109,7 @@ public class ExploreCampScene : MonoBehaviour
         sitePrice.text = displayList[slotId].price.ToString();
         siteReward.SetObtainableResourceList(displayList[slotId].obtainableItems.Select(item => new ItemWithQuantity(item.item.GetItem(), item.minAmount)).ToList());
         siteReward.gameObject.SetActive(true);
+        siteImage.sprite = DBManager.Instance.GetExploreSiteSprite(displayList[slotId].type);
     }
 
     public void onClickExplore()

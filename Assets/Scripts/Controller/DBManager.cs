@@ -10,6 +10,7 @@ public class DBManager:MonoBehaviour
     [SerializeField] BuffTemplate[] buffTemplates;
     [SerializeField] QuestTemplate[] questTemplates;
     [SerializeField] ExploreSiteTemplate[] exploreSiteTemplates;
+    [SerializeField] Sprite[] exploreSiteSprites;
     
 
     private void Awake()
@@ -73,6 +74,11 @@ public class DBManager:MonoBehaviour
     public BuffTemplate GetBuff(int buffId)
     {
         return buffTemplates[buffId];
+    }
+
+    public Sprite GetExploreSiteSprite(ExploreSiteType exploreSiteType)
+    {
+        return exploreSiteSprites[(int)exploreSiteType];
     }
     
     
