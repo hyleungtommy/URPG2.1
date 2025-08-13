@@ -42,18 +42,21 @@ public class StatusScene : MonoBehaviour, MemberListScene
     public void OnClickSkill(){
         selectedIndex = 2;
         CloseOtherPanels();
+        memberList.memberListScene = skillPanel;
         skillPanel.Show();
     }
 
     public void OnClickStatus(){
         selectedIndex = 0;
         CloseOtherPanels();
+        memberList.memberListScene = this;
         statusPanel.Open();
     }
 
     public void OnClickEquipment(){
         selectedIndex = 3;
         CloseOtherPanels();
+        //memberList.memberListScene = equipmentPanel;
         equipmentPanel.Show();
     }
 

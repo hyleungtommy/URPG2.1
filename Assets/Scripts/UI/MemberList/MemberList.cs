@@ -52,7 +52,7 @@ public class MemberList : MonoBehaviour
         {
             return;
         }
-
+        Debug.Log("MemberList: memberListScene: " + memberListScene);
         memberListScene.OnMemberSelected(character);
     }
 }

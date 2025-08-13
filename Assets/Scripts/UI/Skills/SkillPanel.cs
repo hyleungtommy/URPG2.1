@@ -3,9 +3,10 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillPanel : CommonListScene<SkillListBox>
+public class SkillPanel : CommonListScene<SkillListBox>, MemberListScene
 {
 
+    [SerializeField] Text characterNameText;
     private Skill[] skills;
     private BattleCharacter character;
     public void Setup(Skill[] skills, BattleCharacter character)
@@ -14,8 +15,18 @@ public class SkillPanel : CommonListScene<SkillListBox>
         this.character = character;
     }
 
-    public void Show(){
+    public void OnMemberSelected(BattleCharacter member)
+    {
+        this.character = member;
+        Debug.Log("SkillPanel: OnMemberSelected: " + character.Name);
+        Show();
+    }
+
+    public void Show()
+    {
         gameObject.SetActive(true);
+        ClearDisplayList();
+        characterNameText.text = character.Name;
         AddDisplayList(skills.ToList().Cast<System.Object>().ToList());
         Render();
     }

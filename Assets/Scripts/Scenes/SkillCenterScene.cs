@@ -20,6 +20,7 @@ public class SkillCenterScene : CommonListScene<SkillCenterListBox>, MemberListS
     public void OnMemberSelected(BattleCharacter member)
     {
         this.selectedMember = member;
+        ClearDisplayList();
         AddDisplayList(member.CharacterClass.LearnableSkillsList.Cast<System.Object>().ToList());
         Render();
     }
