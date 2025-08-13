@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &14660165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3582,13 +3582,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda4f541d8462d41baa6a92e018e646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillPanelRowPrefab: {fileID: 5875468459628557229, guid: c454819a1db746c428c1b644a8b74f72,
+  boxPrefab: {fileID: 5875468459628557229, guid: c454819a1db746c428c1b644a8b74f72,
     type: 3}
-  skillPanelContent: {fileID: 329172283}
-  skillName: {fileID: 1269639650}
-  skillDescription: {fileID: 313416189}
-  skillType: {fileID: 1734066265}
-  characterName: {fileID: 1462207953}
+  boxContainer: {fileID: 329172283}
+  infoPanel: {fileID: 1935111361}
 --- !u!114 &471264683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5514,7 +5511,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1857428635}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9982729
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10964,7 +10961,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.9982729}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11449,6 +11446,7 @@ GameObject:
   - component: {fileID: 1935111358}
   - component: {fileID: 1935111360}
   - component: {fileID: 1935111359}
+  - component: {fileID: 1935111361}
   m_Layer: 5
   m_Name: Skill Info Panel
   m_TagString: Untagged
@@ -11516,6 +11514,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935111357}
   m_CullTransparentMesh: 0
+--- !u!114 &1935111361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935111357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c3ff5a9cd782440a9ca364d0a51d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillNameText: {fileID: 1269639650}
+  skillDescriptionText: {fileID: 313416189}
+  skillTypeText: {fileID: 1734066265}
 --- !u!1 &1951685569
 GameObject:
   m_ObjectHideFlags: 0

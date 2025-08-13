@@ -27,7 +27,7 @@ public class BattleSkillPanel : MonoBehaviour
             GameObject box = Instantiate(skillPanelRowPrefab, skillPanelContent);
             SkillListBox skillPanelRow = box.GetComponent<SkillListBox>();
             box.GetComponent<Button>().onClick.AddListener(() => this.OnSkillPanelRowClicked(j));
-            skillPanelRow.Render(skills[i], user);
+            skillPanelRow.RenderBattleSkill(skills[i], user);
             skillPanelRows.Add(skillPanelRow);
         }
 
