@@ -18,7 +18,7 @@ MonoBehaviour:
   Face: {fileID: 21300000, guid: 1c610f9d94d3d3b4a8874936c9a5b11e, type: 3}
   BattlePortrait: {fileID: -5444090553864570395, guid: ba4e678e21ccf0c49bc71f25a63865c6,
     type: 3}
-  StartingSkillPoints: 5
+  StartingSkillPoints: 0
   StartingUpgradePoints: 5
   UnlockedAtStart: 1
   Class: {fileID: 11400000, guid: e66ce9fedffe28e4e8ef7ef2f7799015, type: 2}

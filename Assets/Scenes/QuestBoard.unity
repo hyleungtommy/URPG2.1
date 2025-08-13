@@ -318,7 +318,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2040424550}
+      - m_Target: {fileID: 2012202054}
         m_MethodName: OnClickCompleteButton
         m_Mode: 1
         m_Arguments:
@@ -733,7 +733,7 @@ GameObject:
   - component: {fileID: 479067666}
   - component: {fileID: 479067665}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AccpetedQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1328,7 +1328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00036484603}
+  m_AnchoredPosition: {x: 5.5567627, y: 0.00036484603}
   m_SizeDelta: {x: -5.5567627, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &759495719
@@ -3016,7 +3016,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2040424550}
+      - m_Target: {fileID: 2012202054}
         m_MethodName: OnClickAbandonButton
         m_Mode: 1
         m_Arguments:
@@ -3720,7 +3720,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2040424550}
+      - m_Target: {fileID: 2012202054}
         m_MethodName: OnClickAcceptButton
         m_Mode: 1
         m_Arguments:
@@ -3888,6 +3888,7 @@ GameObject:
   - component: {fileID: 2012202051}
   - component: {fileID: 2012202053}
   - component: {fileID: 2012202052}
+  - component: {fileID: 2012202054}
   m_Layer: 5
   m_Name: Info Panel
   m_TagString: Untagged
@@ -3961,6 +3962,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012202050}
   m_CullTransparentMesh: 0
+--- !u!114 &2012202054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012202050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7935b9b43f13044b1e1a5ef3838f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questNameText: {fileID: 1720635341}
+  questDescriptionText: {fileID: 613802957}
+  questTypeText: {fileID: 1693738769}
+  questRewardMoneyText: {fileID: 25401623}
+  questRewardExpText: {fileID: 555619104}
+  acceptButton: {fileID: 1944761188}
+  completeButton: {fileID: 118608684}
+  abandonButton: {fileID: 1617165026}
+  requirementRows:
+  - {fileID: 2061783536}
+  - {fileID: 1521210382}
+  - {fileID: 1343681956}
+  - {fileID: 1562398738}
+  - {fileID: 1758715401}
+  questCompleteDialog: {fileID: 1129066627}
+  questScene: {fileID: 2040424550}
 --- !u!1 &2021812595
 GameObject:
   m_ObjectHideFlags: 0
@@ -4072,25 +4101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4cecfca286de444abbe4e033e1b554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestButtonPrefab: {fileID: 1763402664104217141, guid: 0797f895170b9ec43b523af98c5dc65a,
+  boxPrefab: {fileID: 6497115238618292393, guid: 0797f895170b9ec43b523af98c5dc65a,
     type: 3}
-  QuestButtonContainer: {fileID: 759495718}
-  QuestCompleteDialog: {fileID: 1129066627}
-  RequirementRows:
-  - {fileID: 2061783536}
-  - {fileID: 1521210382}
-  - {fileID: 1343681956}
-  - {fileID: 1562398738}
-  - {fileID: 1758715401}
-  QuestName: {fileID: 1720635341}
-  AcceptedQuestCount: {fileID: 479067665}
-  QuestType: {fileID: 1693738769}
-  QuestDescription: {fileID: 613802957}
-  QuestRewardMoney: {fileID: 25401623}
-  QuestRewardExp: {fileID: 555619104}
-  AcceptButton: {fileID: 1944761188}
-  CompleteButton: {fileID: 118608684}
-  AbandonButton: {fileID: 1617165026}
+  boxContainer: {fileID: 759495718}
+  infoPanel: {fileID: 2012202054}
+  acceptedQuestCountText: {fileID: 479067665}
 --- !u!114 &2040424551
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1732,6 +1732,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 227687783}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &227687785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1615371175868589883, guid: 9735bf78682fa874280d8f777b294742,
+    type: 3}
+  m_PrefabInstance: {fileID: 227687783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17696738decdf940b07620d2659611e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &230968394
 GameObject:
   m_ObjectHideFlags: 0
@@ -9619,6 +9631,7 @@ MonoBehaviour:
   skillPanel: {fileID: 471264682}
   statusPanel: {fileID: 14660168}
   equipmentPanel: {fileID: 1279530089}
+  memberList: {fileID: 227687785}
 --- !u!1 &1608127468
 GameObject:
   m_ObjectHideFlags: 0

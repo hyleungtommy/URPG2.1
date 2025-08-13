@@ -769,6 +769,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 335660273}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &335660275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1615371175868589883, guid: 9735bf78682fa874280d8f777b294742,
+    type: 3}
+  m_PrefabInstance: {fileID: 335660273}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17696738decdf940b07620d2659611e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &390810229
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,18 +886,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d005884688cc3141aa27b85cb6298c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCenterPanelRowPrefab: {fileID: 5286101082051110053, guid: 248f9ae17ee45144b9988b20d0e30513,
+  boxPrefab: {fileID: 5286101082051110053, guid: 248f9ae17ee45144b9988b20d0e30513,
     type: 3}
-  skillCenterPanelRowContainer: {fileID: 1205664272}
+  boxContainer: {fileID: 1205664272}
+  infoPanel: {fileID: 473236496}
   moneyText: {fileID: 925784160}
-  skillNameText: {fileID: 1572574567}
-  skillDescriptionText: {fileID: 971717059}
-  skillPriceText: {fileID: 493097677}
-  skillTypeText: {fileID: 2016036946}
-  availableSkillPointText: {fileID: 25260831}
-  skillIcon: {fileID: 2001655080}
-  buySkillButton: {fileID: 678008940}
-  InfoPanel: {fileID: 473236492}
+  memberList: {fileID: 335660275}
 --- !u!114 &434785035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,7 +1058,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1812087368}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9955971
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1105,6 +1111,7 @@ GameObject:
   - component: {fileID: 473236493}
   - component: {fileID: 473236495}
   - component: {fileID: 473236494}
+  - component: {fileID: 473236496}
   m_Layer: 5
   m_Name: Info Panel
   m_TagString: Untagged
@@ -1131,6 +1138,7 @@ RectTransform:
   - {fileID: 678008939}
   - {fileID: 973676579}
   - {fileID: 25260830}
+  - {fileID: 1224705489}
   m_Father: {fileID: 1700184649}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1176,6 +1184,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473236492}
   m_CullTransparentMesh: 0
+--- !u!114 &473236496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473236492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8928f0f8f8fa864d94dda88024fe295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillNameText: {fileID: 1572574567}
+  skillDescriptionText: {fileID: 971717059}
+  skillPriceText: {fileID: 493097677}
+  skillTypeText: {fileID: 2016036946}
+  availableSkillPointText: {fileID: 25260831}
+  skillIcon: {fileID: 2001655080}
+  buySkillButton: {fileID: 678008940}
+  skillCenterScene: {fileID: 434785034}
+  errorText: {fileID: 1224705490}
 --- !u!1 &493097676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,7 +1365,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 434785034}
+      - m_Target: {fileID: 473236496}
         m_MethodName: OnClickBuySkill
         m_Mode: 1
         m_Arguments:
@@ -1891,7 +1920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 20.44, y: 0.00042095076}
+  m_AnchoredPosition: {x: -0.0000019073486, y: 0.00042095076}
   m_SizeDelta: {x: -20.440002, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1205664273
@@ -1933,6 +1962,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!1 &1224705488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1224705489}
+  - component: {fileID: 1224705491}
+  - component: {fileID: 1224705490}
+  m_Layer: 5
+  m_Name: Error Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1224705489
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224705488}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 473236493}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -223.32, y: -255.2}
+  m_SizeDelta: {x: 382.47913, y: -591.97736}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1224705490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224705488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.18396229, b: 0.18396229, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: ef1f85aa713a8b3409896cb602869eb4, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Error
+--- !u!222 &1224705491
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224705488}
+  m_CullTransparentMesh: 0
 --- !u!1 &1263833147
 GameObject:
   m_ObjectHideFlags: 0

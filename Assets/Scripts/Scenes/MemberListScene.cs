@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MemberListScene : MonoBehaviour
+public interface MemberListScene
 {
-    public abstract void OnMemberSelected(BattleCharacter character);
+    void OnMemberSelected(BattleCharacter character);
 }

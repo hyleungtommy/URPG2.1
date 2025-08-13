@@ -152,7 +152,7 @@ RectTransform:
   m_Children:
   - {fileID: 574500869}
   m_Father: {fileID: 1870797866}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -300,7 +300,7 @@ RectTransform:
   - {fileID: 1345071408}
   - {fileID: 2071560067}
   m_Father: {fileID: 1870797866}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -452,19 +452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4033487436260b41aaddab98ab8c22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blacksmithShopBoxPrefab: {fileID: 883131314493929887, guid: fe98a5b2a511c224b9fa01ac0754cf02,
+  boxPrefab: {fileID: 883131314493929887, guid: fe98a5b2a511c224b9fa01ac0754cf02,
     type: 3}
-  blacksmithScrollContainer: {fileID: 2043323515}
-  infoPanelEquipmentName: {fileID: 966597852}
-  infoPanelEquipmentDescription: {fileID: 188164844}
-  infoPanelEquipmentType: {fileID: 1323694039}
-  infoPanelEquipmentIcon: {fileID: 1359962119}
-  infoPanelEquipmentPower: {fileID: 2020908829}
-  infoPanelEquipmentPrice: {fileID: 1938400012}
-  infoPanelEquipmentBuyButton: {fileID: 1171343157}
-  TextMoney: {fileID: 2071560065}
-  TextError: {fileID: 1240924433}
-  InfoPanel: {fileID: 1757083092}
+  boxContainer: {fileID: 2043323515}
+  infoPanel: {fileID: 1757083096}
+  moneyText: {fileID: 2071560065}
 --- !u!114 &276222302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,7 +644,7 @@ RectTransform:
   - {fileID: 920936345}
   - {fileID: 1636173456}
   m_Father: {fileID: 1870797866}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -820,7 +812,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276222301}
-        m_MethodName: OnTabButtonClicked
+        m_MethodName: OnTabClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1421,7 +1413,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276222301}
-        m_MethodName: OnTabButtonClicked
+        m_MethodName: OnTabClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1887,8 +1879,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 276222301}
-        m_MethodName: OnBuyButtonClicked
+      - m_Target: {fileID: 1757083096}
+        m_MethodName: OnClickBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2339,7 +2331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1636173456
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2404,7 +2396,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276222301}
-        m_MethodName: OnTabButtonClicked
+        m_MethodName: OnTabClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2462,6 +2454,7 @@ GameObject:
   - component: {fileID: 1757083093}
   - component: {fileID: 1757083095}
   - component: {fileID: 1757083094}
+  - component: {fileID: 1757083096}
   m_Layer: 5
   m_Name: Info Panel
   m_TagString: Untagged
@@ -2489,7 +2482,7 @@ RectTransform:
   - {fileID: 1171343156}
   - {fileID: 1240924432}
   m_Father: {fileID: 1870797866}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2533,6 +2526,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757083092}
   m_CullTransparentMesh: 0
+--- !u!114 &1757083096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757083092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b7a9431216b734885685d773285d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentNameText: {fileID: 966597852}
+  equipmentDescriptionText: {fileID: 188164844}
+  equipmentTypeText: {fileID: 1323694039}
+  equipmentIconImage: {fileID: 1359962119}
+  equipmentPowerText: {fileID: 2020908829}
+  equipmentPriceText: {fileID: 1938400012}
+  equipmentBuyButton: {fileID: 1171343157}
+  errorText: {fileID: 1240924433}
 --- !u!1 &1761155438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,7 +2577,7 @@ RectTransform:
   m_Children:
   - {fileID: 413917023}
   m_Father: {fileID: 1870797866}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
@@ -2773,11 +2786,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1106202645}
+  - {fileID: 41623420}
   - {fileID: 115514679}
   - {fileID: 551138924}
   - {fileID: 1761155439}
   - {fileID: 1757083093}
-  - {fileID: 41623420}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3124,7 +3137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.5567627, y: 0.000031758926}
+  m_AnchoredPosition: {x: 0, y: 0.000031758926}
   m_SizeDelta: {x: -5.5567627, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2043323516

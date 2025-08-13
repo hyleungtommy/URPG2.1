@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatusScene : MemberListScene
+public class StatusScene : MonoBehaviour, MemberListScene
 {
     [SerializeField] SkillPanel skillPanel;
     [SerializeField] StatusPanel statusPanel;
     [SerializeField] EquipmentPanel equipmentPanel;
+    [SerializeField] MemberList memberList;
 
     private int selectedIndex = 0;
 
-    void Awake(){
+    void Start(){
+        memberList.memberListScene = this;
+        OnMemberSelected(Game.Party.GetAllMembers()[0]);
         //AddTestEquipment();
     }
 
-    public override void OnMemberSelected(BattleCharacter character)
+    public void OnMemberSelected(BattleCharacter character)
     {
         if (character == null)
         {

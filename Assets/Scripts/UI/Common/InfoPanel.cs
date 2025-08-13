@@ -2,8 +2,8 @@ using UnityEngine;
 
 public abstract class InfoPanel : MonoBehaviour
 {
-    protected Object obj;
-    public void SetUp(Object obj){
+    protected System.Object obj;
+    public void SetUp(System.Object obj){
         this.obj = obj;
     }
     public abstract void Render();

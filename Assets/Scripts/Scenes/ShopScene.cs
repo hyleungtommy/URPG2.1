@@ -13,7 +13,7 @@ public class ShopScene : CommonListScene<ShopBox>
     void Start()
     {
         UpdateMoney();
-        base.displayList = new List<UnityEngine.Object>(DBManager.Instance.GetAllItems().Where(item => item.Price > 0).Cast<UnityEngine.Object>());
+        AddDisplayList(DBManager.Instance.GetAllItems().Where(item => item.Price > 0).Cast<System.Object>().ToList());
         Render();
     }
 

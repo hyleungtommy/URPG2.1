@@ -9,9 +9,9 @@ public abstract class CommonListScene<T> : MonoBehaviour where T : ListBox{
     protected List<T> boxList = new List<T>();
     protected int selectedSlotId = -1;
     protected int selectedTabId = 0;
-    protected List<Object> displayList = new List<Object>();
+    protected List<List<System.Object>> displayList = new List<List<System.Object>>();
     public virtual void OnBoxClicked(int slotId){
-        infoPanel.SetUp(displayList[slotId]);
+        infoPanel.SetUp(displayList[selectedTabId][slotId]);
         infoPanel.Render();
         infoPanel.Show();
         selectedSlotId = slotId;
@@ -21,20 +21,28 @@ public abstract class CommonListScene<T> : MonoBehaviour where T : ListBox{
         Render();
     }
 
+    public void AddDisplayList(List<System.Object> displayList){
+        this.displayList.Add(displayList);
+    }
+
     public void Render(){
         infoPanel.Hide();
         foreach(Transform child in boxContainer){
             Destroy(child.gameObject);
         }
         boxList.Clear();
-        for(int i = 0; i < displayList.Count; i++){
+        for(int i = 0; i < displayList[selectedTabId].Count; i++){
             int j = i;
             GameObject boxObj = Instantiate(boxPrefab, boxContainer);
             T box = boxObj.GetComponent<T>();
-            box.SetUp(displayList[i]);
+            box.SetUp(displayList[selectedTabId][i]);
             box.Render();
             box.GetComponent<Button>().onClick.AddListener(() => OnBoxClicked(j));
             boxList.Add(box);
         }
+    }
+
+    public void ClearDisplayList(){
+        displayList.Clear();
     }
 }
