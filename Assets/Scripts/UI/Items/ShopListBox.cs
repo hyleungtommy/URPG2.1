@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ShopBox : ListBox
+public class ShopListBox : ListBox
 {
     [SerializeField] BasicItemBox itemBox;
     [SerializeField] Text ItemName;

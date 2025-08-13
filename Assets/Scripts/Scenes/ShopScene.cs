@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 using System.Linq;
-public class ShopScene : CommonListScene<ShopBox>
+public class ShopScene : CommonListScene<ShopListBox>
 {
     [SerializeField] Text TextMoney;
     public int BuyAmount {get; set;} = 1;

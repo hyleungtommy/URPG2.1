@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillPanelRow : MonoBehaviour
+public class SkillListBox : MonoBehaviour
 {
     [SerializeField] Image skillIcon;
     [SerializeField] Text skillName;

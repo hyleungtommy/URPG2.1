@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillCenterScene : CommonListScene<SkillCenterPanelRow>, MemberListScene
+public class SkillCenterScene : CommonListScene<SkillCenterListBox>, MemberListScene
 {
     [SerializeField] Text moneyText;
     [SerializeField] MemberList memberList;

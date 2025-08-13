@@ -11,7 +11,7 @@ public class SkillPanel : MonoBehaviour
     [SerializeField] Text skillType;
     [SerializeField] Text characterName;
 
-    private List<SkillPanelRow> skillPanelRows = new List<SkillPanelRow>();
+    private List<SkillListBox> skillPanelRows = new List<SkillListBox>();
 
     private Skill[] skills;
     private BattleCharacter character;
@@ -32,7 +32,7 @@ public class SkillPanel : MonoBehaviour
         {
             int j = i;
             GameObject boxObj = Instantiate(skillPanelRowPrefab, skillPanelContent);
-            SkillPanelRow row = boxObj.GetComponent<SkillPanelRow>();
+            SkillListBox row = boxObj.GetComponent<SkillListBox>();
             row.GetComponent<Button>().onClick.AddListener(() => this.OnSkillPanelRowClicked(j));
             row.Render(skills[i]);
             skillPanelRows.Add(row);

@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BlacksmithScene : CommonListScene<BlacksmithShopBox>
+public class BlacksmithScene : CommonListScene<BlacksmithListBox>
 {
     [SerializeField] Text moneyText;
 

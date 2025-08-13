@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
-public class QuestScene : CommonListScene<QuestButton>{
+public class QuestScene : CommonListScene<QuestListBox>{
     [SerializeField] Text acceptedQuestCountText;
 
     public void Start(){

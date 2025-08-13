@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillCenterPanelRow : ListBox
+public class SkillCenterListBox : ListBox
 {
     [SerializeField] Image skillIcon;
     [SerializeField] Text skillName;

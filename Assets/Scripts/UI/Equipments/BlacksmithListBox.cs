@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class BlacksmithShopBox : ListBox
+public class BlacksmithListBox : ListBox
 {
     [SerializeField] BasicItemBox itemBox;
     [SerializeField] Text equipmentName;
