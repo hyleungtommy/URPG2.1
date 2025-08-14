@@ -41,6 +41,10 @@ public class EquipmentManager
                 if (weapon.WeaponType == WeaponType.Shield || weapon.WeaponType == WeaponType.Artifact)
                 {
                     UnequipWeapon(OffHand);
+                    if(MainHand != null && !IsSingleHandedWeapon(MainHand)){
+                        UnequipWeapon(MainHand);
+                        MainHand = null;
+                    }
                     OffHand = weapon;
                 }
                 else
@@ -142,7 +146,7 @@ public class EquipmentManager
 
     public bool IsSingleHandedWeapon(Weapon weapon)
     {
-        if (weapon.WeaponType == WeaponType.Sword || weapon.WeaponType == WeaponType.Shield || weapon.WeaponType == WeaponType.Wand)
+        if (weapon.WeaponType == WeaponType.Sword || weapon.WeaponType == WeaponType.Shield || weapon.WeaponType == WeaponType.Wand || weapon.WeaponType == WeaponType.Artifact)
         {
             return true;
         }

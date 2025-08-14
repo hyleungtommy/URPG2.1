@@ -30,4 +30,12 @@ public class EquipmentInfoPanel : MonoBehaviour
     public string FormatEquipmentType(Equipment equipment){
         return equipment.ItemType.ToString() + "\n" + (equipment is Armor? (equipment as Armor).ArmorCategory.ToString() : "") + " Armor\nRequire Lv." + equipment.RequireLv;
     }
+
+    public void Hide(){
+        gameObject.SetActive(false);
+    }
+
+    public void Show(){
+        gameObject.SetActive(true);
+    }
 }

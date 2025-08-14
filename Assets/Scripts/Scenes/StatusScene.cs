@@ -66,6 +66,13 @@ public class StatusScene : MonoBehaviour, MemberListScene
         equipmentPanel.gameObject.SetActive(false);
     }
 
+    public void OnClickBack(){
+        selectedIndex = 0;
+        CloseOtherPanels();
+        memberList.memberListScene = this;
+        statusPanel.Open();
+    }
+
     public void AddTestEquipment(){
         /*
         Weapon testSword = new Weapon(DBManager.Instance.GetWeapon(0));

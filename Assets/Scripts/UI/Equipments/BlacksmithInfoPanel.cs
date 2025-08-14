@@ -10,6 +10,7 @@ public class BlacksmithInfoPanel:InfoPanel{
     [SerializeField] Text equipmentPriceText;
     [SerializeField] Button equipmentBuyButton;
     [SerializeField] Text errorText;
+    [SerializeField] BlacksmithScene blacksmithScene;
 
     public override void Render(){
         if(obj is WeaponTemplate){
@@ -60,6 +61,7 @@ public class BlacksmithInfoPanel:InfoPanel{
             Game.Money -= armorTemplate.Price;
             Game.Inventory.InsertItem(new Armor(armorTemplate), 1);
         }
+        blacksmithScene.UpdateMoneyText();
     }
         
 }
