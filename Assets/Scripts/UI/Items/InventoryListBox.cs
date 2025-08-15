@@ -4,20 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class InventoryBox : MonoBehaviour
+public class InventoryListBox : ListBox
 {
     [SerializeField] BasicItemBox itemBox;
     [SerializeField] Text Quantity;
 
-    private StorageSlot storageSlot;
-
-    public void Setup(StorageSlot storageSlot)
+    public override void Render()
     {
-        this.storageSlot = storageSlot;
-    }
-
-    public void Render()
-    {
+        StorageSlot storageSlot = obj as StorageSlot;
         if (storageSlot == null || storageSlot.Item == null)
         {
             itemBox.RenderNull();

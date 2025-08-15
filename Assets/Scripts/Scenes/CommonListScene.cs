@@ -25,7 +25,7 @@ public abstract class CommonListScene<T> : MonoBehaviour where T : ListBox{
         this.displayList.Add(displayList);
     }
 
-    public void Render(){
+    public virtual void Render(){
         infoPanel.Hide();
         foreach(Transform child in boxContainer){
             Destroy(child.gameObject);
