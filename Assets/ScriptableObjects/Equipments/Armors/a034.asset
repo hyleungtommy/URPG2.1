@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a034
   m_EditorClassIdentifier: 
-  ArmorName: Steel Armor
+  id: 34
+  Name: Steel Armor
+  Description: A durable steel armor for warrior
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: d0901ccab5d6ccd4ea3175ed76958671, type: 3}
   ArmorType: 1
   ArmorCategory: 2
-  Description: A durable steel armor for warrior
-  Icon: {fileID: 21300000, guid: d0901ccab5d6ccd4ea3175ed76958671, type: 3}
-  Price: 200
   Defense: 80
   MagicDefense: 40
   requireLv: 20

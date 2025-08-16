@@ -56,6 +56,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FaloneWorkshop.unity
     guid: 72b66037bbdcdc940a8a6b5f4d309bde
+  - enabled: 1
+    path: Assets/Scenes/Alchemy.unity
+    guid: 9a24d352afbd4f442b0b092d202ef9a0
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e6ead7aeacafda849941ede99d0d8470,
       type: 2}

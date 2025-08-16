@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a006
   m_EditorClassIdentifier: 
-  ArmorName: Beginner's Cloth
+  id: 6
+  Name: Beginner's Cloth
+  Description: A leather cloth for beginner
+  Price: 50
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 79ad7d558a38f6f4ea769e1dd7adf8bc, type: 3}
   ArmorType: 1
   ArmorCategory: 0
-  Description: A leather cloth for beginner
-  Icon: {fileID: 21300000, guid: 79ad7d558a38f6f4ea769e1dd7adf8bc, type: 3}
-  Price: 50
   Defense: 15
   MagicDefense: 15
   requireLv: 1

@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a033
   m_EditorClassIdentifier: 
-  ArmorName: Ranger's Hat
+  id: 33
+  Name: Ranger's Hat
+  Description: A common hat used by rangers
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 7b99cbc22b4bfe248a3839d832f43360, type: 3}
   ArmorType: 0
   ArmorCategory: 1
-  Description: A common hat used by rangers
-  Icon: {fileID: 21300000, guid: 7b99cbc22b4bfe248a3839d832f43360, type: 3}
-  Price: 200
   Defense: 30
   MagicDefense: 30
   requireLv: 20

@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a021
   m_EditorClassIdentifier: 
-  ArmorName: Archer's Cloth
+  id: 21
+  Name: Archer's Cloth
+  Description: A common archer's wear
+  Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 5f8398141f252474d90a066a522224cd, type: 3}
   ArmorType: 1
   ArmorCategory: 1
-  Description: A common archer's wear
-  Icon: {fileID: 21300000, guid: 5f8398141f252474d90a066a522224cd, type: 3}
-  Price: 100
   Defense: 30
   MagicDefense: 30
   requireLv: 10

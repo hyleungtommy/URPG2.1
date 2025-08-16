@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a009
   m_EditorClassIdentifier: 
-  ArmorName: Beginner's Pants
+  id: 9
+  Name: Beginner's Pants
+  Description: A pair of leather pants for beginners
+  Price: 50
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: f69ba50b1d3d88a4d93f3baef13fd59f, type: 3}
   ArmorType: 4
   ArmorCategory: 1
-  Description: A pair of leather pants for beginners
-  Icon: {fileID: 21300000, guid: f69ba50b1d3d88a4d93f3baef13fd59f, type: 3}
-  Price: 50
   Defense: 15
   MagicDefense: 15
   requireLv: 1

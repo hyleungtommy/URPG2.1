@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a012
   m_EditorClassIdentifier: 
-  ArmorName: Beginner's Bracers
+  id: 12
+  Name: Beginner's Bracers
+  Description: A pair of bracers for begineers
+  Price: 50
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 4a2fd9a9f74f0d04bb5f7e930b0d6a33, type: 3}
   ArmorType: 2
   ArmorCategory: 1
-  Description: A pair of bracers for begineers
-  Icon: {fileID: 21300000, guid: 4a2fd9a9f74f0d04bb5f7e930b0d6a33, type: 3}
-  Price: 50
   Defense: 10
   MagicDefense: 10
   requireLv: 1

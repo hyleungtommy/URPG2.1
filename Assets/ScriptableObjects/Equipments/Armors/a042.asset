@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a042
   m_EditorClassIdentifier: 
-  ArmorName: Ranger's Bracers
+  id: 42
+  Name: Ranger's Bracers
+  Description: A pair of durable Bracers for rangers
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: ad72621274731ca4f95c998ebe10c76d, type: 3}
   ArmorType: 2
   ArmorCategory: 1
-  Description: A pair of durable Bracers for rangers
-  Icon: {fileID: 21300000, guid: ad72621274731ca4f95c998ebe10c76d, type: 3}
-  Price: 200
   Defense: 30
   MagicDefense: 30
   requireLv: 20

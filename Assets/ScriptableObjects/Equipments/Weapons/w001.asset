@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c7bfb59d83e4641a5afec34b435c46, type: 3}
   m_Name: w001
   m_EditorClassIdentifier: 
-  WeaponName: Beginner's Sowrd
-  WeaponType: 0
+  id: 1
+  Name: Beginner's Sowrd
   Description: An iron sword that's suitable for beginners
-  Icon: {fileID: 21300000, guid: abc40aba625bac94ba672797edbcc75e, type: 3}
   Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: abc40aba625bac94ba672797edbcc75e, type: 3}
+  WeaponType: 0
   Damage: 50
   MagicDamage: 25
   requireLv: 1

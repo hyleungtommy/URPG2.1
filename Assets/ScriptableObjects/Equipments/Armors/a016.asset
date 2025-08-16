@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a016
   m_EditorClassIdentifier: 
-  ArmorName: Solider's Helmet
+  id: 16
+  Name: Solider's Helmet
+  Description: A helmet issued to Falone's soliders
+  Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 011d30bd5bde12a4689f6e482e9b49e0, type: 3}
   ArmorType: 0
   ArmorCategory: 2
-  Description: A helmet issued to Falone's soliders
-  Icon: {fileID: 21300000, guid: 011d30bd5bde12a4689f6e482e9b49e0, type: 3}
-  Price: 100
   Defense: 25
   MagicDefense: 15
   requireLv: 10

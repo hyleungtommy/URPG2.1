@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a007
   m_EditorClassIdentifier: 
-  ArmorName: Beginner's  Legging
+  id: 7
+  Name: Beginner's  Legging
+  Description: An iron legging for beginner
+  Price: 50
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 3bfb1ff00d3be694fb7ec902e6185547, type: 3}
   ArmorType: 4
   ArmorCategory: 2
-  Description: An iron legging for beginner
-  Icon: {fileID: 21300000, guid: 3bfb1ff00d3be694fb7ec902e6185547, type: 3}
-  Price: 50
   Defense: 10
   MagicDefense: 5
   requireLv: 1

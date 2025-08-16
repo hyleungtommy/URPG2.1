@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a040
   m_EditorClassIdentifier: 
-  ArmorName: Steel Gauntles
+  id: 40
+  Name: Steel Gauntles
+  Description: A pair of durable steel Gauntles
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 0e4b73c86d63e7a42990509ace5c6984, type: 3}
   ArmorType: 2
   ArmorCategory: 2
-  Description: A pair of durable steel Gauntles
-  Icon: {fileID: 21300000, guid: 0e4b73c86d63e7a42990509ace5c6984, type: 3}
-  Price: 200
   Defense: 40
   MagicDefense: 20
   requireLv: 20

@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a002
   m_EditorClassIdentifier: 
-  ArmorName: Beginner's Circlet
+  id: 2
+  Name: Beginner's Circlet
+  Description: A magical circlet for beginner
+  Price: 50
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: eed66d74c96794f4fb8831ebf5d2acef, type: 3}
   ArmorType: 0
   ArmorCategory: 0
-  Description: A magical circlet for beginner
-  Icon: {fileID: 21300000, guid: eed66d74c96794f4fb8831ebf5d2acef, type: 3}
-  Price: 50
   Defense: 5
   MagicDefense: 15
   requireLv: 1

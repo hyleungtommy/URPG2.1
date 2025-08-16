@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a017
   m_EditorClassIdentifier: 
-  ArmorName: Mage's  Hat
+  id: 17
+  Name: Mage's  Hat
+  Description: A standard hat used by mages
+  Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: e1fde149e044b584a91893447d2fbf66, type: 3}
   ArmorType: 0
   ArmorCategory: 0
-  Description: A standard hat used by mages
-  Icon: {fileID: 21300000, guid: e1fde149e044b584a91893447d2fbf66, type: 3}
-  Price: 100
   Defense: 15
   MagicDefense: 25
   requireLv: 10

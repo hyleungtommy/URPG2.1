@@ -19,7 +19,7 @@ public class Weapon: Equipment{
     public int MagicDamage {get; private set;}
     public override string ItemType {get{return WeaponType.ToString();}}
 
-    public Weapon(WeaponTemplate weaponTemplate): base(weaponTemplate.WeaponName, weaponTemplate.Description, weaponTemplate.Icon, weaponTemplate.Price, weaponTemplate.requireLv){
+    public Weapon(WeaponTemplate weaponTemplate): base(weaponTemplate.Name, weaponTemplate.Description, weaponTemplate.Icon, weaponTemplate.Price, weaponTemplate.requireLv){
         this.WeaponType = weaponTemplate.WeaponType;
         this.Damage = weaponTemplate.Damage;
         this.MagicDamage = weaponTemplate.MagicDamage;
@@ -37,7 +37,7 @@ public class Armor: Equipment{
     public int MagicDefense {get; private set;}
     public override string ItemType {get{return ArmorType.ToString();}}
 
-    public Armor(ArmorTemplate armorTemplate): base(armorTemplate.ArmorName, armorTemplate.Description, armorTemplate.Icon, armorTemplate.Price, armorTemplate.requireLv){
+    public Armor(ArmorTemplate armorTemplate): base(armorTemplate.Name, armorTemplate.Description, armorTemplate.Icon, armorTemplate.Price, armorTemplate.requireLv){
         this.ArmorType = armorTemplate.ArmorType;
         this.ArmorCategory = armorTemplate.ArmorCategory;
         this.Defense = armorTemplate.Defense;

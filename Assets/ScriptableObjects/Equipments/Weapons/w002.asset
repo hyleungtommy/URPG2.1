@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c7bfb59d83e4641a5afec34b435c46, type: 3}
   m_Name: w002
   m_EditorClassIdentifier: 
-  WeaponName: Beginner's Shield
-  WeaponType: 2
+  id: 2
+  Name: Beginner's Shield
   Description: An iron shield that's suitable for beginners
-  Icon: {fileID: 21300000, guid: d82e6cc10c0d80b42a92055b903581e9, type: 3}
   Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: d82e6cc10c0d80b42a92055b903581e9, type: 3}
+  WeaponType: 2
   Damage: 25
   MagicDamage: 10
   requireLv: 1

@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a024
   m_EditorClassIdentifier: 
-  ArmorName: Archer's Pant
+  id: 24
+  Name: Archer's Pant
+  Description: A common pants used by archers
+  Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: de8e9f12c94c8e84ebbfa43294f00bcc, type: 3}
   ArmorType: 4
   ArmorCategory: 0
-  Description: A common pants used by archers
-  Icon: {fileID: 21300000, guid: de8e9f12c94c8e84ebbfa43294f00bcc, type: 3}
-  Price: 100
   Defense: 15
   MagicDefense: 15
   requireLv: 10

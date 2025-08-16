@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c7bfb59d83e4641a5afec34b435c46, type: 3}
   m_Name: w008
   m_EditorClassIdentifier: 
-  WeaponName: Beginner's Dagger
-  WeaponType: 7
+  id: 8
+  Name: Beginner's Dagger
   Description: An iron dagger that's suitable for beginners
-  Icon: {fileID: 21300000, guid: 8965a357be27f734b8a7bd4377555b84, type: 3}
   Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 8965a357be27f734b8a7bd4377555b84, type: 3}
+  WeaponType: 7
   Damage: 50
   MagicDamage: 50
   requireLv: 1

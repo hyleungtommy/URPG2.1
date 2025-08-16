@@ -22,7 +22,7 @@ public class BlacksmithListBox : ListBox
     {
         if(weaponTemplate != null){
             itemBox.Render(weaponTemplate);
-            equipmentName.text = weaponTemplate.WeaponName;
+            equipmentName.text = weaponTemplate.Name;
             equipmentPower.Render(weaponTemplate);
             equipmentPrice.text = weaponTemplate.Price.ToString();
         }
@@ -32,7 +32,7 @@ public class BlacksmithListBox : ListBox
     {
         if(armorTemplate != null){
             itemBox.Render(armorTemplate);
-            equipmentName.text = armorTemplate.ArmorName;
+            equipmentName.text = armorTemplate.Name;
             equipmentPower.Render(armorTemplate);
             equipmentPrice.text = armorTemplate.Price.ToString();
         }

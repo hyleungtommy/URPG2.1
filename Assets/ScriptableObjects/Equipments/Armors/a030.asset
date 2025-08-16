@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a030
   m_EditorClassIdentifier: 
-  ArmorName: Archer's Boots
+  id: 30
+  Name: Archer's Boots
+  Description: A pair of leather boots used by archers
+  Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 163830523c2b3684fbb9360e9fa9b189, type: 3}
   ArmorType: 3
   ArmorCategory: 1
-  Description: A pair of leather boots used by archers
-  Icon: {fileID: 21300000, guid: 163830523c2b3684fbb9360e9fa9b189, type: 3}
-  Price: 100
   Defense: 15
   MagicDefense: 15
   requireLv: 10
