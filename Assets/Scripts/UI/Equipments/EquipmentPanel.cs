@@ -1,51 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-//EquipmentPane has 2 info panel so it makes it tricky to convert it to use CommonListScene, TODO: convert to use CommonListScene
-public class EquipmentPanel : MonoBehaviour
+public class EquipmentPanel : CommonListScene<EquipmentListBox>
 {
-    [SerializeField] EquipmentInfoPanel selectedEquipmentInfoPanel;
-    [SerializeField] EquipmentInfoPanel currentEquipmentInfoPanel;
-    [SerializeField] GameObject basicItemBoxPrefab;
-    [SerializeField] Transform basicItemBoxParent;
+    [SerializeField] CurrentEquipmentInfoPanel currentEquipmentInfoPanel;
     [SerializeField] CurrentEquipmentGroup currentEquipmentGroup;
-    [SerializeField] Button equipButton;
-    [SerializeField] Button unequipButton;
-    [SerializeField] Text characterName;
-    [SerializeField] Text errorText;
 
-    private List<BasicItemBox> basicItemBoxes = new List<BasicItemBox>();
-    private List<StorageSlot> equipments = new List<StorageSlot>();
-    private BattleCharacter character;
-    private StorageSlot selectedEquipment;
-    private Equipment selectedCurrentEquipment;
+    public BattleCharacter character {get; private set;}
     public void Setup(BattleCharacter character)
     {
         this.character = character;
     }
 
-    void Render()
+    public override void Render()
     {
-        equipments = Game.Inventory.GetEquipmentList();
-        foreach (Transform child in basicItemBoxParent)
-        {
-            Destroy(child.gameObject);
-        }
-        for (int i = 0; i < equipments.Count; i++)
-        {
-            int j = i;
-            GameObject boxObj = Instantiate(basicItemBoxPrefab, basicItemBoxParent);
-            BasicItemBox box = boxObj.GetComponent<BasicItemBox>();
-            box.GetComponent<Button>().onClick.AddListener(() => this.OnEquipmentBoxClicked(j));
-            box.Render(equipments[i].Item as Equipment);
-            basicItemBoxes.Add(box);
-        }
-        currentEquipmentGroup.Render(character.CharacterClass.EquipmentManager);
-        characterName.text = character.Name;
-        selectedEquipmentInfoPanel.Hide();
+        ClearDisplayList();
+        AddDisplayList(Game.Inventory.GetEquipmentList().Cast<System.Object>().ToList());
         currentEquipmentInfoPanel.Hide();
+        currentEquipmentGroup.Render(character.CharacterClass.EquipmentManager);
+        base.Render();
     }
 
     public void Show()
@@ -59,45 +35,6 @@ public class EquipmentPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnEquipmentBoxClicked(int index)
-    {
-        selectedEquipment = equipments[index];
-        selectedEquipmentInfoPanel.Render(selectedEquipment.Item as Equipment);
-        equipButton.gameObject.SetActive(CanEquip());
-        selectedEquipmentInfoPanel.Show();
-    }
-
-    private bool CanEquip()
-    {
-        if (selectedEquipment.Item == null)
-        {
-            errorText.gameObject.SetActive(true);
-            errorText.text = "Please select an equipment";
-            return false;
-        }
-        if (selectedEquipment.Item is Equipment && (selectedEquipment.Item as Equipment).RequireLv > character.Lv)
-        {
-            errorText.gameObject.SetActive(true);
-            errorText.text = "Require Lv." + (selectedEquipment.Item as Equipment).RequireLv;
-            return false;
-        }
-        errorText.gameObject.SetActive(false);
-        return true;
-    }
-
-    public void OnClickEquip()
-    {
-        character.CharacterClass.EquipmentManager.Equip(selectedEquipment.Item as Equipment);
-        selectedEquipment.Clear();
-        Render();
-    }
-
-    public void OnClickUnequip()
-    {
-        character.CharacterClass.EquipmentManager.Unequip(selectedCurrentEquipment);
-        Render();
-    }
-
     public void OnClickCurrentEquipment(int index)
     {
         if (index == 0)
@@ -106,8 +43,8 @@ public class EquipmentPanel : MonoBehaviour
             {
                 return;
             }
-            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.MainHand);
-            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.MainHand;
+            currentEquipmentInfoPanel.SetUp(character.CharacterClass.EquipmentManager.MainHand);
+            currentEquipmentInfoPanel.Render();
             currentEquipmentInfoPanel.Show();
         }
         else if (index == 1)
@@ -116,8 +53,8 @@ public class EquipmentPanel : MonoBehaviour
             {
                 return;
             }
-            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.OffHand);
-            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.OffHand;
+            currentEquipmentInfoPanel.SetUp(character.CharacterClass.EquipmentManager.OffHand);
+            currentEquipmentInfoPanel.Render();
             currentEquipmentInfoPanel.Show();
         }
         else if (index == 2)
@@ -126,8 +63,8 @@ public class EquipmentPanel : MonoBehaviour
             {
                 return;
             }
-            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Head);
-            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Head;
+            currentEquipmentInfoPanel.SetUp(character.CharacterClass.EquipmentManager.Head);
+            currentEquipmentInfoPanel.Render();
             currentEquipmentInfoPanel.Show();
         }
         else if (index == 3)
@@ -136,8 +73,8 @@ public class EquipmentPanel : MonoBehaviour
             {
                 return;
             }
-            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Body);
-            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Body;
+            currentEquipmentInfoPanel.SetUp(character.CharacterClass.EquipmentManager.Body);
+            currentEquipmentInfoPanel.Render();
             currentEquipmentInfoPanel.Show();
         }
         else if (index == 4)
@@ -146,8 +83,8 @@ public class EquipmentPanel : MonoBehaviour
             {
                 return;
             }
-            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Hands);
-            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Hands;
+            currentEquipmentInfoPanel.SetUp(character.CharacterClass.EquipmentManager.Hands);
+            currentEquipmentInfoPanel.Render();
             currentEquipmentInfoPanel.Show();
         }
         else if (index == 5)
@@ -156,8 +93,8 @@ public class EquipmentPanel : MonoBehaviour
             {
                 return;
             }
-            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Legs);
-            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Legs;
+            currentEquipmentInfoPanel.SetUp(character.CharacterClass.EquipmentManager.Legs);
+            currentEquipmentInfoPanel.Render();
             currentEquipmentInfoPanel.Show();
         }
         else if (index == 6)
@@ -166,8 +103,8 @@ public class EquipmentPanel : MonoBehaviour
             {
                 return;
             }
-            currentEquipmentInfoPanel.Render(character.CharacterClass.EquipmentManager.Feet);
-            selectedCurrentEquipment = character.CharacterClass.EquipmentManager.Feet;
+            currentEquipmentInfoPanel.SetUp(character.CharacterClass.EquipmentManager.Feet);
+            currentEquipmentInfoPanel.Render();
             currentEquipmentInfoPanel.Show();
         }
         else if (index == 7)
@@ -178,5 +115,16 @@ public class EquipmentPanel : MonoBehaviour
         {
             //currentEquipmentInfoPanel.Render(character.Class.EquipmentManager.Accessory2);
         }
+    }
+
+    private void AddTestEquipment(){
+        Equipment testWeapon1 = new Weapon(DBManager.Instance.GetWeapon(0));
+        Game.Inventory.InsertItem(testWeapon1, 1);
+        Equipment testWeapon2 = new Weapon(DBManager.Instance.GetWeapon(1));
+        Game.Inventory.InsertItem(testWeapon2, 1);
+        Equipment testArmor1 = new Armor(DBManager.Instance.GetArmor(0));
+        Game.Inventory.InsertItem(testArmor1, 1);
+        Equipment testArmor2 = new Armor(DBManager.Instance.GetArmor(1));
+        Game.Inventory.InsertItem(testArmor2, 1);
     }
 }

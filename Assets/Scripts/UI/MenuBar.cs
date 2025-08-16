@@ -26,6 +26,7 @@ public class MenuBar : MonoBehaviour
 
     public void OnClickStatus()
     {
+        UIController.Instance.OpenUIScene("Status");
     }
 
     public void OnClickUpgrade()
@@ -46,11 +47,12 @@ public class MenuBar : MonoBehaviour
 
     public void OnClickInventory()
     {
-
+        UIController.Instance.OpenUIScene("Inventory");
     }
 
     public void OnClickQuestJournal()
     {
+        UIController.Instance.OpenUIScene("QuestBoard");
     }
 
     public void OnClickSettings()
