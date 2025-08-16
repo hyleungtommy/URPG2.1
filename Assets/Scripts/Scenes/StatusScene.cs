@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatusScene : MemberListScene
+public class StatusScene : MonoBehaviour, MemberListScene
 {
     [SerializeField] SkillPanel skillPanel;
     [SerializeField] StatusPanel statusPanel;
     [SerializeField] EquipmentPanel equipmentPanel;
+    [SerializeField] MemberList memberList;
 
     private int selectedIndex = 0;
 
-    void Awake(){
+    void Start(){
+        memberList.memberListScene = this;
+        OnMemberSelected(Game.Party.GetAllMembers()[0]);
         //AddTestEquipment();
     }
 
-    public override void OnMemberSelected(BattleCharacter character)
+    public void OnMemberSelected(BattleCharacter character)
     {
         if (character == null)
         {
@@ -39,18 +42,21 @@ public class StatusScene : MemberListScene
     public void OnClickSkill(){
         selectedIndex = 2;
         CloseOtherPanels();
+        memberList.memberListScene = skillPanel;
         skillPanel.Show();
     }
 
     public void OnClickStatus(){
         selectedIndex = 0;
         CloseOtherPanels();
+        memberList.memberListScene = this;
         statusPanel.Open();
     }
 
     public void OnClickEquipment(){
         selectedIndex = 3;
         CloseOtherPanels();
+        //memberList.memberListScene = equipmentPanel;
         equipmentPanel.Show();
     }
 
@@ -58,6 +64,13 @@ public class StatusScene : MemberListScene
         statusPanel.gameObject.SetActive(false);
         skillPanel.gameObject.SetActive(false);
         equipmentPanel.gameObject.SetActive(false);
+    }
+
+    public void OnClickBack(){
+        selectedIndex = 0;
+        CloseOtherPanels();
+        memberList.memberListScene = this;
+        statusPanel.Open();
     }
 
     public void AddTestEquipment(){

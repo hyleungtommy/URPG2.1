@@ -11,6 +11,7 @@ public class StatusPanel : MonoBehaviour
     [SerializeField] Text skillPointsAvailable;
     [SerializeField] Text exp;
     [SerializeField] Text title;
+    [SerializeField] CurrentEquipmentGroup currentEquipmentGroup;
 
     private BattleCharacter character;
 
@@ -29,6 +30,7 @@ public class StatusPanel : MonoBehaviour
         upgradePointsAvailable.text = character.UpgradePointAvailable.ToString();
         skillPointsAvailable.text = character.SkillPointAvailable.ToString();
         exp.text = "Exp: " + character.CurrentEXP + "/" + character.RequiredEXP;
+        currentEquipmentGroup.Render(character.CharacterClass.EquipmentManager);
     }
 
     private string FormatTitle(BattleCharacter character)

@@ -30,7 +30,6 @@ public class ExploreCampScene : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log(Game.ExploreSiteList.Count);
         miningSites = Game.ExploreSiteList.Where(site => site.type == ExploreSiteType.Mining).ToList();
         forgingSites = Game.ExploreSiteList.Where(site => site.type == ExploreSiteType.Forging).ToList();
         huntingSites = Game.ExploreSiteList.Where(site => site.type == ExploreSiteType.Hunting).ToList();
@@ -54,7 +53,6 @@ public class ExploreCampScene : MonoBehaviour
         {
             craftSkillRows.Render(Game.CraftSkillManager.Mining);
             displayList = miningSites;
-            Debug.Log(displayList.Count);
         }
         else if (selectedTabId == 1)
         {

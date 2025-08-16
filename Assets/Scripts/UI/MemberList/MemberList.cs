@@ -5,7 +5,7 @@ using UnityEngine;
 public class MemberList : MonoBehaviour
 {
     [SerializeField] MemberIcon[] memberIcons;
-    [SerializeField] MemberListScene memberListScene;
+    public MemberListScene memberListScene;
 
     void Start()
     {
@@ -25,10 +25,10 @@ public class MemberList : MonoBehaviour
                 memberIcons[i].Render();
             }
         }
-        if (allMembers.Count > 0 && allMembers[0] != null)
-        {
-            memberListScene.OnMemberSelected(allMembers[0]);
-        }
+        // if (allMembers.Count > 0 && allMembers[0] != null)
+        // {
+        //     memberListScene.OnMemberSelected(allMembers[0]);
+        // }
     }
 
     public void OnMemberSelected(int index)
@@ -52,7 +52,7 @@ public class MemberList : MonoBehaviour
         {
             return;
         }
-
+        Debug.Log("MemberList: memberListScene: " + memberListScene);
         memberListScene.OnMemberSelected(character);
     }
 }

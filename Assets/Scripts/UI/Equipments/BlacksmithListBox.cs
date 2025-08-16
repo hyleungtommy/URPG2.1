@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class BlacksmithShopBox : MonoBehaviour
+public class BlacksmithListBox : ListBox
 {
     [SerializeField] BasicItemBox itemBox;
     [SerializeField] Text equipmentName;
     [SerializeField] EquipmentPowerText equipmentPower;
     [SerializeField] Text equipmentPrice;
 
-    public void Render(WeaponTemplate weaponTemplate)
+    public override void Render(){
+        if(obj is WeaponTemplate){
+            Render(obj as WeaponTemplate);
+        }
+        else if(obj is ArmorTemplate){
+            Render(obj as ArmorTemplate);
+        }
+    }
+
+    private void Render(WeaponTemplate weaponTemplate)
     {
         if(weaponTemplate != null){
             itemBox.Render(weaponTemplate);
@@ -19,7 +28,7 @@ public class BlacksmithShopBox : MonoBehaviour
         }
     }
 
-    public void Render(ArmorTemplate armorTemplate)
+    private void Render(ArmorTemplate armorTemplate)
     {
         if(armorTemplate != null){
             itemBox.Render(armorTemplate);

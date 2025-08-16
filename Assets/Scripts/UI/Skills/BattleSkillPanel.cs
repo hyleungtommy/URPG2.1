@@ -6,7 +6,7 @@ public class BattleSkillPanel : MonoBehaviour
     [SerializeField] GameObject skillPanelRowPrefab;
     [SerializeField] Transform skillPanelContent;
 
-    private List<SkillPanelRow> skillPanelRows = new List<SkillPanelRow>();
+    private List<SkillListBox> skillPanelRows = new List<SkillListBox>();
     private Skill[] skills;
 
     private BattleEntity user;
@@ -25,9 +25,9 @@ public class BattleSkillPanel : MonoBehaviour
         {
             int j = i;
             GameObject box = Instantiate(skillPanelRowPrefab, skillPanelContent);
-            SkillPanelRow skillPanelRow = box.GetComponent<SkillPanelRow>();
+            SkillListBox skillPanelRow = box.GetComponent<SkillListBox>();
             box.GetComponent<Button>().onClick.AddListener(() => this.OnSkillPanelRowClicked(j));
-            skillPanelRow.Render(skills[i], user);
+            skillPanelRow.RenderBattleSkill(skills[i], user);
             skillPanelRows.Add(skillPanelRow);
         }
 

@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EquipmentInfoPanel : MonoBehaviour
+public class CurrentEquipmentInfoPanel : InfoPanel
 {
     [SerializeField] Text equipmentNameText;
     [SerializeField] Text equipmentTypeText;
     [SerializeField] Text equipmentExtraEffectText;
     [SerializeField] BasicItemBox equipmentIcon;
     [SerializeField] EquipmentPowerText equipmentPowerText;
-    public void Render(Equipment equipment){
+    [SerializeField] EquipmentPanel equipmentPanel;
+
+    public override void Render(){
+        Equipment equipment = obj as Equipment;
         if(equipment == null) return;
         equipmentNameText.text = equipment.Name;
         equipmentTypeText.text = FormatEquipmentType(equipment);
@@ -19,15 +20,16 @@ public class EquipmentInfoPanel : MonoBehaviour
         equipmentPowerText.Render(equipment);
     }
 
-    public void Clear(){
-        equipmentNameText.text = "";
-        equipmentTypeText.text = "";
-        equipmentExtraEffectText.text = "";
-        equipmentIcon.RenderNull();
-        equipmentPowerText.RenderNull();
-    }
-
     public string FormatEquipmentType(Equipment equipment){
         return equipment.ItemType.ToString() + "\n" + (equipment is Armor? (equipment as Armor).ArmorCategory.ToString() : "") + " Armor\nRequire Lv." + equipment.RequireLv;
     }
+
+    public void OnClickUnequip()
+    {
+        Equipment equipment = obj as Equipment;
+        equipmentPanel.character.CharacterClass.EquipmentManager.Unequip(equipment);
+        equipmentPanel.Render();
+    }
+    
+    
 }

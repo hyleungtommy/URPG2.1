@@ -1,19 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillPanelRow : MonoBehaviour
+public class SkillListBox : ListBox
 {
     [SerializeField] Image skillIcon;
     [SerializeField] Text skillName;
     [SerializeField] Text skillMPCost;
 
-    public void Render(Skill skill){
+    public override void Render(){
+        Skill skill = obj as Skill;
         skillIcon.sprite = skill.Icon;
         skillName.text = skill.Name + "\nLv." + skill.SkillLv;
         skillMPCost.text = skill.MpCost.ToString();
     }
 
-    public void Render(Skill skill, BattleEntity user){
+    public void RenderBattleSkill(Skill skill, BattleEntity user){
         skillIcon.sprite = skill.Icon;
         skillName.text = skill.Name + "\nLv." + skill.SkillLv;
         skillMPCost.text = skill.MpCost.ToString();
