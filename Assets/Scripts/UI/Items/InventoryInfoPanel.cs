@@ -7,6 +7,7 @@ public class InventoryInfoPanel : InfoPanel
     [SerializeField] Text itemDescriptionText;
     [SerializeField] Text itemTypeText;
     [SerializeField] Image itemIconImage;
+    [SerializeField] InventoryScene inventoryScene;
 
     public override void Render(){
         StorageSlot slot = obj as StorageSlot;
@@ -17,5 +18,11 @@ public class InventoryInfoPanel : InfoPanel
             itemTypeText.text = slot.Item.ItemType + "\n" + Constant.itemRarityName[slot.Item.Rarity] + "\nQuantity: " + slot.Quantity;
             itemIconImage.sprite = slot.Item.Icon;
         }
+    }
+
+    public void OnClickDispose(){
+        StorageSlot slot = obj as StorageSlot;
+        inventoryScene.confirmDisposeDialog.Setup(slot);
+        inventoryScene.confirmDisposeDialog.gameObject.SetActive(true);
     }
 }

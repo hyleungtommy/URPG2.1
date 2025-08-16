@@ -8,6 +8,7 @@ using System.Linq;
 
 public class InventoryScene : CommonListScene<InventoryListBox>
 {
+    public ConfirmDisposeDialog confirmDisposeDialog;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,15 @@ public class InventoryScene : CommonListScene<InventoryListBox>
         AddTestItems();
         AddDisplayList(Game.Inventory.StorageSlots.Cast<System.Object>().ToList());
         Render();
+        confirmDisposeDialog.gameObject.SetActive(false);
+    }
+
+    public override void OnBoxClicked(int slotId){
+        StorageSlot slot = displayList[selectedTabId][slotId] as StorageSlot;
+        // do nothing if the slot is empty
+        if (slot != null && slot.Item != null){
+            base.OnBoxClicked(slotId);
+        }
     }
 
     private void AddTestItems()
