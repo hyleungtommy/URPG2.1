@@ -83,6 +83,10 @@ public class GameController : MonoBehaviour
             {
                 UIController.Instance.ToggleUIScene("ExploreCamp");
             }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                UIController.Instance.ToggleUIScene("Alchemy");
+            }
             if (Input.GetKeyDown(KeyCode.Space)){
                 FindObjectOfType<PlayerController>()?.Interact();
             }

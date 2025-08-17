@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public class DBManager:MonoBehaviour
 {
@@ -82,8 +83,8 @@ public class DBManager:MonoBehaviour
         return exploreSiteSprites[(int)exploreSiteType];
     }
 
-    public CraftRecipe[] GetAllCraftRecipes(){
-        return craftRecipeTemplates.Select(c => new CraftRecipe(c)).ToArray();
+    public List<CraftRecipe> GetAllCraftRecipes(){
+        return craftRecipeTemplates.Select(c => new CraftRecipe(c)).ToList();
     }
     
     

@@ -30,14 +30,15 @@ public class InventoryScene : CommonListScene<InventoryListBox>
     private void AddTestItems()
     {
         // Create test HP Potions
-        var hpPotion1 = DBManager.Instance.GetItem(1);
-        var hpPotion2 = DBManager.Instance.GetItem(2);
+        var hpPotion1 = DBManager.Instance.GetItem(61);
+        var hpPotion2 = DBManager.Instance.GetItem(62);
         // Create test MP Potions
         var mpPotion1 = DBManager.Instance.GetItem(6);
         // Add items to inventory
-        Game.Inventory.InsertItem(hpPotion1, 5);  // Add 5 Healing Potion I
-        Game.Inventory.InsertItem(hpPotion2, 3);  // Add 3 Healing Potion II
+        Game.Inventory.InsertItem(hpPotion1, 99);  // Add 5 Healing Potion I
+        Game.Inventory.InsertItem(hpPotion2,99);  // Add 3 Healing Potion II
         Game.Inventory.InsertItem(mpPotion1, 8);  // Add 8 Magic Potion I
+
     }
 
 }

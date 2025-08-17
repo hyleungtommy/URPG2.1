@@ -8,7 +8,7 @@ public class QuestRequirement{
             return _currentAmount;
         }
         if(Requirement is ItemTemplate){
-            return Math.Min(Game.Inventory.GetTotalItemQuantity((Requirement as ItemTemplate).id), Amount);
+            return Math.Min(Game.Inventory.GetTotalItemQuantity((Requirement as ItemTemplate).GetItem()), Amount);
         }
         return 0;
     }}

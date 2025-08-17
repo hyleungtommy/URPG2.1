@@ -13,10 +13,13 @@ public class CraftRecipe{
         for(int i = 0; i < template.requirements.Length; i++){
             this.requirements[i] = new CraftRequirement(template.requirements[i]);
         }
-        this.craftSkillType = GetCraftSkillType();
+        this.craftSkillType = GetCraftSkillType(template.type);
     }
 
-    private CraftSkillType GetCraftSkillType(){
+    private CraftSkillType GetCraftSkillType(CraftTemplateType type){
+        if(type == CraftTemplateType.Alchemy){
+            return CraftSkillType.Alchemy;
+        }
         if (this.resultItem is Weapon weapon) {
             switch (weapon.WeaponType) {
                 case WeaponType.Wand:

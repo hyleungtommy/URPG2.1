@@ -3,7 +3,12 @@ public class CraftSkill
     public CraftSkillType Type { get; set; }
     public int Level { get; set; }
     public int CurrentExp { get; set; }
-    public int RequiredExp { get { return Level >= Constant.CraftSkillRequiredExp.Length ? 0 : Constant.CraftSkillRequiredExp[Level - 1]; } }
+    public int RequiredExp { get { 
+        if(Type == CraftSkillType.Alchemy){
+            return Level >= Constant.AlchemyExpForEachLevel.Length ? 0 : Constant.AlchemyExpForEachLevel[Level - 1];
+        }
+        return Level >= Constant.CraftSkillRequiredExp.Length ? 0 : Constant.CraftSkillRequiredExp[Level - 1];
+    } }
 
     public CraftSkill(CraftSkillType type){
         Type = type;
