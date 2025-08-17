@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 763d81aad87eb764ead6d858da397a43, type: 3}
-  m_Name: al004
+  m_Name: al017
   m_EditorClassIdentifier: 
   type: 0
   requirements:
-  - item: {fileID: 11400000, guid: 6c8fb2b323fc3064fa80135cdf398fe7, type: 2}
-    amount: 4
-  requireSkillLevel: 4
+  - item: {fileID: 11400000, guid: dc65b12a5834c3247ae547fa852377b7, type: 2}
+    amount: 1
+  requireSkillLevel: 3
   resultAmount: 1
-  resultItem: {fileID: 11400000, guid: f851331a5a92bf64c8b573ac27005fdc, type: 2}
+  resultItem: {fileID: 11400000, guid: ade7bbd0e2d147348988bcc0026e18a0, type: 2}

@@ -48297,7 +48297,7 @@ PrefabInstance:
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
       propertyPath: craftRecipeTemplates.Array.size
-      value: 10
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
@@ -48441,6 +48441,102 @@ PrefabInstance:
       propertyPath: exploreSiteTemplates.Array.data[9]
       value: 
       objectReference: {fileID: 11400000, guid: 3563980b4256cab4b95374b9b821e2d1,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 19d384c74f9df7d4faf8ece39faf92fd,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e407fbcf3e95694fb100392e52e5dd2,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: c61fced2a7bc01649be90d59200cacf0,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[13]
+      value: 
+      objectReference: {fileID: 11400000, guid: 049b2e76e415c5348b77f91873063a13,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: d10c1f9905f0b7941a57fe471592fe87,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: 35eef9329a9ff5647852f6772a558ff2,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[16]
+      value: 
+      objectReference: {fileID: 11400000, guid: dc61d436eb9d91b409548f13da36e392,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[17]
+      value: 
+      objectReference: {fileID: 11400000, guid: 300a04fd71ecf0e46a87bdef2838932d,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[18]
+      value: 
+      objectReference: {fileID: 11400000, guid: 309451a5c94a46e449b21da19b8c353a,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[19]
+      value: 
+      objectReference: {fileID: 11400000, guid: bc9c4d0cf8b88814aade02c5823c829a,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[20]
+      value: 
+      objectReference: {fileID: 11400000, guid: 97ff94de0ee4b45479cab7f2cc8440ef,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[21]
+      value: 
+      objectReference: {fileID: 11400000, guid: 39907aaeaa739514599d0d980d041c51,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[22]
+      value: 
+      objectReference: {fileID: 11400000, guid: cc590f70446a2ba43ac4277732a7f4b5,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[23]
+      value: 
+      objectReference: {fileID: 11400000, guid: 79eab67e9e1ade8499f6b10386511887,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[24]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a044883e047b6843baae832092c15e5,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: craftRecipeTemplates.Array.data[25]
+      value: 
+      objectReference: {fileID: 11400000, guid: e432aab1e45bbb348b04cf501c27a530,
         type: 2}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
