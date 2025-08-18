@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763d81aad87eb764ead6d858da397a43, type: 3}
   m_Name: ac011
   m_EditorClassIdentifier: 
-  type: 0
-  requirements: []
+  type: 2
+  requirements:
+  - item: {fileID: 11400000, guid: 0588baafb10df2b449b8fef68ae0bac0, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: 6d474862c7e0f5d44b1f7ce5ebb2cead, type: 2}
+    amount: 1
   requireSkillLevel: 1
   resultAmount: 1
-  resultItem: {fileID: 0}
+  resultItem: {fileID: 11400000, guid: 961e0e4210d336e4d971ca87b3effa78, type: 2}

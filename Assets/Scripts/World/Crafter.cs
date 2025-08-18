@@ -7,7 +7,7 @@ public class Crafter : MonoBehaviour, Interactable{
             UIController.Instance.OpenUIScene("Alchemy");
         }
         else if (crafterType == CrafterType.Anvil){
-           // TODO: Open Smithing UI
+            UIController.Instance.OpenUIScene("Smithing");
         }
         else if (crafterType == CrafterType.Reinforcer){
             // TODO: Open reinforcing UI

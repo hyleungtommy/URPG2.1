@@ -20,7 +20,7 @@ MonoBehaviour:
   Rarity: 0
   Icon: {fileID: 21300000, guid: 9f080e7c5c70b894db81695d44642980, type: 3}
   ArmorType: 2
-  ArmorCategory: 0
+  ArmorCategory: 2
   Defense: 10
   MagicDefense: 5
   requireLv: 1

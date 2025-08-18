@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-
 public class AlchemyInfoPanel : InfoPanel
 {
     [SerializeField] Text itemNameText;
