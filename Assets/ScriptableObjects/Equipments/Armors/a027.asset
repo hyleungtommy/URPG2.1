@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a027
   m_EditorClassIdentifier: 
-  ArmorName: Archer's Bracers
+  id: 27
+  Name: Archer's Bracers
+  Description: A pair of light-weight bracers for archers
+  Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 80b239216efef074695687ec62d43a8a, type: 3}
   ArmorType: 2
   ArmorCategory: 1
-  Description: A pair of light-weight bracers for archers
-  Icon: {fileID: 21300000, guid: 80b239216efef074695687ec62d43a8a, type: 3}
-  Price: 100
   Defense: 15
   MagicDefense: 15
   requireLv: 10

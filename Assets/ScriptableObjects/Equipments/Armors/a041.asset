@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a041
   m_EditorClassIdentifier: 
-  ArmorName: Arcane Gloves
+  id: 41
+  Name: Arcane Gloves
+  Description: A pair of enchanted gloves
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 8853b4767d2783441aa07068bf1cfa2d, type: 3}
   ArmorType: 2
   ArmorCategory: 0
-  Description: A pair of enchanted gloves
-  Icon: {fileID: 21300000, guid: 8853b4767d2783441aa07068bf1cfa2d, type: 3}
-  Price: 200
   Defense: 20
   MagicDefense: 40
   requireLv: 20

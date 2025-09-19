@@ -1,14 +1,20 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Equipment/Weapon")]
-public class WeaponTemplate: ScriptableObject
+public class WeaponTemplate: ItemTemplate
 {
-    public string WeaponName;
     public WeaponType WeaponType;
-    public string Description;
-    public Sprite Icon;
-    public int Price;
     public int Damage;
     public int MagicDamage;
     public int requireLv;
+
+    public override Item GetItem()
+    {
+        return new Weapon(this);
+    }
+
+    public override string GetItemType()
+    {
+        return "Weapon";
+    }
 }

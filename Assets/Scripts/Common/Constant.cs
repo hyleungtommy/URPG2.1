@@ -108,4 +108,12 @@ public class Constant
         90,
         100,
     };
+
+    public static int[] AlchemyExpForEachLevel = {
+        100,
+        200,
+        500,
+        800,
+        1000,
+    };
 }

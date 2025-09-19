@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a039
   m_EditorClassIdentifier: 
-  ArmorName: Ranger's Pants
+  id: 39
+  Name: Ranger's Pants
+  Description: A pair of light-weight and durable pants for rangers
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 0ca4e70a06a6574478dc11404c7a4922, type: 3}
   ArmorType: 4
   ArmorCategory: 1
-  Description: A pair of light-weight and durable pants for rangers
-  Icon: {fileID: 21300000, guid: 0ca4e70a06a6574478dc11404c7a4922, type: 3}
-  Price: 200
   Defense: 50
   MagicDefense: 50
   requireLv: 20

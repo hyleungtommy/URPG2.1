@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a043
   m_EditorClassIdentifier: 
-  ArmorName: Steel Sabatons
+  id: 43
+  Name: Steel Sabatons
+  Description: A pair of heavy Sabatons
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 059fdead6249c7d498e5672a93187a84, type: 3}
   ArmorType: 3
   ArmorCategory: 2
-  Description: A pair of heavy Sabatons
-  Icon: {fileID: 21300000, guid: 059fdead6249c7d498e5672a93187a84, type: 3}
-  Price: 200
   Defense: 40
   MagicDefense: 20
   requireLv: 20

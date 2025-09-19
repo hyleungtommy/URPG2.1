@@ -136,7 +136,7 @@ public class BattleManager
             CurrentTurnEntity = actionQueue.Dequeue();
             if(ItemToUse != null) {
                 ItemToUse.Use(new List<BattleEntity> { target });
-                Game.Inventory.RemoveItem(ItemToUse.id, 1);
+                Game.Inventory.RemoveItem(ItemToUse, 1);
             }else if (SkillToUse != null){
                 SkillToUse.Use(CurrentTurnEntity, new List<BattleEntity> { target });
             }
@@ -145,7 +145,7 @@ public class BattleManager
             CurrentTurnEntity = actionQueue.Dequeue();
             if(ItemToUse != null) {
                 ItemToUse.Use(players.Cast<BattleEntity>().ToList());
-                Game.Inventory.RemoveItem(ItemToUse.id, 1);
+                Game.Inventory.RemoveItem(ItemToUse, 1);
             }else if (SkillToUse != null){
                 SkillToUse.Use(CurrentTurnEntity, players.Cast<BattleEntity>().ToList());
             }

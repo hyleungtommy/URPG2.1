@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a020
   m_EditorClassIdentifier: 
-  ArmorName: Mage Robe
+  id: 20
+  Name: Mage Robe
+  Description: A robe wear by mages
+  Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 499f35f55e84fc246aee91e66d9c372c, type: 3}
   ArmorType: 1
   ArmorCategory: 0
-  Description: A robe wear by mages
-  Icon: {fileID: 21300000, guid: 499f35f55e84fc246aee91e66d9c372c, type: 3}
-  Price: 100
   Defense: 20
   MagicDefense: 40
   requireLv: 10

@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class StorageSystem
 {
     public List<StorageSlot> StorageSlots;
-    public int Size { get {return StorageSlots.Count;}}
+    public int Size { get { return StorageSlots.Count; } }
 
     public StorageSystem(int size)
     {
@@ -18,18 +19,21 @@ public class StorageSystem
     public int InsertItem(Item item, int quantity)
     {
         // First try to add to existing slots with the same item id
-        foreach (var slot in StorageSlots)
+        if (!(item is Equipment))
         {
-            if (slot.Item != null && slot.Item.id == item.id && slot.Quantity < slot.Item.MaxStackSize)
+            foreach (var slot in StorageSlots)
             {
-                int spaceInSlot = slot.Item.MaxStackSize - slot.Quantity;
-                int amountToAdd = System.Math.Min(spaceInSlot, quantity);
-                
-                slot.Quantity += amountToAdd;
-                quantity -= amountToAdd;
+                if (slot.Item != null && slot.Item.id == item.id && slot.Quantity < slot.Item.MaxStackSize)
+                {
+                    int spaceInSlot = slot.Item.MaxStackSize - slot.Quantity;
+                    int amountToAdd = System.Math.Min(spaceInSlot, quantity);
 
-                if (quantity == 0)
-                    return 0;
+                    slot.Quantity += amountToAdd;
+                    quantity -= amountToAdd;
+
+                    if (quantity == 0)
+                        return 0;
+                }
             }
         }
 
@@ -52,12 +56,10 @@ public class StorageSystem
         return quantity;
     }
 
-    public int RemoveItem(int itemId, int quantity)
+    public int RemoveItem(Item item, int quantity)
     {
         // First check if we have enough items
-        int totalQuantity = StorageSlots
-            .Where(slot => slot.Item != null && slot.Item.id == itemId)
-            .Sum(slot => slot.Quantity);
+        int totalQuantity = GetTotalItemQuantity(item);
 
         if (totalQuantity < quantity)
         {
@@ -65,11 +67,28 @@ public class StorageSystem
         }
 
         int remainingToRemove = quantity;
-        
+
         // Get all slots containing the item in their natural order
-        var relevantSlots = StorageSlots
-            .Where(slot => slot.Item != null && slot.Item.id == itemId)
-            .ToList();
+        var relevantSlots = new List<StorageSlot>();
+
+        if (item is Weapon)
+        {
+            relevantSlots = StorageSlots
+                .Where(slot => slot.Item != null && slot.Item is Weapon && slot.Item.id == item.id)
+                .ToList();
+        }
+        else if (item is Armor)
+        {
+            relevantSlots = StorageSlots
+                .Where(slot => slot.Item != null && slot.Item is Armor && slot.Item.id == item.id)
+                .ToList();
+        }
+        else
+        {
+            relevantSlots = StorageSlots
+                .Where(slot => slot.Item != null && slot.Item.id == item.id)
+                .ToList();
+        }
 
         foreach (var slot in relevantSlots)
         {
@@ -91,9 +110,22 @@ public class StorageSystem
         return quantity;
     }
 
-    public int GetTotalItemQuantity(int itemId){
+    public int GetTotalItemQuantity(Item item)
+    {
+        if (item is Weapon)
+        {
+            StorageSlots
+           .Where(slot => slot.Item != null && slot.Item is Weapon && slot.Item.id == item.id)
+           .Sum(slot => slot.Quantity);
+        }
+        else if (item is Armor)
+        {
+            return StorageSlots
+            .Where(slot => slot.Item != null && slot.Item is Armor && slot.Item.id == item.id)
+            .Sum(slot => slot.Quantity);
+        }
         return StorageSlots
-            .Where(slot => slot.Item != null && slot.Item.id == itemId)
+            .Where(slot => slot.Item != null && slot.Item.id == item.id && !(slot.Item is Equipment))
             .Sum(slot => slot.Quantity);
     }
 
@@ -110,17 +142,22 @@ public class StorageSystem
         return battleFunctionalItems;
     }
 
-    public List<StorageSlot> GetEquipmentList(){
+    public List<StorageSlot> GetEquipmentList()
+    {
         List<StorageSlot> equipmentList = new List<StorageSlot>();
-        foreach (var slot in StorageSlots){
-            if (slot.Item != null && slot.Item is Equipment){
+        foreach (var slot in StorageSlots)
+        {
+            if (slot.Item != null && slot.Item is Equipment)
+            {
                 equipmentList.Add(slot);
             }
         }
         return equipmentList;
     }
-    
+
 }
+
+
 
 
 

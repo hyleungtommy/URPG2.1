@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c7bfb59d83e4641a5afec34b435c46, type: 3}
   m_Name: w012
   m_EditorClassIdentifier: 
-  WeaponName: Standard Wand
-  WeaponType: 3
+  id: 12
+  Name: Standard Wand
   Description: Standard Wand for Solider
-  Icon: {fileID: 21300000, guid: f6e764b9e74dce1489ac568ea21a605f, type: 3}
   Price: 250
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: f6e764b9e74dce1489ac568ea21a605f, type: 3}
+  WeaponType: 3
   Damage: 25
   MagicDamage: 50
   requireLv: 10

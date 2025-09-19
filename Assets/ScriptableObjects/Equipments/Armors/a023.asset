@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a023
   m_EditorClassIdentifier: 
-  ArmorName: Mage Pants
+  id: 23
+  Name: Mage Pants
+  Description: A pair of comfortable pants used by mages
+  Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 61b3306e244933145988e18cc2d8b16b, type: 3}
   ArmorType: 4
   ArmorCategory: 0
-  Description: A pair of comfortable pants used by mages
-  Icon: {fileID: 21300000, guid: 61b3306e244933145988e18cc2d8b16b, type: 3}
-  Price: 100
   Defense: 10
   MagicDefense: 20
   requireLv: 0

@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a038
   m_EditorClassIdentifier: 
-  ArmorName: Arcane Pants
+  id: 38
+  Name: Arcane Pants
+  Description: A pair of enchanted pants
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 20164698f33134a4eb4e40e7bfd4b531, type: 3}
   ArmorType: 4
   ArmorCategory: 0
-  Description: A pair of enchanted pants
-  Icon: {fileID: 21300000, guid: 20164698f33134a4eb4e40e7bfd4b531, type: 3}
-  Price: 200
   Defense: 40
   MagicDefense: 80
   requireLv: 20

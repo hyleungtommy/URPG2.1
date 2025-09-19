@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a037
   m_EditorClassIdentifier: 
-  ArmorName: Steel Leggings
+  id: 37
+  Name: Steel Leggings
+  Description: A pair of durable steel leggings
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 394afbe0c6bddb04e889fd5f668a39fa, type: 3}
   ArmorType: 4
   ArmorCategory: 2
-  Description: A pair of durable steel leggings
-  Icon: {fileID: 21300000, guid: 394afbe0c6bddb04e889fd5f668a39fa, type: 3}
-  Price: 200
   Defense: 40
   MagicDefense: 20
   requireLv: 20

@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a031
   m_EditorClassIdentifier: 
-  ArmorName: Steel Helmet
+  id: 31
+  Name: Steel Helmet
+  Description: A heavy helmet made of steel
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 7bdf5df5994fdaa44b15ff34073cf9a4, type: 3}
   ArmorType: 0
   ArmorCategory: 2
-  Description: A heavy helmet made of steel
-  Icon: {fileID: 21300000, guid: 7bdf5df5994fdaa44b15ff34073cf9a4, type: 3}
-  Price: 200
   Defense: 40
   MagicDefense: 20
   requireLv: 20

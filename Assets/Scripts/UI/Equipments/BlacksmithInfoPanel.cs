@@ -15,7 +15,7 @@ public class BlacksmithInfoPanel:InfoPanel{
     public override void Render(){
         if(obj is WeaponTemplate){
             WeaponTemplate weaponTemplate = obj as WeaponTemplate;
-            equipmentNameText.text = weaponTemplate.WeaponName;
+            equipmentNameText.text = weaponTemplate.Name;
             equipmentDescriptionText.text = weaponTemplate.Description;
             equipmentTypeText.text = weaponTemplate.WeaponType.ToString();
             equipmentIconImage.sprite = weaponTemplate.Icon;
@@ -32,7 +32,7 @@ public class BlacksmithInfoPanel:InfoPanel{
             }
         }else if(obj is ArmorTemplate){
             ArmorTemplate armorTemplate = obj as ArmorTemplate;
-            equipmentNameText.text = armorTemplate.ArmorName;
+            equipmentNameText.text = armorTemplate.Name;
             equipmentDescriptionText.text = armorTemplate.Description;
             equipmentTypeText.text = armorTemplate.ArmorType.ToString();
             equipmentIconImage.sprite = armorTemplate.Icon;

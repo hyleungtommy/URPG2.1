@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a028
   m_EditorClassIdentifier: 
-  ArmorName: Solider's Sabatons
+  id: 28
+  Name: Solider's Sabatons
+  Description: A pair of iron sabatons used by soliders
+  Price: 100
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 4857f9aacbf3271408e320c865f67c05, type: 3}
   ArmorType: 3
   ArmorCategory: 0
-  Description: A pair of iron sabatons used by soliders
-  Icon: {fileID: 21300000, guid: 4857f9aacbf3271408e320c865f67c05, type: 3}
-  Price: 100
   Defense: 20
   MagicDefense: 10
   requireLv: 10

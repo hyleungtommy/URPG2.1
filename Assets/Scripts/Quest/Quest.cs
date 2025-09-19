@@ -52,7 +52,7 @@ public class Quest{
                 requirement.Reset();
             }
             if(requirement.Requirement is ItemTemplate){
-                Game.Inventory.RemoveItem((requirement.Requirement as ItemTemplate).id, requirement.Amount);
+                Game.Inventory.RemoveItem((requirement.Requirement as ItemTemplate).GetItem(), requirement.Amount);
             }
         }
         return new QuestReward{

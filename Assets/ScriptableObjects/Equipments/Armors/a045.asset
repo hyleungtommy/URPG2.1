@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc65fd881a170e449bd8494eead9b5e, type: 3}
   m_Name: a045
   m_EditorClassIdentifier: 
-  ArmorName: Ranger's Boots
+  id: 45
+  Name: Ranger's Boots
+  Description: A pair of boots made with good hides
+  Price: 200
+  SellPrice: 0
+  Rarity: 0
+  Icon: {fileID: 21300000, guid: 28488fc0b628dee4bbd2e97b5e27db9e, type: 3}
   ArmorType: 3
   ArmorCategory: 1
-  Description: A pair of boots made with good hides
-  Icon: {fileID: 21300000, guid: 28488fc0b628dee4bbd2e97b5e27db9e, type: 3}
-  Price: 200
   Defense: 30
   MagicDefense: 30
   requireLv: 20

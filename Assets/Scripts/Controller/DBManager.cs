@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public class DBManager:MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DBManager:MonoBehaviour
     [SerializeField] QuestTemplate[] questTemplates;
     [SerializeField] ExploreSiteTemplate[] exploreSiteTemplates;
     [SerializeField] Sprite[] exploreSiteSprites;
+    [SerializeField] CraftRecipeTemplate[] craftRecipeTemplates;
     
 
     private void Awake()
@@ -79,6 +81,10 @@ public class DBManager:MonoBehaviour
     public Sprite GetExploreSiteSprite(ExploreSiteType exploreSiteType)
     {
         return exploreSiteSprites[(int)exploreSiteType];
+    }
+
+    public List<CraftRecipe> GetAllCraftRecipes(){
+        return craftRecipeTemplates.Select(c => new CraftRecipe(c)).ToList();
     }
     
     
