@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d3936ad09ae724eab6a9d98bc8808a, type: 3}
   m_Name: re_medium
   m_EditorClassIdentifier: 
-  equipmentType: 0
-  equipmentLv: 0
-  maxReinforceLevel: 0
-  requirements: []
+  equipmentType: 4
+  equipmentLv: 1
+  maxReinforceLevel: 3
+  requirements:
+  - item: {fileID: 11400000, guid: 7f3850c28a87cd447816c2c72246f5a3, type: 2}
+    amount: 2
   costIncreaseEveryXLevel: 1
   costIncrement: 1

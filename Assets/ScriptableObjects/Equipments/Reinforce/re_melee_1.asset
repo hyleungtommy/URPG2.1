@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentType: 0
   equipmentLv: 1
-  maxReinforceLevel: 0
-  requirements: []
-  costIncreaseEveryXLevel: 0
-  costIncrement: 0
+  maxReinforceLevel: 3
+  requirements:
+  - item: {fileID: 11400000, guid: 73cf21ead6c83504c961595729125d72, type: 2}
+    amount: 2
+  costIncreaseEveryXLevel: 1
+  costIncrement: 1

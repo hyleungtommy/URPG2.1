@@ -48324,6 +48324,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
+      propertyPath: reinforceDataTemplates.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
       propertyPath: craftRecipeTemplates.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: f5fa1702bb1dd0c42b57947bcad41f7c,
@@ -48729,6 +48734,42 @@ PrefabInstance:
       propertyPath: exploreSiteTemplates.Array.data[17]
       value: 
       objectReference: {fileID: 11400000, guid: d857f1dd46aeaf240ac913909c457d87,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: reinforceDataTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: be7fc8abd618b544293723c875ab6660,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: reinforceDataTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: d10162b974c38d942be74a1231641b10,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: reinforceDataTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: a3ce0d4777b61c644afb491a814ae09c,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: reinforceDataTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 90980c385e86a5641a66e327b59e22ff,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: reinforceDataTemplates.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 061ed59b553d93e45a234b29fc388f20,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: reinforceDataTemplates.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: c6193cd6968473c4886bfc01c876ade5,
         type: 2}
     - target: {fileID: 1744191331368228046, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
