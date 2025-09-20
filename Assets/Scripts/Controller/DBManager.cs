@@ -13,6 +13,7 @@ public class DBManager:MonoBehaviour
     [SerializeField] ExploreSiteTemplate[] exploreSiteTemplates;
     [SerializeField] Sprite[] exploreSiteSprites;
     [SerializeField] CraftRecipeTemplate[] craftRecipeTemplates;
+    [SerializeField] ReinforceDataTemplate[] reinforceDataTemplates;
     
 
     private void Awake()
@@ -85,6 +86,10 @@ public class DBManager:MonoBehaviour
 
     public List<CraftRecipe> GetAllCraftRecipes(){
         return craftRecipeTemplates.Select(c => new CraftRecipe(c)).ToList();
+    }
+
+    public List<ReinforceDataTemplate> GetAllReinforceDataTemplates(){
+        return reinforceDataTemplates.ToList();
     }
     
     

@@ -2,12 +2,16 @@ using UnityEngine;
 
 public abstract class Equipment:Item{
     public int RequireLv {get; private set;}
+    public int ReinforceLv {get; private set;}
+    //Full name: Rarity + Name + enchantment + ReinforceLv (e.g. Epic Iron Sword of Power +1)
+    public string FullName {get{return Constant.equipmentRarityName[Rarity] + " " + Name + "+" + ReinforceLv;}}
 
     public override int MaxStackSize {get{return 1;}}
 
     public Equipment(string equipmentName, string description, Sprite icon, int price, int requireLv)
     :base(0, equipmentName, description, price, 0, 0, icon){
         this.RequireLv = requireLv;
+        this.ReinforceLv = 0;
     }
 
     public abstract BaseStat GetStat();

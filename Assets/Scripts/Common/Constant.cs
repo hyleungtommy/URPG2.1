@@ -22,7 +22,15 @@ public class Constant
         "Epic",
         "Legendary"
     };
-    
+
+    public static string[] equipmentRarityName = {
+        "",
+        "Good",
+        "Great",
+        "Epic",
+        "Legendary"
+    };
+
     public static int[] ExpForEachLevel = {
             100,
             150,
