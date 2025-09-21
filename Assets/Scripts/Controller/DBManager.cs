@@ -32,67 +32,65 @@ public class DBManager:MonoBehaviour
     }
 
     public void LoadTestItems(){
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(26), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(27), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(36), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(37), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(55), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(56), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(70), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(71), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(76), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(77), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(20), 10);
-        Game.Inventory.InsertItem(DBManager.Instance.GetItem(21), 10);
+        Game.Inventory.InsertItem(GetItem(26), 99);
+        Game.Inventory.InsertItem(GetItem(27), 99);
+        Game.Inventory.InsertItem(GetItem(36), 99);
+        Game.Inventory.InsertItem(GetItem(37), 99);
+        Game.Inventory.InsertItem(GetItem(55), 99);
+        Game.Inventory.InsertItem(GetItem(56), 99);
+        Game.Inventory.InsertItem(GetItem(70), 99);
+        Game.Inventory.InsertItem(GetItem(71), 99);
+        Game.Inventory.InsertItem(GetItem(76), 99);
+        Game.Inventory.InsertItem(GetItem(77), 99);
     }
 
         public void AddTestEquipment(){
 
-        Weapon testSword = new Weapon(DBManager.Instance.GetWeapon(0));
+        Weapon testSword = new Weapon(GetWeapon(0));
         Game.Inventory.InsertItem(testSword, 1);
-        Weapon testShield = new Weapon(DBManager.Instance.GetWeapon(1));
+        Weapon testShield = new Weapon(GetWeapon(1));
         Game.Inventory.InsertItem(testShield, 1);
-        Weapon testAxe = new Weapon(DBManager.Instance.GetWeapon(2));
+        Weapon testAxe = new Weapon(GetWeapon(2));
         Game.Inventory.InsertItem(testAxe, 1);
-        Weapon testWand = new Weapon(DBManager.Instance.GetWeapon(3));
+        Weapon testWand = new Weapon(GetWeapon(3));
         Game.Inventory.InsertItem(testWand, 1);
-        Weapon testArtifact = new Weapon(DBManager.Instance.GetWeapon(4));
+        Weapon testArtifact = new Weapon(GetWeapon(4));
         Game.Inventory.InsertItem(testArtifact, 1);
-        Weapon testStaff = new Weapon(DBManager.Instance.GetWeapon(5));
+        Weapon testStaff = new Weapon(GetWeapon(5));
         Game.Inventory.InsertItem(testStaff, 1);
-        Weapon testBow = new Weapon(DBManager.Instance.GetWeapon(6));
+        Weapon testBow = new Weapon(GetWeapon(6));
         Game.Inventory.InsertItem(testBow, 1);
-        Weapon testDagger = new Weapon(DBManager.Instance.GetWeapon(7));
+        Weapon testDagger = new Weapon(GetWeapon(7));
         Game.Inventory.InsertItem(testDagger, 1);
-        Armor testHeavyHead = new Armor(DBManager.Instance.GetArmor(0));
+        Armor testHeavyHead = new Armor(GetArmor(0));
         Game.Inventory.InsertItem(testHeavyHead, 1);
-        Armor testLightHead = new Armor(DBManager.Instance.GetArmor(1));
+        Armor testLightHead = new Armor(GetArmor(1));
         Game.Inventory.InsertItem(testLightHead, 1);
-        Armor testMediumHead = new Armor(DBManager.Instance.GetArmor(2));
+        Armor testMediumHead = new Armor(GetArmor(2));
         Game.Inventory.InsertItem(testMediumHead, 1);
-        Armor testHeavyBody = new Armor(DBManager.Instance.GetArmor(3));
+        Armor testHeavyBody = new Armor(GetArmor(3));
         Game.Inventory.InsertItem(testHeavyBody, 1);
-        Armor testLightBody = new Armor(DBManager.Instance.GetArmor(4));
+        Armor testLightBody = new Armor(GetArmor(4));
         Game.Inventory.InsertItem(testLightBody, 1);
-        Armor testMediumBody = new Armor(DBManager.Instance.GetArmor(5));
+        Armor testMediumBody = new Armor(GetArmor(5));
         Game.Inventory.InsertItem(testMediumBody, 1);
-        Armor testHeavyLeggings = new Armor(DBManager.Instance.GetArmor(6));
+        Armor testHeavyLeggings = new Armor(GetArmor(6));
         Game.Inventory.InsertItem(testHeavyLeggings, 1);
-        Armor testLightLeggings = new Armor(DBManager.Instance.GetArmor(7));
+        Armor testLightLeggings = new Armor(GetArmor(7));
         Game.Inventory.InsertItem(testLightLeggings, 1);
-        Armor testMediumLeggings = new Armor(DBManager.Instance.GetArmor(8));
+        Armor testMediumLeggings = new Armor(GetArmor(8));
         Game.Inventory.InsertItem(testMediumLeggings, 1);
-        Armor testHeavyGloves = new Armor(DBManager.Instance.GetArmor(9));
+        Armor testHeavyGloves = new Armor(GetArmor(9));
         Game.Inventory.InsertItem(testHeavyGloves, 1);
-        Armor testLightGloves = new Armor(DBManager.Instance.GetArmor(10));
+        Armor testLightGloves = new Armor(GetArmor(10));
         Game.Inventory.InsertItem(testLightGloves, 1);
-        Armor testMediumGloves = new Armor(DBManager.Instance.GetArmor(11));
+        Armor testMediumGloves = new Armor(GetArmor(11));
         Game.Inventory.InsertItem(testMediumGloves, 1);
-        Armor testHeavyBoots = new Armor(DBManager.Instance.GetArmor(12));
+        Armor testHeavyBoots = new Armor(GetArmor(12));
         Game.Inventory.InsertItem(testHeavyBoots, 1);
-        Armor testLightBoots = new Armor(DBManager.Instance.GetArmor(13));
+        Armor testLightBoots = new Armor(GetArmor(13));
         Game.Inventory.InsertItem(testLightBoots, 1);
-        Armor testMediumBoots = new Armor(DBManager.Instance.GetArmor(14));
+        Armor testMediumBoots = new Armor(GetArmor(14));
         Game.Inventory.InsertItem(testMediumBoots, 1);
 
     }

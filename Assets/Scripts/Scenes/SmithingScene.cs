@@ -31,8 +31,8 @@ public class SmithingScene : CommonListScene<SmithingListBox>{
         }
     }
 
-    public void DisplayCraftCompleteDialog(CraftRecipe recipe, int craftAmount){
+    public void DisplayCraftCompleteDialog(Equipment equipment){
         craftCompleteDialog.gameObject.SetActive(true);
-        craftCompleteDialog.Render(recipe, craftAmount);
+        craftCompleteDialog.Render(equipment);
     }
 }
