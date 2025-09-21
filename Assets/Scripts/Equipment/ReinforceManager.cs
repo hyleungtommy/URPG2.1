@@ -1,4 +1,6 @@
 using System.Linq;
+using System.Collections.Generic;
+using UnityEngine;
 public static class ReinforceManager
 {
     public static bool CanReinforce(Equipment equipment)
@@ -90,4 +92,61 @@ public static class ReinforceManager
         }
         return ReinforceEquipmentType.WeaponMelee;
     }
+
+    public static bool CanEnchant(Equipment equipment)
+    {
+        EnchantmentData enchantmentData = DBManager.Instance.GetEnchantmentData(equipment.RequireLv);
+        if (enchantmentData == null)
+        {
+            return false;
+        }
+        else
+        {
+            return equipment.Enchantments.Count  == 0;
+        }
+    }
+
+    public static List<Enchantment> GetRandomEnchantment(Equipment equipment)
+    {
+        List<Enchantment> enchantments = new List<Enchantment>();
+        EnchantmentData enchantmentData = DBManager.Instance.GetEnchantmentData(equipment.RequireLv);
+        if (enchantmentData == null)
+        {
+            Debug.LogError("No enchantment data found for equipment level: " + equipment.RequireLv);
+            return enchantments;
+        }
+        else
+        {
+            List<EnchantmentTemplate> possibleEnchantments = DBManager.Instance.GetAllEnchantmentTemplates().Where(e => e.applyType == EnchantmentApplyType.All || e.applyType == GetEnchantmentApplyType(equipment)).ToList();
+            
+            // Check if there are any possible enchantments before selecting one
+            if (possibleEnchantments.Count == 0)
+            {
+                Debug.LogError("No possible enchantments found for equipment level: " + equipment.Name);
+                return enchantments;
+            }
+            
+            //Currently only 1 enchantment is applied
+            EnchantmentTemplate randomEnchantment = possibleEnchantments[UnityEngine.Random.Range(0, possibleEnchantments.Count)];
+            enchantments.Add(new Enchantment(randomEnchantment.id, Random.Range(1, randomEnchantment.maxEnchantmentLevel + 1)));
+            return enchantments;
+        }
+    }
+
+    private static EnchantmentApplyType GetEnchantmentApplyType(Equipment equipment)
+    {
+        if(equipment is Weapon)
+        {
+            return EnchantmentApplyType.Weapon;
+        }
+        else if(equipment is Armor)
+        {
+            return EnchantmentApplyType.Armor;
+        }
+        else
+        {
+            return EnchantmentApplyType.All;
+        }
+    }
+
 }

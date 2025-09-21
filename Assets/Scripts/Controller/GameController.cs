@@ -95,6 +95,10 @@ public class GameController : MonoBehaviour
             {
                 UIController.Instance.ToggleUIScene("Reinforce");
             }
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                UIController.Instance.ToggleUIScene("Enchantment");
+            }
             if (Input.GetKeyDown(KeyCode.Space)){
                 FindObjectOfType<PlayerController>()?.Interact();
             }

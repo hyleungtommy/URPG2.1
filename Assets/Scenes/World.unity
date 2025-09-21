@@ -48301,6 +48301,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
+      propertyPath: enchantmentTemplates.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
       propertyPath: exploreSiteTemplates.Array.size
       value: 18
       objectReference: {fileID: 0}
@@ -48386,6 +48391,54 @@ PrefabInstance:
       propertyPath: craftRecipeTemplates.Array.data[9]
       value: 
       objectReference: {fileID: 11400000, guid: 94d4d588f28938a44be4106134ed843d,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7076dc1310a41a44a9fc73d383388c20,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c851cd4d8a5c474ba4a49c5fd65846c,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f1486f9865169fd41950c84eca9acf63,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 969efa8b73c04664299dad98d5816d5f,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentTemplates.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: c9fbc4c390ef47a43a7dfd40158e3588,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentTemplates.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 885693a3f19d20345bb799ebf93df0c0,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentTemplates.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: a3b280c6686407f4ebfa2c4cafba5de1,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentTemplates.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 60f4d77dc4bfbdf4791145fd3a7d6cba,
         type: 2}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
@@ -48689,6 +48742,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
+      propertyPath: enchantmentDataTemplates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
       propertyPath: exploreSiteTemplates.Array.data[10]
       value: 
       objectReference: {fileID: 11400000, guid: 455e9d1e2096eb342a56b4ca662a0bf5,
@@ -48770,6 +48828,18 @@ PrefabInstance:
       propertyPath: reinforceDataTemplates.Array.data[5]
       value: 
       objectReference: {fileID: 11400000, guid: c6193cd6968473c4886bfc01c876ade5,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentDataTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7110be36337c25a4b9bd0b7131622341,
+        type: 2}
+    - target: {fileID: 904853209218224917, guid: fd0858196970586459536b9a1ed6e90d,
+        type: 3}
+      propertyPath: enchantmentDataTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: eed2a11aa563e404c9c2f8031cc2798f,
         type: 2}
     - target: {fileID: 1744191331368228046, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}

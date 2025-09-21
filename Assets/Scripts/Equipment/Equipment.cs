@@ -1,10 +1,11 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public abstract class Equipment:Item{
     public int RequireLv {get; private set;}
     public int ReinforceLv {get; private set;}
+    public List<Enchantment> Enchantments {get; private set;}
     //Full name: Rarity + Name + enchantment + ReinforceLv (e.g. Epic Iron Sword of Power +1)
-    public string FullName {get{return Constant.equipmentRarityName[Rarity] + " " + Name + (ReinforceLv > 0 ? "+" + ReinforceLv : "");}}
+    public string FullName {get{return Constant.equipmentRarityName[Rarity] + " " + Name + (Enchantments.Count > 0 ? " of " + string.Join(" and ", Enchantments[0].Name) : "") + (ReinforceLv > 0 ? "+" + ReinforceLv : "");}}
 
     public override int MaxStackSize {get{return 1;}}
 
@@ -12,10 +13,26 @@ public abstract class Equipment:Item{
     :base(0, equipmentName, description, price, 0, 0, icon){
         this.RequireLv = requireLv;
         this.ReinforceLv = 0;
+        this.Enchantments = new List<Enchantment>();
     }
 
     public void Reinforce(){
         ReinforceLv++;
+    }
+
+    public void Enchant(){
+        List<Enchantment> enchantments = ReinforceManager.GetRandomEnchantment(this);
+        foreach(Enchantment enchantment in enchantments){
+            this.Enchantments.Add(enchantment);
+        }
+    }
+
+    public EnchantmentStat GetEnchantmentStat(){
+        EnchantmentStat stat = new EnchantmentStat();
+        foreach(Enchantment enchantment in Enchantments){
+            stat = stat.Add(enchantment.GetStat());
+        }
+        return stat;
     }
 
     public abstract BaseStat GetStat();

@@ -20,6 +20,7 @@ public class SelectedEquipmentInfoPanel : InfoPanel
         equipmentNameText.text = equipment.FullName;
         equipmentTypeText.text = FormatEquipmentType(equipment);
         equipmentExtraEffectText.text = "";
+        FormatEnchantment(equipment);
         equipmentIcon.Render(equipment);
         equipmentPowerText.Render(equipment);
         equipButton.gameObject.SetActive(CanEquip());
@@ -27,6 +28,14 @@ public class SelectedEquipmentInfoPanel : InfoPanel
 
     public string FormatEquipmentType(Equipment equipment){
         return equipment.ItemType.ToString() + "\n" + (equipment is Armor? (equipment as Armor).ArmorCategory.ToString() : "") + " Armor\nRequire Lv." + equipment.RequireLv;
+    }
+
+    public void FormatEnchantment(Equipment equipment){
+        if(equipment.Enchantments.Count > 0){
+            equipmentExtraEffectText.text = "Enchantment: " + equipment.Enchantments[0].Name + " " + Util.NumberToRoman(equipment.Enchantments[0].Level) + "\n" + equipment.Enchantments[0].Description;
+        }else{
+            equipmentExtraEffectText.text = "";
+        }
     }
 
     private bool CanEquip()

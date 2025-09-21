@@ -168,6 +168,19 @@ public class StorageSystem
         return reinforceableEquipmentList;
     }
 
+    public List<StorageSlot> GetEnchantableEquipmentList()
+    {
+        List<StorageSlot> enchantableEquipmentList = new List<StorageSlot>();
+        foreach (var slot in StorageSlots)
+        {
+            if (slot.Item != null && slot.Item is Equipment && ReinforceManager.CanEnchant(slot.Item as Equipment))
+            {
+                enchantableEquipmentList.Add(slot);
+            }
+        }
+        return enchantableEquipmentList;
+    }
+
 }
 
 

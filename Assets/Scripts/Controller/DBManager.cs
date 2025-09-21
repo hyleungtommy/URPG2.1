@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 public class DBManager:MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class DBManager:MonoBehaviour
     [SerializeField] Sprite[] exploreSiteSprites;
     [SerializeField] CraftRecipeTemplate[] craftRecipeTemplates;
     [SerializeField] ReinforceDataTemplate[] reinforceDataTemplates;
+    [SerializeField] EnchantmentTemplate[] enchantmentTemplates;
+    [SerializeField] EnchantmentDataTemplate[] enchantmentDataTemplates;
     
 
     private void Awake()
@@ -151,8 +154,30 @@ public class DBManager:MonoBehaviour
             return new ReinforceData(reinforceDataTemplate);
         }
     }
-    
-    
 
-    
+    public List<EnchantmentTemplate> GetAllEnchantmentTemplates(){
+        return enchantmentTemplates.ToList();
+    }
+
+    public EnchantmentTemplate GetEnchantmentTemplate(int enchantmentId)
+    {
+        if(enchantmentId > enchantmentTemplates.Length || enchantmentId <= 0){
+            return null;
+        }
+        return enchantmentTemplates[enchantmentId - 1];
+    }
+
+    public EnchantmentData GetEnchantmentData(int equipmentRequireLevel){
+        EnchantmentDataTemplate enchantmentDataTemplate = enchantmentDataTemplates.FirstOrDefault(e => e.equipmentRequireLevel == equipmentRequireLevel);
+        if(enchantmentDataTemplate == null){
+            return null;
+        }
+        else{
+            return new EnchantmentData(enchantmentDataTemplate);
+        }
+    }
+
+
+
+
 }
