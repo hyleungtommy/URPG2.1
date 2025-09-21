@@ -17,7 +17,7 @@ public class SelectedEquipmentInfoPanel : InfoPanel
         StorageSlot slot = obj as StorageSlot;
         Equipment equipment = slot.Item as Equipment;
         if(equipment == null) return;
-        equipmentNameText.text = equipment.Name;
+        equipmentNameText.text = equipment.FullName;
         equipmentTypeText.text = FormatEquipmentType(equipment);
         equipmentExtraEffectText.text = "";
         equipmentIcon.Render(equipment);

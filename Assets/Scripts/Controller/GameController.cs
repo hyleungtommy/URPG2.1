@@ -91,6 +91,10 @@ public class GameController : MonoBehaviour
             {
                 UIController.Instance.ToggleUIScene("Smithing");
             }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                UIController.Instance.ToggleUIScene("Reinforce");
+            }
             if (Input.GetKeyDown(KeyCode.Space)){
                 FindObjectOfType<PlayerController>()?.Interact();
             }

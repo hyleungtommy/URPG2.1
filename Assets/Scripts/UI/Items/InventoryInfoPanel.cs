@@ -13,7 +13,11 @@ public class InventoryInfoPanel : InfoPanel
         StorageSlot slot = obj as StorageSlot;
         if (slot.Item != null)
         {
-            itemNameText.text = slot.Item.Name;
+            if(slot.Item is Equipment){
+                itemNameText.text = (slot.Item as Equipment).FullName;
+            }else{
+                itemNameText.text = slot.Item.Name;
+            }
             itemDescriptionText.text = slot.Item.Description;
             itemTypeText.text = slot.Item.ItemType + "\n" + Constant.itemRarityName[slot.Item.Rarity] + "\nQuantity: " + slot.Quantity;
             itemIconImage.sprite = slot.Item.Icon;

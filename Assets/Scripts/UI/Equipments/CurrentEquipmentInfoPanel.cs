@@ -13,7 +13,7 @@ public class CurrentEquipmentInfoPanel : InfoPanel
     public override void Render(){
         Equipment equipment = obj as Equipment;
         if(equipment == null) return;
-        equipmentNameText.text = equipment.Name;
+        equipmentNameText.text = equipment.FullName;
         equipmentTypeText.text = FormatEquipmentType(equipment);
         equipmentExtraEffectText.text = "";
         equipmentIcon.Render(equipment);
