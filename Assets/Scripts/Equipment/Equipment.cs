@@ -5,7 +5,7 @@ public abstract class Equipment:Item{
     public int ReinforceLv {get; private set;}
     public List<Enchantment> Enchantments {get; private set;}
     //Full name: Rarity + Name + enchantment + ReinforceLv (e.g. Epic Iron Sword of Power +1)
-    public string FullName {get{return Constant.equipmentRarityName[Rarity] + " " + Name + (Enchantments.Count > 0 ? " of " + string.Join(" and ", Enchantments[0].Name) : "") + (ReinforceLv > 0 ? "+" + ReinforceLv : "");}}
+    public string FullName {get{return Constant.equipmentRarityName[Rarity] + " " + Name + (Enchantments.Count > 0 ? " of " + Enchantments[0].Name : "") + (ReinforceLv > 0 ? "+" + ReinforceLv : "");}}
 
     public override int MaxStackSize {get{return 1;}}
 
@@ -15,6 +15,8 @@ public abstract class Equipment:Item{
         this.ReinforceLv = 0;
         this.Enchantments = new List<Enchantment>();
     }
+
+    public abstract Equipment CreateCopy();
 
     public void Reinforce(){
         ReinforceLv++;
@@ -52,8 +54,18 @@ public class Weapon: Equipment{
         this.RawMagicDamage = weaponTemplate.MagicDamage;
     }
 
+    public Weapon(Weapon weapon): base(weapon.Name, weapon.Description, weapon.Icon, weapon.Price, weapon.RequireLv){
+        this.WeaponType = weapon.WeaponType;
+        this.RawDamage = weapon.RawDamage;
+        this.RawMagicDamage = weapon.RawMagicDamage;
+    }
+
     public override BaseStat GetStat(){
-        return new BaseStat(0, 0, Damage, MagicDamage, 0, 0, 0, 0);
+        return new BaseStat(0, 0, (int)(Damage * Constant.equipmentRarityMultiplier[Rarity]), (int)(MagicDamage * Constant.equipmentRarityMultiplier[Rarity]), 0, 0, 0, 0);
+    }
+
+    public override Equipment CreateCopy(){
+        return new Weapon(this);
     }
 }
 
@@ -73,8 +85,19 @@ public class Armor: Equipment{
         this.RawMagicDefense = armorTemplate.MagicDefense;
     }
 
+    public Armor(Armor armor): base(armor.Name, armor.Description, armor.Icon, armor.Price, armor.RequireLv){
+        this.ArmorType = armor.ArmorType;
+        this.ArmorCategory = armor.ArmorCategory;
+        this.RawDefense = armor.RawDefense;
+        this.RawMagicDefense = armor.RawMagicDefense;
+    }
+
     public override BaseStat GetStat(){
-        return new BaseStat(0, 0, 0, 0, Defense, MagicDefense, 0, 0);
+        return new BaseStat(0, 0, 0, 0, (int)(Defense * Constant.equipmentRarityMultiplier[Rarity]), (int)(MagicDefense * Constant.equipmentRarityMultiplier[Rarity]), 0, 0);
+    }
+
+    public override Equipment CreateCopy(){
+        return new Armor(this);
     }
 }
 

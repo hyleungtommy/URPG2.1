@@ -58,7 +58,10 @@ public class SmithingInfoPanel : InfoPanel{
             Game.Inventory.RemoveItem(recipe.requirements[i].item, recipe.requirements[i].amount);
         }
 
-        Game.Inventory.InsertItem(recipe.resultItem, recipe.resultAmount);
+        Equipment resultEquipment = (recipe.resultItem as Equipment).CreateCopy();
+        resultEquipment.Rarity = UnityEngine.Random.Range(0, 5);
+
+        Game.Inventory.InsertItem(resultEquipment, recipe.resultAmount);
 
         if (recipe.craftSkillType == CraftSkillType.Smithing){
             Game.CraftSkillManager.Smithing.GainExp(1);
@@ -70,6 +73,6 @@ public class SmithingInfoPanel : InfoPanel{
 
         Render();
         smithingScene.UpdateCraftSkillRow();
-        smithingScene.DisplayCraftCompleteDialog(recipe, 1);
+        smithingScene.DisplayCraftCompleteDialog(resultEquipment);
     }
 }

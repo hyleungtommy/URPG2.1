@@ -33,6 +33,15 @@ public class Constant
         "Legendary"
     };
 
+    public static float[] equipmentRarityMultiplier = {
+        1,
+        1.25f,
+        1.5f,
+        1.75f,
+        2,
+    };
+
+
     public static int[] ExpForEachLevel = {
             100,
             150,
