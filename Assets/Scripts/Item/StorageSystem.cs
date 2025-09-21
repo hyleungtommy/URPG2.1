@@ -155,6 +155,32 @@ public class StorageSystem
         return equipmentList;
     }
 
+    public List<StorageSlot> GetReinforceableEquipmentList()
+    {
+        List<StorageSlot> reinforceableEquipmentList = new List<StorageSlot>();
+        foreach (var slot in StorageSlots)
+        {
+            if (slot.Item != null && slot.Item is Equipment && ReinforceManager.CanReinforce(slot.Item as Equipment))
+            {
+                reinforceableEquipmentList.Add(slot);
+            }
+        }
+        return reinforceableEquipmentList;
+    }
+
+    public List<StorageSlot> GetEnchantableEquipmentList()
+    {
+        List<StorageSlot> enchantableEquipmentList = new List<StorageSlot>();
+        foreach (var slot in StorageSlots)
+        {
+            if (slot.Item != null && slot.Item is Equipment && ReinforceManager.CanEnchant(slot.Item as Equipment))
+            {
+                enchantableEquipmentList.Add(slot);
+            }
+        }
+        return enchantableEquipmentList;
+    }
+
 }
 
 

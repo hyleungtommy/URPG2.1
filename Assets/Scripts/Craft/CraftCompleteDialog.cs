@@ -11,6 +11,11 @@ public class CraftCompleteDialog : MonoBehaviour{
         itemBox.Render(recipe.resultItem);
     }
 
+    public void Render(Equipment equipment){
+        itemNameText.text = equipment.FullName;
+        itemBox.Render(equipment);
+    }
+
     public void OnClickClose(){
         gameObject.SetActive(false);
     }

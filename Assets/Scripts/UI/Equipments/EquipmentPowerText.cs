@@ -34,6 +34,30 @@ public class EquipmentPowerText : MonoBehaviour
         }
     }
 
+    public void RenderReinforceText(Equipment equipment)
+    {
+        if(equipment is Weapon){
+            weaponDamage.SetActive(true);
+            weaponMagicDamage.SetActive(true);
+            armorDefense.SetActive(false);
+            armorMagicDefense.SetActive(false);
+            int damage = (equipment as Weapon).Damage + ReinforceManager.GetReinforcePowerIncrease(equipment);
+            weaponDamageText.text =damage + " (" + ReinforceManager.GetReinforcePowerIncrease(equipment).ToString() + ")";
+            int magicDamage = (equipment as Weapon).MagicDamage + ReinforceManager.GetReinforceMagicPowerIncrease(equipment);
+            weaponMagicDamageText.text = magicDamage + " (" + ReinforceManager.GetReinforceMagicPowerIncrease(equipment).ToString() + ")";
+        }
+        else if(equipment is Armor){
+            weaponDamage.SetActive(false);
+            weaponMagicDamage.SetActive(false);
+            armorDefense.SetActive(true);
+            armorMagicDefense.SetActive(true);
+            int defense = (equipment as Armor).Defense + ReinforceManager.GetReinforcePowerIncrease(equipment);
+            armorDefenseText.text = defense + " (" + ReinforceManager.GetReinforcePowerIncrease(equipment).ToString() + ")";
+            int magicDefense = (equipment as Armor).MagicDefense + ReinforceManager.GetReinforceMagicPowerIncrease(equipment);
+            armorMagicDefenseText.text = magicDefense + " (" + ReinforceManager.GetReinforceMagicPowerIncrease(equipment).ToString() + ")";
+        }
+    }
+
     public void Render(WeaponTemplate weaponTemplate){
         weaponDamage.SetActive(true);
         weaponMagicDamage.SetActive(true);

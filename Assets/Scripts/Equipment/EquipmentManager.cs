@@ -178,4 +178,30 @@ public class EquipmentManager
         }
         return stat;
     }
+
+    public EnchantmentStat GetEquipmentEnchantmentStat(){
+        EnchantmentStat stat = new EnchantmentStat(0, 0, 0, 0, 0, 0, 0, 0);
+        if (MainHand != null){
+            stat = stat.Add(MainHand.GetEnchantmentStat());
+        }
+        if (OffHand != null){
+            stat = stat.Add(OffHand.GetEnchantmentStat());
+        }
+        if (Head != null){
+            stat = stat.Add(Head.GetEnchantmentStat());
+        }
+        if (Body != null){
+            stat = stat.Add(Body.GetEnchantmentStat());
+        }
+        if (Hands != null){
+            stat = stat.Add(Hands.GetEnchantmentStat());
+        }
+        if (Feet != null){
+            stat = stat.Add(Feet.GetEnchantmentStat());
+        }
+        if (Legs != null){
+            stat = stat.Add(Legs.GetEnchantmentStat());
+        }
+        return stat;
+    }
 }

@@ -31,4 +31,9 @@ public class BaseStat
     public BaseStat Multiply(BuffMatrix buffMatrix){
         return new BaseStat(HP , MP , (int)Math.Round(ATK * buffMatrix.ATK), (int)Math.Round(DEF * buffMatrix.DEF), (int)Math.Round(MATK * buffMatrix.MATK), (int)Math.Round(MDEF * buffMatrix.MDEF), (int)Math.Round(AGI * buffMatrix.AGI), (int)Math.Round(DEX * buffMatrix.DEX));
     }
+
+    public BaseStat Add(EnchantmentStat enchantmentStat)
+    {
+        return new BaseStat((int)(HP * (1 + enchantmentStat.HP)), (int)(MP * (1 + enchantmentStat.MP)), (int)(ATK * (1 + enchantmentStat.ATK)), (int)(DEF * (1 + enchantmentStat.DEF)), (int)(MATK * (1 + enchantmentStat.MATK)), (int)(MDEF * (1 + enchantmentStat.MDEF)), (int)(AGI * (1 + enchantmentStat.AGI)), (int)(DEX * (1 + enchantmentStat.DEX)));
+    }
 }

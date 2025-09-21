@@ -14,6 +14,8 @@ public class Constant
             new Color32(142,68,173,255),
             new Color32(230,126,34,255)
         };
+
+    public static int ReinforcePowerIncreasePercent = 10;// % of the equipment's power will be increased
     
     public static string[] itemRarityName = {
         "Common",
@@ -22,7 +24,15 @@ public class Constant
         "Epic",
         "Legendary"
     };
-    
+
+    public static string[] equipmentRarityName = {
+        "",
+        "Good",
+        "Great",
+        "Epic",
+        "Legendary"
+    };
+
     public static int[] ExpForEachLevel = {
             100,
             150,

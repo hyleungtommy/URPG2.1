@@ -28,6 +28,7 @@ public class BattleCharacterStat
 
         BaseStat stat = new BaseStat(hp, mp, atk, def, matk, mdef, agi, dex);
         BaseStat equippedStat = equipmentManager.GetEquipmentStat();
-        return stat.Add(equippedStat);
+        EnchantmentStat enchantmentStat = equipmentManager.GetEquipmentEnchantmentStat();
+        return stat.Add(equippedStat).Add(enchantmentStat);
     }
 }
