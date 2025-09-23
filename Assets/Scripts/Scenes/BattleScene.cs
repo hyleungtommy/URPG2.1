@@ -116,6 +116,8 @@ public class BattleScene : MonoBehaviour
         rewardPanel.gameObject.SetActive(false);
         Game.State = GameState.Battle;
 
+        UpdateUI();
+
         StartBattleLoop();
     }
 
@@ -372,7 +374,7 @@ public class BattleScene : MonoBehaviour
         }
     }
 
-    private Vector3 GetEntityPosition(BattleEntity entity)
+    public Vector3 GetEntityPosition(BattleEntity entity)
     {
         // Try to find the entity in enemy views first
         if (entity is BattleEnemyEntity enemyEntity)
@@ -427,10 +429,18 @@ public class BattleScene : MonoBehaviour
     private Vector3 GetWorldPositionFromUI(Transform uiTransform)
     {
         if (uiTransform == null) return Vector3.zero;
-        
-        // Simply return the world position of the UI element
-        // The animation will be spawned in world space at this exact position
+
         return uiTransform.position;
+    }
+
+    /// <summary>
+    /// Shows floating damage numbers when an entity takes damage
+    /// </summary>
+    /// <param name="damage">The amount of damage dealt</param>
+    /// <param name="target">The entity that took damage</param>
+    public void ShowFloatingDamage(int damage, BattleEntity target)
+    {
+        FloatingNumberManager.Instance?.ShowDamageNumberOnEntity(damage, target, false);
     }
 
 }

@@ -4294,6 +4294,7 @@ GameObject:
   - component: {fileID: 759781129}
   - component: {fileID: 759781132}
   - component: {fileID: 759781133}
+  - component: {fileID: 759781134}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4374,7 +4375,7 @@ MonoBehaviour:
   - {fileID: 1241333281}
   actionOrder: {fileID: 1084496786}
   actionButtonGroup: {fileID: 1342186904}
-  testMode: 1
+  testMode: 0
   testBossBattle: 0
   testMap: {fileID: 11400000, guid: 28934779741cf44419a31cbc0dfd4c4f, type: 2}
   testPartyTemplate: {fileID: 11400000, guid: bfc50a8e80b10764794bbdb1e0f3833f, type: 2}
@@ -4402,6 +4403,25 @@ MonoBehaviour:
   enemyAttackAnimation: {fileID: 6139845961111664173, guid: 84eacae22ad1be24eb8a9510a8fb3d5e,
     type: 3}
   canvas: {fileID: 613482851}
+--- !u!114 &759781134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759781128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97d3a8e8b56c75469b3209372c4b571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingNumberPrefab: {fileID: 6316442874045067888, guid: 93f8537aee4b92f4198d414d7e1878c5,
+    type: 3}
+  canvas: {fileID: 613482851}
+  floatDuration: 1.5
+  floatHeight: 0.5
+  digitSpacing: 0.25
+  randomOffsetRange: 0.5
 --- !u!1001 &766823629
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -425,6 +425,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EntityBuffDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 5941650925204955697, guid: da4f4b0d8c8f9d84a95bebb4a3242dcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6603999854441617794, guid: da4f4b0d8c8f9d84a95bebb4a3242dcd,
         type: 3}
       propertyPath: m_AnchorMax.y
