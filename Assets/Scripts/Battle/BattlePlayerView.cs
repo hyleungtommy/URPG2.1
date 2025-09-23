@@ -4,12 +4,18 @@ using UnityEngine.EventSystems;
 
 public class BattlePlayerView : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private Image icon;
+    [SerializeField] public Image icon;
     [SerializeField] private Bar hpBar;
     [SerializeField] private Bar mpBar;
     [SerializeField] private EntityBuffDisplay buffDisplay;
+    [SerializeField] private Image playerImage;
 
     public BattlePlayerEntity Entity { get; private set; }
+    
+    public Transform GetImageTransform()
+    {
+        return playerImage.transform;
+    }
 
     public void Setup(BattlePlayerEntity playerEntity)
     {

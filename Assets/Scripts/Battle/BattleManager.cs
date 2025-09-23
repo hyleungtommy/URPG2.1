@@ -130,6 +130,8 @@ public class BattleManager
         if (selectionMode == SelectionMode.NormalAttack)
         {
             CurrentTurnEntity = actionQueue.Dequeue();
+            // Play normal attack animation before performing attack
+            scene.PlayNormalAttackAnimation(CurrentTurnEntity, target);
             CurrentTurnEntity.PerformNormalAttack(target);
             EndTurn(CurrentTurnEntity);
         }else if (selectionMode == SelectionMode.UseOnPartner) {
@@ -138,6 +140,8 @@ public class BattleManager
                 ItemToUse.Use(new List<BattleEntity> { target });
                 Game.Inventory.RemoveItem(ItemToUse, 1);
             }else if (SkillToUse != null){
+                // Play skill animation before using skill
+                scene.PlaySkillAnimation(SkillToUse, CurrentTurnEntity, new List<BattleEntity> { target });
                 SkillToUse.Use(CurrentTurnEntity, new List<BattleEntity> { target });
             }
             EndTurn(CurrentTurnEntity);
@@ -147,18 +151,24 @@ public class BattleManager
                 ItemToUse.Use(players.Cast<BattleEntity>().ToList());
                 Game.Inventory.RemoveItem(ItemToUse, 1);
             }else if (SkillToUse != null){
+                // Play skill animation before using AOE skill on partners
+                scene.PlaySkillAnimation(SkillToUse, CurrentTurnEntity, players.Cast<BattleEntity>().ToList());
                 SkillToUse.Use(CurrentTurnEntity, players.Cast<BattleEntity>().ToList());
             }
             EndTurn(CurrentTurnEntity);
         }else if (selectionMode == SelectionMode.UseOnOpponent) {
             CurrentTurnEntity = actionQueue.Dequeue();
             if (SkillToUse != null){
+                // Play skill animation before using skill on opponent
+                scene.PlaySkillAnimation(SkillToUse, CurrentTurnEntity, new List<BattleEntity> { target });
                 SkillToUse.Use(CurrentTurnEntity, new List<BattleEntity> { target });
             }
             EndTurn(CurrentTurnEntity);
         }else if (selectionMode == SelectionMode.UseOnOpponentAOE) {
             CurrentTurnEntity = actionQueue.Dequeue();
             if (SkillToUse != null){
+                // Play skill animation before using AOE skill on enemies
+                scene.PlaySkillAnimation(SkillToUse, CurrentTurnEntity, enemies.Cast<BattleEntity>().ToList());
                 SkillToUse.Use(CurrentTurnEntity, enemies.Cast<BattleEntity>().ToList());
             }
             EndTurn(CurrentTurnEntity);

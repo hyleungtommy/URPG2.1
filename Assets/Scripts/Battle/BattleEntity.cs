@@ -152,6 +152,12 @@ public abstract class BattleEntity
     public virtual void OnReceiveDamage(int amount)
     {
         CurrentHP = Mathf.Max(0, CurrentHP - amount);
+        
+        // Show floating damage number
+        if (BattleScene.Instance != null)
+        {
+            BattleScene.Instance.ShowFloatingDamage(amount, this);
+        }
     }
 
     /// <summary>
