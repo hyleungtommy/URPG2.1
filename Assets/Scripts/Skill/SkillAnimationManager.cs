@@ -35,6 +35,16 @@ public class SkillAnimationManager : MonoBehaviour
         }
     }
     
+    public void PlayEnemyAttackAnimation(Vector3 position)
+    {
+        if (enemyAttackAnimation != null)
+        {
+            GameObject animation = Instantiate(enemyAttackAnimation);
+            SetAnimationPosition(animation, position);
+            // Animation will auto-destroy via SkillAnimationController
+        }
+    }
+    
     public void PlaySkillAnimation(Skill skill, Vector3 position)
     {
         if (skill.Animation != null)

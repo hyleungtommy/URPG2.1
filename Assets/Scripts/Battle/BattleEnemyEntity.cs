@@ -24,6 +24,13 @@ public class BattleEnemyEntity: BattleEntity
         }
 
         BattleEntity target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+        
+        // Play enemy attack animation before performing attack
+        if (BattleScene.Instance != null)
+        {
+            BattleScene.Instance.PlayEnemyAttackAnimation(this, target);
+        }
+        
         PerformNormalAttack(target);
         manager.EndTurn(this);
     }

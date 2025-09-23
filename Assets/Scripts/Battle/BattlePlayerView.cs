@@ -8,12 +8,13 @@ public class BattlePlayerView : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Bar hpBar;
     [SerializeField] private Bar mpBar;
     [SerializeField] private EntityBuffDisplay buffDisplay;
+    [SerializeField] private Image playerImage;
 
     public BattlePlayerEntity Entity { get; private set; }
     
     public Transform GetImageTransform()
     {
-        return icon.transform;
+        return playerImage.transform;
     }
 
     public void Setup(BattlePlayerEntity playerEntity)

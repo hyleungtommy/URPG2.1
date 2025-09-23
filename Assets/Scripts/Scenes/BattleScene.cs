@@ -335,6 +335,16 @@ public class BattleScene : MonoBehaviour
         }
     }
 
+    public void PlayEnemyAttackAnimation(BattleEntity enemy, BattleEntity target)
+    {
+        if (SkillAnimationManager.Instance != null)
+        {
+            // Play enemy attack animation at target's position (player's position)
+            Vector3 animationPosition = GetEntityPosition(target);
+            SkillAnimationManager.Instance.PlayEnemyAttackAnimation(animationPosition);
+        }
+    }
+
     public void PlaySkillAnimation(Skill skill, BattleEntity user, List<BattleEntity> targets)
     {
         if (SkillAnimationManager.Instance != null)
