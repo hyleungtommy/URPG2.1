@@ -325,4 +325,102 @@ public class BattleScene : MonoBehaviour
         rewardPanel.ShowRewardPanel(reward);
     }
 
+    public void PlayNormalAttackAnimation(BattleEntity attacker, BattleEntity target)
+    {
+        if (SkillAnimationManager.Instance != null)
+        {
+            // Play animation at target's position
+            Vector3 animationPosition = GetEntityPosition(target);
+            SkillAnimationManager.Instance.PlayNormalAttackAnimation(animationPosition);
+        }
+    }
+
+    public void PlaySkillAnimation(Skill skill, BattleEntity user, List<BattleEntity> targets)
+    {
+        if (SkillAnimationManager.Instance != null)
+        {
+            if (skill.IsAOE)
+            {
+                // For AOE skills, play animation at center of all targets
+                Vector3 centerPosition = Vector3.zero;
+                foreach (var target in targets)
+                {
+                    centerPosition += GetEntityPosition(target);
+                }
+                centerPosition /= targets.Count;
+                SkillAnimationManager.Instance.PlaySkillAnimation(skill, centerPosition);
+            }
+            else
+            {
+                // For single target skills, play animation at first target's position
+                if (targets.Count > 0)
+                {
+                    Vector3 animationPosition = GetEntityPosition(targets[0]);
+                    SkillAnimationManager.Instance.PlaySkillAnimation(skill, animationPosition);
+                }
+            }
+        }
+    }
+
+    private Vector3 GetEntityPosition(BattleEntity entity)
+    {
+        // Try to find the entity in enemy views first
+        if (entity is BattleEnemyEntity enemyEntity)
+        {
+            // Check regular enemy list
+            if (battleEnemyList != null)
+            {
+                var enemyViews = battleEnemyList.GetComponentsInChildren<BattleEnemyView>();
+                foreach (var enemyView in enemyViews)
+                {
+                    if (enemyView.Entity == enemyEntity && enemyView.gameObject.activeInHierarchy)
+                    {
+                        return GetWorldPositionFromUI(enemyView.GetImageTransform());
+                    }
+                }
+            }
+            
+            // Check boss list
+            if (battleBossList != null)
+            {
+                var bossViews = battleBossList.GetComponentsInChildren<BattleEnemyView>();
+                foreach (var bossView in bossViews)
+                {
+                    if (bossView.Entity == enemyEntity && bossView.gameObject.activeInHierarchy)
+                    {
+                        return GetWorldPositionFromUI(bossView.GetImageTransform());
+                    }
+                }
+            }
+        }
+        // Try to find the entity in player views
+        else if (entity is BattlePlayerEntity playerEntity)
+        {
+            if (battlePlayerList != null)
+            {
+                var playerViews = battlePlayerList.GetComponentsInChildren<BattlePlayerView>();
+                foreach (var playerView in playerViews)
+                {
+                    if (playerView.Entity == playerEntity && playerView.gameObject.activeInHierarchy)
+                    {
+                        return GetWorldPositionFromUI(playerView.GetImageTransform());
+                    }
+                }
+            }
+        }
+        
+        // Fallback: return zero if entity not found
+        Debug.LogWarning($"Could not find UI position for entity: {entity.Name}");
+        return Vector3.zero;
+    }
+    
+    private Vector3 GetWorldPositionFromUI(Transform uiTransform)
+    {
+        if (uiTransform == null) return Vector3.zero;
+        
+        // Simply return the world position of the UI element
+        // The animation will be spawned in world space at this exact position
+        return uiTransform.position;
+    }
+
 }

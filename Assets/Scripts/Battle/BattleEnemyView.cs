@@ -4,12 +4,17 @@ using UnityEngine.EventSystems;
 
 public class BattleEnemyView : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private Image enemyImage;
+    [SerializeField] public Image enemyImage;
     [SerializeField] private Text enemyName;
     [SerializeField] private Bar hpBar;
     [SerializeField] private EntityBuffDisplay buffDisplay;
 
     public BattleEnemyEntity Entity { get; private set; }
+    
+    public Transform GetImageTransform()
+    {
+        return enemyImage.transform;
+    }
 
     public virtual void Setup(BattleEnemyEntity enemyEntity)
     {

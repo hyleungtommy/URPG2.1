@@ -28,3 +28,5 @@ MonoBehaviour:
   modifierIncrease: 0.05
   requireLvIncrease: 5
   priceIncrease: 100
+  animation: {fileID: 3862846685897952975, guid: 59c47296a2338c841a39a8b88447aa41,
+    type: 3}

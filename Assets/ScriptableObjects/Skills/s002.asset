@@ -28,3 +28,4 @@ MonoBehaviour:
   modifierIncrease: 0.05
   requireLvIncrease: 10
   priceIncrease: 100
+  animation: {fileID: 162372, guid: 3c32d36a6adac654f841b7ea183c466a, type: 3}

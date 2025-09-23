@@ -26,6 +26,7 @@ public abstract class Skill
     public int PriceIncrease { get; private set; }
     public int RequireLvStart { get; private set; }
     public int RequireLv{ get{ return RequireLvStart + (SkillLv - 1) * RequireLvIncrease; } }
+    public GameObject Animation { get; private set; }
     public bool IsAOE {get {
         return Type == SkillType.AttackAOE || Type == SkillType.HealAOE || Type == SkillType.BuffAOE || Type == SkillType.DebuffAOE;
     }}
@@ -54,6 +55,7 @@ public abstract class Skill
         PriceIncrease = template.priceIncrease;
         RequireLvIncrease = template.requireLvIncrease;
         RequireLvStart = template.requireLv;
+        Animation = template.animation;
     }
 
     public virtual void Use(BattleEntity user,List<BattleEntity> targets){

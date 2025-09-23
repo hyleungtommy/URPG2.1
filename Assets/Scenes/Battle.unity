@@ -4288,6 +4288,7 @@ GameObject:
   - component: {fileID: 759781130}
   - component: {fileID: 759781129}
   - component: {fileID: 759781132}
+  - component: {fileID: 759781133}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4368,7 +4369,7 @@ MonoBehaviour:
   - {fileID: 1241333281}
   actionOrder: {fileID: 1084496786}
   actionButtonGroup: {fileID: 1342186904}
-  testMode: 0
+  testMode: 1
   testBossBattle: 0
   testMap: {fileID: 11400000, guid: 28934779741cf44419a31cbc0dfd4c4f, type: 2}
   testPartyTemplate: {fileID: 11400000, guid: bfc50a8e80b10764794bbdb1e0f3833f, type: 2}
@@ -4376,6 +4377,24 @@ MonoBehaviour:
   itemPanel: {fileID: 2139049666}
   skillPanel: {fileID: 1779913385}
   selectionMode: 0
+--- !u!114 &759781133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759781128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebb520a10a70e14cac35a7818679de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalAttackAnimation: {fileID: 197472, guid: 71ee332363a30d84ababd2a30e4f5748,
+    type: 3}
+  healAnimation: {fileID: 103018, guid: 6497bb4557412704e91bbc334ff691c4, type: 3}
+  buffAnimation: {fileID: 150192, guid: 1d99d49e460b1854ea09a7d474fefc32, type: 3}
+  debuffAnimation: {fileID: 113102, guid: 22a001a6e7675b541943037f1c5a07fc, type: 3}
+  canvas: {fileID: 613482851}
 --- !u!1001 &766823629
 PrefabInstance:
   m_ObjectHideFlags: 0

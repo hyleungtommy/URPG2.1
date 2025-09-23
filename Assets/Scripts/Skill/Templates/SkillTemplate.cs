@@ -20,5 +20,6 @@ public class SkillTemplate : ScriptableObject
     public float modifierIncrease;
     public int requireLvIncrease;
     public int priceIncrease;
+    public GameObject animation;
 
 }
