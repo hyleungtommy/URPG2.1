@@ -135,7 +135,7 @@ public abstract class BattleEntity
         if (target == null)
             throw new System.ArgumentNullException(nameof(target), "Attack target cannot be null");
         int damage = CalculateDamage(target, modifier);
-        target.OnReceiveDamage(damage);
+        target.OnReceiveDamage(damage, this);
         Debug.Log($"{Name} attacks {target.Name} for {damage} damage!");
     }
 
@@ -143,6 +143,26 @@ public abstract class BattleEntity
     {
         int rawDamage = Mathf.Max(1, Stats.ATK - target.Stats.DEF);
         int damage = (int)(rawDamage * modifier);
+
+        // Apply counter attack defense buff reduction (35% damage reduction)
+        if (target.HasBuff("Counter_Attack_Defense"))
+        {
+            damage = Mathf.Max(1, (int)(damage * 0.65f)); // Reduce damage by 35%, minimum 1 damage
+            Debug.Log($"{target.Name}'s Counter Attack Defense buff reduces damage from {(int)(rawDamage * modifier)} to {damage}!");
+        }
+        // Apply healing defense buff reduction (35% damage reduction)
+        else if (target.HasBuff("Healing_Defense"))
+        {
+            damage = Mathf.Max(1, (int)(damage * 0.65f)); // Reduce damage by 35%, minimum 1 damage
+            Debug.Log($"{target.Name}'s Healing Defense buff reduces damage from {(int)(rawDamage * modifier)} to {damage}!");
+        }
+        // Apply regular defense buff reduction (50% damage reduction) - lowest priority
+        else if (target.HasBuff("Defense"))
+        {
+            damage = Mathf.Max(1, damage / 2); // Reduce damage by 50%, minimum 1 damage
+            Debug.Log($"{target.Name}'s Defense buff reduces damage from {rawDamage} to {damage}!");
+        }
+
         return damage;
     }
 
@@ -150,7 +170,8 @@ public abstract class BattleEntity
     /// Handles damage received by the entity.
     /// </summary>
     /// <param name="amount">The amount of damage to receive</param>
-    public virtual void OnReceiveDamage(int amount)
+    /// <param name="attacker">The entity that dealt the damage (for counter attack reflection)</param>
+    public virtual void OnReceiveDamage(int amount, BattleEntity attacker = null)
     {
         CurrentHP = Mathf.Max(0, CurrentHP - amount);
 
@@ -158,6 +179,22 @@ public abstract class BattleEntity
         if (BattleScene.Instance != null)
         {
             BattleScene.Instance.ShowFloatingDamage(amount, this);
+        }
+
+        // Process counter attack defense reflection (25% of damage reflected back)
+        if (attacker != null && HasBuff("Counter_Attack_Defense"))
+        {
+            int reflectedDamage = Mathf.Max(1, (int)(amount * 0.25f)); // Reflect 25% of damage, minimum 1
+            Debug.Log($"{Name}'s Counter Attack Defense reflects {reflectedDamage} damage back to {attacker.Name}!");
+
+            // Apply reflected damage to attacker
+            attacker.CurrentHP = Mathf.Max(0, attacker.CurrentHP - reflectedDamage);
+
+            // Show floating damage number for reflected damage
+            if (BattleScene.Instance != null)
+            {
+                BattleScene.Instance.ShowFloatingDamage(reflectedDamage, attacker);
+            }
         }
     }
 
@@ -169,13 +206,16 @@ public abstract class BattleEntity
         // Process HP debuffs (poison, bleed) before duration management
         ProcessHPBuffs();
 
+        // Process healing defense HP regeneration (10% of max HP)
+        ProcessHealingDefenseRegeneration();
+
         // TODO: Fix potential collection modification during iteration
         // Consider using RemoveAll() or a separate collection for items to remove
         for (int i = Buffs.Count - 1; i >= 0; i--)
         {
             Buff buff = Buffs[i];
             buff.duration--;
-            if (buff.duration <= 0)
+            if (buff.duration < 0)
             {
                 Buffs.RemoveAt(i);
             }
@@ -291,10 +331,54 @@ public abstract class BattleEntity
             }
             else if (buff.buffType == BuffType.HP && !buff.isDebuff)
             {
-                float healPercentage = buff.value / 100f;
-                int heal = Mathf.RoundToInt(Stats.HP * healPercentage);
-                CurrentHP = Mathf.Min(CurrentHP + heal, Stats.HP);
-                Debug.Log($"{Name} is healed by {heal} from {buff.buffType}!");
+                // Calculate 10% of max HP
+                int maxHP = Stats.HP;
+                int regenerationAmount = Mathf.RoundToInt(maxHP * buff.value / 100f);
+
+                // Apply regeneration
+                int originalHP = CurrentHP;
+                CurrentHP = Mathf.Min(CurrentHP + regenerationAmount, maxHP);
+                int actualHeal = CurrentHP - originalHP;
+                if (actualHeal > 0)
+                {
+                    Debug.Log($"{Name} regenerates {actualHeal} HP!");
+
+                    // Show floating heal number
+                    if (BattleScene.Instance != null)
+                    {
+                        BattleScene.Instance.ShowFloatingHeal(actualHeal, this);
+                    }
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Processes healing defense HP regeneration.
+    /// Regenerates 10% of max HP at the end of each turn.
+    /// </summary>
+    public void ProcessHealingDefenseRegeneration()
+    {
+        if (HasBuff("Healing_Defense"))
+        {
+            // Calculate 10% of max HP
+            int maxHP = Stats.HP;
+            int regenerationAmount = Mathf.RoundToInt(maxHP * 0.1f);
+
+            // Apply regeneration
+            int originalHP = CurrentHP;
+            CurrentHP = Mathf.Min(CurrentHP + regenerationAmount, maxHP);
+            int actualHeal = CurrentHP - originalHP;
+
+            if (actualHeal > 0)
+            {
+                Debug.Log($"{Name} regenerates {actualHeal} HP from Healing Defense!");
+
+                // Show floating heal number
+                if (BattleScene.Instance != null)
+                {
+                    BattleScene.Instance.ShowFloatingHeal(actualHeal, this);
+                }
             }
         }
     }

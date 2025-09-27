@@ -28,16 +28,28 @@ public class BattleEnemyEntity: BattleEntity
     
     private System.Collections.IEnumerator EnemyTurnCoroutine()
     {
-        // Basic AI: normal attack a random player
-        // TODO: if enemy has taunt debuff attack the player who taunted them
-        BattleEntity[] possibleTargets = manager.GetAlivePlayers();
-        if (possibleTargets.Length == 0)
+        // Taunt AI: prioritize players with taunt buff, otherwise attack random player
+        BattleEntity[] tauntedPlayers = manager.GetTauntedPlayers();
+        BattleEntity target;
+        
+        if (tauntedPlayers.Length > 0)
         {
-            manager.EndTurn(this);
-            yield break;
+            // Attack a random taunted player
+            target = tauntedPlayers[Random.Range(0, tauntedPlayers.Length)];
+            Debug.Log($"{Name} is taunted and attacks {target.Name}!");
         }
-
-        BattleEntity target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+        else
+        {
+            // No taunted players, attack random player
+            BattleEntity[] possibleTargets = manager.GetAlivePlayers();
+            if (possibleTargets.Length == 0)
+            {
+                manager.EndTurn(this);
+                yield break;
+            }
+            
+            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+        }
         
         // Wait for 1 second to let the animation play
         yield return new WaitForSeconds(1f);
@@ -54,15 +66,28 @@ public class BattleEnemyEntity: BattleEntity
     
     private void PerformEnemyAction()
     {
-        // Fallback method without coroutine
-        BattleEntity[] possibleTargets = manager.GetAlivePlayers();
-        if (possibleTargets.Length == 0)
+        // Fallback method without coroutine - also implements taunt logic
+        BattleEntity[] tauntedPlayers = manager.GetTauntedPlayers();
+        BattleEntity target;
+        
+        if (tauntedPlayers.Length > 0)
         {
-            manager.EndTurn(this);
-            return;
+            // Attack a random taunted player
+            target = tauntedPlayers[Random.Range(0, tauntedPlayers.Length)];
+            Debug.Log($"{Name} is taunted and attacks {target.Name}!");
         }
-
-        BattleEntity target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+        else
+        {
+            // No taunted players, attack random player
+            BattleEntity[] possibleTargets = manager.GetAlivePlayers();
+            if (possibleTargets.Length == 0)
+            {
+                manager.EndTurn(this);
+                return;
+            }
+            
+            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+        }
         
         // Play enemy attack animation before performing attack
         if (BattleScene.Instance != null)

@@ -265,6 +265,17 @@ public class BattleManager
             .ToArray();
     }
 
+    /// <summary>
+    /// Gets all alive players that have a taunt buff active.
+    /// </summary>
+    /// <returns>Array of alive players with taunt buffs</returns>
+    public BattleEntity[] GetTauntedPlayers()
+    {
+        return turnOrder
+            .FindAll(e => e is BattlePlayerEntity && e.IsAlive && e.HasBuff("Taunt"))
+            .ToArray();
+    }
+
     public List<BattleEntity> GetUpcomingTurnOrder(int maxCount)
     {
         List<BattleEntity> result = new List<BattleEntity>();
