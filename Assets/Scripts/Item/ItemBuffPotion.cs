@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using UnityEngine;
+
 public class ItemBuffPotion : BattleFunctionalItem{
     public BuffTemplate buffTemplate;
     public int duration;
@@ -13,7 +15,16 @@ public class ItemBuffPotion : BattleFunctionalItem{
     }
 
     public override void Use(List<BattleEntity> targets){
+        // Play buff animation for each target
         foreach (BattleEntity target in targets){
+            // Play buff animation at target's position
+            if (SkillAnimationManager.Instance != null)
+            {
+                Vector3 animationPosition = BattleScene.Instance.GetEntityPosition(target);
+                SkillAnimationManager.Instance.PlaySkillAnimationByType(SkillType.Buff, animationPosition);
+            }
+            
+            // Apply buff (no floating numbers for buffs as requested)
             target.AddBuff(buffTemplate, duration);
         }
     }

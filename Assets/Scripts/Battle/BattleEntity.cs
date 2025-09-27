@@ -246,7 +246,15 @@ public abstract class BattleEntity
     /// <param name="amount">The amount of health to restore</param>
     public void Heal(int amount)
     {
+        int originalHP = CurrentHP;
         CurrentHP = Mathf.Min(CurrentHP + amount, Stats.HP);
+        int actualHeal = CurrentHP - originalHP;
+        
+        // Show floating heal number if there was actual healing
+        if (actualHeal > 0 && BattleScene.Instance != null)
+        {
+            BattleScene.Instance.ShowFloatingHeal(actualHeal, this);
+        }
     }
 
     /// <summary>
@@ -255,7 +263,15 @@ public abstract class BattleEntity
     /// <param name="amount">The amount of mana to restore</param>
     public void RestoreMP(int amount)
     {
+        int originalMP = CurrentMP;
         CurrentMP = Mathf.Min(CurrentMP + amount, Stats.MP);
+        int actualManaRegen = CurrentMP - originalMP;
+        
+        // Show floating mana regen number if there was actual mana restoration
+        if (actualManaRegen > 0 && BattleScene.Instance != null)
+        {
+            BattleScene.Instance.ShowFloatingManaRegen(actualManaRegen, this);
+        }
     }
 
     /// <summary>

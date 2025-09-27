@@ -60,7 +60,7 @@ public class SkillAnimationManager : MonoBehaviour
         }
     }
     
-    private void PlaySkillAnimationByType(SkillType skillType, Vector3 position)
+    public void PlaySkillAnimationByType(SkillType skillType, Vector3 position)
     {
         GameObject animationPrefab = null;
         

@@ -25,6 +25,7 @@ public class DBManager:MonoBehaviour
         {
             Instance = this;
             LoadTestItems();
+            LoadAllPotions();
             AddTestEquipment();
             Game.QuestManager.Initialize(questTemplates.Select(q => new Quest(q)).ToList());
             Game.ExploreSiteList = exploreSiteTemplates.Select(e => new ExploreSite(e)).ToList();
@@ -42,6 +43,35 @@ public class DBManager:MonoBehaviour
         Game.Inventory.InsertItem(GetItem(71), 99);
         Game.Inventory.InsertItem(GetItem(76), 99);
         Game.Inventory.InsertItem(GetItem(77), 99);
+    }
+
+    public void LoadAllPotions(){
+        Game.Inventory.InsertItem(GetItem(0), 10);
+        Game.Inventory.InsertItem(GetItem(1), 10);
+        Game.Inventory.InsertItem(GetItem(2), 10);
+        Game.Inventory.InsertItem(GetItem(3), 10);
+        Game.Inventory.InsertItem(GetItem(4), 10);
+        Game.Inventory.InsertItem(GetItem(5), 10);
+        Game.Inventory.InsertItem(GetItem(6), 10);
+        Game.Inventory.InsertItem(GetItem(7), 10);
+        Game.Inventory.InsertItem(GetItem(8), 10);
+        Game.Inventory.InsertItem(GetItem(9), 10);
+        Game.Inventory.InsertItem(GetItem(10), 10);
+        Game.Inventory.InsertItem(GetItem(11), 10);
+        Game.Inventory.InsertItem(GetItem(12), 10);
+        Game.Inventory.InsertItem(GetItem(13), 10);
+        Game.Inventory.InsertItem(GetItem(14), 10);
+        Game.Inventory.InsertItem(GetItem(15), 10);
+        Game.Inventory.InsertItem(GetItem(16), 10);
+        Game.Inventory.InsertItem(GetItem(17), 10);
+        Game.Inventory.InsertItem(GetItem(18), 10);
+        Game.Inventory.InsertItem(GetItem(19), 10);
+        Game.Inventory.InsertItem(GetItem(20), 10);
+        Game.Inventory.InsertItem(GetItem(21), 10);
+        Game.Inventory.InsertItem(GetItem(22), 10);
+        Game.Inventory.InsertItem(GetItem(23), 10);
+        Game.Inventory.InsertItem(GetItem(24), 10);
+        Game.Inventory.InsertItem(GetItem(25), 10);
     }
 
         public void AddTestEquipment(){

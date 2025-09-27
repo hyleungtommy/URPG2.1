@@ -117,3 +117,14 @@ MonoBehaviour:
   - {fileID: 149761522278359448, guid: b932b81408c289f4cbd4b94d464051ce, type: 3}
   - {fileID: -5587656789639317755, guid: b932b81408c289f4cbd4b94d464051ce, type: 3}
   - {fileID: 1853053473453391766, guid: b932b81408c289f4cbd4b94d464051ce, type: 3}
+  manaRegenNumbers:
+  - {fileID: 21300080, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}
+  - {fileID: 21300082, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}
+  - {fileID: 21300084, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}
+  - {fileID: 21300086, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}
+  - {fileID: 21300088, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}
+  - {fileID: 21300090, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}
+  - {fileID: 21300092, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}
+  - {fileID: 21300094, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}
+  - {fileID: 21300096, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}
+  - {fileID: 21300098, guid: 0aeda8db9cbea30479f8fa58ceb86d66, type: 3}

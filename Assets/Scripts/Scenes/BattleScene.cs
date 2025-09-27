@@ -461,5 +461,15 @@ public class BattleScene : MonoBehaviour
     {
         FloatingNumberManager.Instance?.ShowHealNumberOnEntity(heal, target);
     }
+    
+    /// <summary>
+    /// Shows floating mana regeneration numbers when an entity restores mana
+    /// </summary>
+    /// <param name="manaRegen">The amount of mana restored</param>
+    /// <param name="target">The entity that restored mana</param>
+    public void ShowFloatingManaRegen(int manaRegen, BattleEntity target)
+    {
+        FloatingNumberManager.Instance?.ShowManaRegenNumberOnEntity(manaRegen, target);
+    }
 
 }
