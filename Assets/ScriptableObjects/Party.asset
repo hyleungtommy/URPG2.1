@@ -15,7 +15,7 @@ MonoBehaviour:
   Members:
   - {fileID: 11400000, guid: fd6600ac690b62147a415bc5f7cdc76d, type: 2}
   - {fileID: 11400000, guid: 066e9474aa09d3b439b133eb246c8739, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c86fd1f9a07f2024db35ddc400b265ae, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

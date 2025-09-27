@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 9
   skillName: Taunt
-  type: 8
+  type: 5
   description: Taunt enemies, make them target you for 5 rounds
   icon: {fileID: 21300000, guid: a896c398a267b7e4bbe1bb08aa6eafb9, type: 3}
   modifier: 0

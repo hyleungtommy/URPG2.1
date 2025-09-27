@@ -6034,11 +6034,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1035644416893723150, guid: fd0858196970586459536b9a1ed6e90d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1744191331368228046, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -6049,17 +6044,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Controller
       objectReference: {fileID: 0}
-    - target: {fileID: 3492383314277791200, guid: fd0858196970586459536b9a1ed6e90d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3492383314277791201, guid: fd0858196970586459536b9a1ed6e90d,
-        type: 3}
-      propertyPath: testMap
-      value: 
-      objectReference: {fileID: 11400000, guid: 28934779741cf44419a31cbc0dfd4c4f,
-        type: 2}
     - target: {fileID: 3492383314277791214, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
       propertyPath: m_RootOrder
@@ -6113,11 +6097,6 @@ PrefabInstance:
     - target: {fileID: 3492383314277791214, guid: fd0858196970586459536b9a1ed6e90d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7731735338834021284, guid: fd0858196970586459536b9a1ed6e90d,
-        type: 3}
-      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

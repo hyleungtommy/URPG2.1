@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02751bf6394623b499fb3880b2a2fcde, type: 3}
   m_Name: Knight
   m_EditorClassIdentifier: 
-  ClassName: 
-  StartingStats: 0000000000000000000000000000000000000000
-  StatGrowthPerLevel: 0000000000000000000000000000000000000000
-  AutoAllocationPatternPerLevel: 0000000000000000000000000000000000000000
-  AvailableSkills: []
+  ClassName: Knight
+  StartingStats: 19000000320000000a0000000700000007000000
+  StatGrowthPerLevel: 0500000005000000010000000200000001000000
+  AutoAllocationPatternPerLevel: 0200000000000000010000000100000001000000
+  AvailableSkills:
+  - {fileID: 11400000, guid: 21aa243844bbca24895323b48a62961e, type: 2}
+  - {fileID: 11400000, guid: 2cb28dc3c50e1ef4082d26c8c81ce08c, type: 2}
+  - {fileID: 11400000, guid: 47dc38cea2b7ac84fa712878fe3cca7a, type: 2}
+  - {fileID: 11400000, guid: 0c8813c547716e6419932357fb6ce70a, type: 2}
+  - {fileID: 11400000, guid: 18f4ef0ab0d4b604284f412cc1dc1f6f, type: 2}
+  - {fileID: 11400000, guid: a88442583953f5b429315d5c5ab0fd97, type: 2}
+  - {fileID: 11400000, guid: bcc9fbda8c1e3804db3fd07781c75f29, type: 2}
