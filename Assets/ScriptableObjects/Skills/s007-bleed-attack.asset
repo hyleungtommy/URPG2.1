@@ -12,21 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
   m_Name: s007-bleed-attack
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
+  id: 7
+  skillName: Bleed Attack
   type: 0
-  description: 
-  icon: {fileID: 0}
-  modifier: 0
+  description: Deal %mod% damage to an enemy, has a chance to cause enemy bleed for
+    3 rounds
+  icon: {fileID: 21300000, guid: 01612ec4e8203194c829380ae2fc321f, type: 3}
+  modifier: 1.15
   hitCount: 1
-  mpCost: 0
+  mpCost: 25
   cooldown: 0
-  requireLv: 0
-  price: 0
-  maxSkillLv: 0
-  mpCostIncrease: 0
-  modifierIncrease: 0
-  requireLvIncrease: 0
-  priceIncrease: 0
-  animation: {fileID: 0}
-  buffs: []
+  requireLv: 10
+  price: 1000
+  maxSkillLv: 5
+  mpCostIncrease: 25
+  modifierIncrease: 0.05
+  requireLvIncrease: 10
+  priceIncrease: 1000
+  animation: {fileID: 3862846685897952975, guid: 59c47296a2338c841a39a8b88447aa41,
+    type: 3}
+  buffs:
+  - buffTemplate: {fileID: 11400000, guid: 84f51487b8fb0fd43ab0278955848e36, type: 2}
+    duration: 3
+    chance: 100

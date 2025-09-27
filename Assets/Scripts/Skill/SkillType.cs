@@ -10,3 +10,8 @@ public enum SkillType
     Debuff,
     DebuffAOE
 }
+
+public enum UseOn{
+    Self,
+    Target
+}

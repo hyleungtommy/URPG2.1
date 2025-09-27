@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
   m_Name: s003-earthquake-wave
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
-  type: 0
-  description: 
-  icon: {fileID: 0}
-  modifier: 0
+  id: 3
+  skillName: Earthquake Wave
+  type: 1
+  description: Smash the ground with your weapon, deals %mod% damage to all enemies
+  icon: {fileID: 21300000, guid: e3cd081e2e5dd6b469e47559d0c31a6b, type: 3}
+  modifier: 1.25
   hitCount: 1
-  mpCost: 0
+  mpCost: 25
   cooldown: 0
-  requireLv: 0
-  price: 0
-  maxSkillLv: 0
-  mpCostIncrease: 0
-  modifierIncrease: 0
-  requireLvIncrease: 0
-  priceIncrease: 0
-  animation: {fileID: 0}
+  requireLv: 5
+  price: 1000
+  maxSkillLv: 10
+  mpCostIncrease: 25
+  modifierIncrease: 0.05
+  requireLvIncrease: 5
+  priceIncrease: 1000
+  animation: {fileID: 163928, guid: 85955e6b1170f9440b5469ae22d46e48, type: 3}
   buffs: []

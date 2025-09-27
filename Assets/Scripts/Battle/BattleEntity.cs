@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// Abstract base class representing a combat entity in the turn-based battle system.
@@ -152,7 +153,7 @@ public abstract class BattleEntity
     public virtual void OnReceiveDamage(int amount)
     {
         CurrentHP = Mathf.Max(0, CurrentHP - amount);
-        
+
         // Show floating damage number
         if (BattleScene.Instance != null)
         {
@@ -161,10 +162,13 @@ public abstract class BattleEntity
     }
 
     /// <summary>
-    /// Processes end-of-turn effects, including buff duration management.
+    /// Processes end-of-turn effects, including buff duration management and HP debuffs.
     /// </summary>
     public virtual void OnEndTurn()
     {
+        // Process HP debuffs (poison, bleed) before duration management
+        ProcessHPBuffs();
+
         // TODO: Fix potential collection modification during iteration
         // Consider using RemoveAll() or a separate collection for items to remove
         for (int i = Buffs.Count - 1; i >= 0; i--)
@@ -236,6 +240,61 @@ public abstract class BattleEntity
             if (replaceBuff != null)
             {
                 Buffs.Remove(replaceBuff);
+            }
+        }
+    }
+
+    public bool HasBuff(string buffName)
+    {
+        return Buffs.Any(b => b.buffType.ToString() == buffName);
+    }
+
+    /// <summary>
+    /// Checks if the entity is stunned and cannot perform actions this turn.
+    /// </summary>
+    /// <returns>True if the entity is stunned, false otherwise</returns>
+    public bool IsStunned()
+    {
+        return Buffs.Any(b => b.buffType == BuffType.Stun);
+    }
+
+    /// <summary>
+    /// Processes HP debuff effects like poison and bleed.
+    /// Reduces HP by percentage based on buff value, with minimum HP of 1.
+    /// </summary>
+    public void ProcessHPBuffs()
+    {
+        foreach (var buff in Buffs)
+        {
+            if (buff.buffType == BuffType.HP && buff.isDebuff)
+            {
+                // Calculate damage as percentage of max HP (value / 100)
+                float damagePercentage = buff.value / 100f;
+                int maxHP = Stats.HP;
+                int damage = Mathf.RoundToInt(maxHP * damagePercentage);
+
+                // Apply damage but ensure minimum HP of 1
+                int newHP = Mathf.Max(1, CurrentHP - damage);
+                int actualDamage = CurrentHP - newHP;
+
+                if (actualDamage > 0)
+                {
+                    CurrentHP = newHP;
+                    Debug.Log($"{Name} takes {actualDamage} damage from {buff.buffType}!");
+
+                    // Show floating damage number
+                    if (BattleScene.Instance != null)
+                    {
+                        BattleScene.Instance.ShowFloatingDamage(actualDamage, this);
+                    }
+                }
+            }
+            else if (buff.buffType == BuffType.HP && !buff.isDebuff)
+            {
+                float healPercentage = buff.value / 100f;
+                int heal = Mathf.RoundToInt(Stats.HP * healPercentage);
+                CurrentHP = Mathf.Min(CurrentHP + heal, Stats.HP);
+                Debug.Log($"{Name} is healed by {heal} from {buff.buffType}!");
             }
         }
     }

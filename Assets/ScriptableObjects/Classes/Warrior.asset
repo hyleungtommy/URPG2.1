@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: Warrior
   m_EditorClassIdentifier: 
   ClassName: Warrior
-  StartingStats: 14000000050000000a0000000700000008000000
+  StartingStats: 14000000320000000a0000000700000008000000
   StatGrowthPerLevel: 0500000001000000020000000100000001000000
   AutoAllocationPatternPerLevel: 0200000000000000010000000100000001000000
   AvailableSkills:
   - {fileID: 11400000, guid: 21aa243844bbca24895323b48a62961e, type: 2}
   - {fileID: 11400000, guid: 2cb28dc3c50e1ef4082d26c8c81ce08c, type: 2}
+  - {fileID: 11400000, guid: 513074e850709a44d90e6081de5d5a6a, type: 2}
+  - {fileID: 11400000, guid: b86319c62545e3145905eb0369c31a7f, type: 2}
+  - {fileID: 11400000, guid: 05de4724e9eaf864eab8a6a23e7b934a, type: 2}
+  - {fileID: 11400000, guid: aa0b5963f3a25214d81cf82379c858a4, type: 2}
+  - {fileID: 11400000, guid: 168e7647eca0e5d4cae72f092c0285f4, type: 2}
+  - {fileID: 11400000, guid: 47dc38cea2b7ac84fa712878fe3cca7a, type: 2}

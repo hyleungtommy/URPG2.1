@@ -4375,7 +4375,7 @@ MonoBehaviour:
   - {fileID: 1241333281}
   actionOrder: {fileID: 1084496786}
   actionButtonGroup: {fileID: 1342186904}
-  testMode: 0
+  testMode: 1
   testBossBattle: 0
   testMap: {fileID: 11400000, guid: 28934779741cf44419a31cbc0dfd4c4f, type: 2}
   testPartyTemplate: {fileID: 11400000, guid: bfc50a8e80b10764794bbdb1e0f3833f, type: 2}

@@ -12,21 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
   m_Name: s012-counter-attack-defense
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
-  type: 0
-  description: 
-  icon: {fileID: 0}
+  id: 12
+  skillName: Counter Attack Defense
+  type: 5
+  description: Enter defense state for 1 round, during this round all enemies deal
+    65% of damage to you, any enemy attack on you will take 25% of the damage they
+    deal to you
+  icon: {fileID: 21300000, guid: 2fd28bc40f8ded44893964785c0568d9, type: 3}
   modifier: 0
   hitCount: 1
-  mpCost: 0
+  mpCost: 15
   cooldown: 0
-  requireLv: 0
-  price: 0
-  maxSkillLv: 0
+  requireLv: 15
+  price: 1000
+  maxSkillLv: 1
   mpCostIncrease: 0
   modifierIncrease: 0
   requireLvIncrease: 0
   priceIncrease: 0
-  animation: {fileID: 0}
-  buffs: []
+  animation: {fileID: 170472, guid: 8d1e45a9997fcb746b13eb90ae7ab951, type: 3}
+  buffs:
+  - buffTemplate: {fileID: 11400000, guid: 6453b5073059e464ea56309eae67e722, type: 2}
+    duration: 1
+    chance: 100

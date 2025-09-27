@@ -12,21 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
   m_Name: s008-defense
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
-  type: 0
-  description: 
-  icon: {fileID: 0}
+  id: 8
+  skillName: Defense
+  type: 5
+  description: Enter defense state for 1 round, during this round all enemies will
+    deal 50% of damage to you
+  icon: {fileID: 21300000, guid: 2effa715b031fe041a9df50b3745f775, type: 3}
   modifier: 0
   hitCount: 1
-  mpCost: 0
+  mpCost: 10
   cooldown: 0
-  requireLv: 0
-  price: 0
-  maxSkillLv: 0
+  requireLv: 1
+  price: 500
+  maxSkillLv: 1
   mpCostIncrease: 0
   modifierIncrease: 0
   requireLvIncrease: 0
   priceIncrease: 0
-  animation: {fileID: 0}
-  buffs: []
+  animation: {fileID: 170472, guid: 8d1e45a9997fcb746b13eb90ae7ab951, type: 3}
+  buffs:
+  - buffTemplate: {fileID: 11400000, guid: 4cf8d2768f75b1440b56823e4601699a, type: 2}
+    duration: 1
+    chance: 100

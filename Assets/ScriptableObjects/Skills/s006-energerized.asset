@@ -12,21 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
   m_Name: s006-energerized
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
-  type: 0
-  description: 
-  icon: {fileID: 0}
+  id: 6
+  skillName: Energized
+  type: 5
+  description: "Increase yourself\u2019s attack power for 5 rounds"
+  icon: {fileID: 21300000, guid: 554c5b1d6104cc746975afee98d25af3, type: 3}
   modifier: 0
   hitCount: 1
-  mpCost: 0
-  cooldown: 0
-  requireLv: 0
-  price: 0
-  maxSkillLv: 0
+  mpCost: 50
+  cooldown: 10
+  requireLv: 15
+  price: 1500
+  maxSkillLv: 1
   mpCostIncrease: 0
   modifierIncrease: 0
   requireLvIncrease: 0
   priceIncrease: 0
   animation: {fileID: 0}
-  buffs: []
+  buffs:
+  - buffTemplate: {fileID: 11400000, guid: d7c347e7c660b544a81337b19c5ed721, type: 2}
+    duration: 5
+    chance: 100

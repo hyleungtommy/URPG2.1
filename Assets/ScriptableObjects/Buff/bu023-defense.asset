@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddda58448748d7a448fb202428dd9dbd, type: 3}
   m_Name: bu023-defense
   m_EditorClassIdentifier: 
-  id: 0
-  buffName: 
-  type: 0
+  id: 23
+  buffName: Defense
+  type: 21
   isDebuff: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2effa715b031fe041a9df50b3745f775, type: 3}
   value: 0
-  replaceBuffIds: 
+  replaceBuffIds: 1800000019000000

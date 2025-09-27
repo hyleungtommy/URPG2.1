@@ -12,21 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
   m_Name: s009-taunt
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
-  type: 0
-  description: 
-  icon: {fileID: 0}
+  id: 9
+  skillName: Taunt
+  type: 8
+  description: Taunt enemies, make them target you for 5 rounds
+  icon: {fileID: 21300000, guid: a896c398a267b7e4bbe1bb08aa6eafb9, type: 3}
   modifier: 0
   hitCount: 1
-  mpCost: 0
+  mpCost: 10
   cooldown: 0
-  requireLv: 0
-  price: 0
-  maxSkillLv: 0
+  requireLv: 10
+  price: 1000
+  maxSkillLv: 1
   mpCostIncrease: 0
   modifierIncrease: 0
   requireLvIncrease: 0
   priceIncrease: 0
-  animation: {fileID: 0}
-  buffs: []
+  animation: {fileID: 101736, guid: 3e7de9254df2c634b80bc23c0788244b, type: 3}
+  buffs:
+  - buffTemplate: {fileID: 11400000, guid: 3bea13f831bcd6a48b230205fae66739, type: 2}
+    duration: 5
+    chance: 100

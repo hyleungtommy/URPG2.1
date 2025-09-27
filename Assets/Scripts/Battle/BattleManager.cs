@@ -113,6 +113,22 @@ public class BattleManager
             return;
         }
 
+        // Check if entity is stunned
+        if (CurrentTurnEntity.IsStunned())
+        {
+            Debug.Log($"{CurrentTurnEntity.Name} is stunned and cannot act!");
+            // Process HP debuffs even when stunned, then skip the turn
+            CurrentTurnEntity.OnEndTurn();
+            actionQueue.Enqueue(CurrentTurnEntity);
+            scene.UpdateUI();
+            bool isBattleEnded = CheckBattleOutcome();
+            if (isBattleEnded)
+            {
+                EndBattle();
+            }
+            return;
+        }
+
         if (CurrentTurnEntity is BattleEnemyEntity enemy)
         {
             enemy.TakeTurn();
@@ -133,6 +149,14 @@ public class BattleManager
             // Play normal attack animation before performing attack
             scene.PlayNormalAttackAnimation(CurrentTurnEntity, target);
             CurrentTurnEntity.PerformNormalAttack(target);
+            EndTurn(CurrentTurnEntity);
+        }else if (selectionMode == SelectionMode.UseOnSelf) {
+            CurrentTurnEntity = actionQueue.Dequeue();
+            if (SkillToUse != null){
+                // Play skill animation before using skill on self
+                scene.PlaySkillAnimation(SkillToUse, CurrentTurnEntity, new List<BattleEntity> { CurrentTurnEntity });
+                SkillToUse.Use(CurrentTurnEntity, new List<BattleEntity> { CurrentTurnEntity });
+            }
             EndTurn(CurrentTurnEntity);
         }else if (selectionMode == SelectionMode.UseOnPartner) {
             CurrentTurnEntity = actionQueue.Dequeue();

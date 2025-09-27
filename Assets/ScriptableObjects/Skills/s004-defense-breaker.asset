@@ -12,21 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
   m_Name: s004-defense-breaker
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
+  id: 4
+  skillName: Defense Breaker
   type: 0
-  description: 
-  icon: {fileID: 0}
-  modifier: 0
+  description: "Deal %mod% damage to an enemy, has a chance to reduce enemy\u2019s
+    defense for 3 rounds"
+  icon: {fileID: 21300000, guid: 901f6ec7f9167814b8d76a3c6b3657cf, type: 3}
+  modifier: 1.15
   hitCount: 1
-  mpCost: 0
+  mpCost: 10
   cooldown: 0
-  requireLv: 0
-  price: 0
-  maxSkillLv: 0
-  mpCostIncrease: 0
-  modifierIncrease: 0
-  requireLvIncrease: 0
-  priceIncrease: 0
-  animation: {fileID: 0}
-  buffs: []
+  requireLv: 5
+  price: 1000
+  maxSkillLv: 10
+  mpCostIncrease: 10
+  modifierIncrease: 0.05
+  requireLvIncrease: 5
+  priceIncrease: 1000
+  animation: {fileID: 175868, guid: e2e593db324516b4091846cb2a75597e, type: 3}
+  buffs:
+  - buffTemplate: {fileID: 11400000, guid: 75a35a1bc48f7374abd7fc22dcac77ce, type: 2}
+    duration: 3
+    chance: 100

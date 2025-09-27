@@ -285,6 +285,15 @@ public class BattleScene : MonoBehaviour
                 skillPanel.Close();
                 OnPlayerInputEnded();
             }
+            else if (skill.Type == SkillType.BuffSelf)
+            {
+                // BuffSelf skills automatically target the caster
+                selectionMode = SelectionMode.UseOnSelf;
+                manager.SkillToUse = skill;
+                manager.OnPlayerAction(selectionMode, null);
+                skillPanel.Close();
+                OnPlayerInputEnded();
+            }
             else
             {
                 battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select target to use skill on");

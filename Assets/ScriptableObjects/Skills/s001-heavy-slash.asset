@@ -19,14 +19,15 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 4f58387e2e1b28b4993b03bab69a837b, type: 3}
   modifier: 1.25
   hitCount: 1
-  mpCost: 50
+  mpCost: 10
   cooldown: 0
   requireLv: 1
   price: 500
   maxSkillLv: 10
-  mpCostIncrease: 25
+  mpCostIncrease: 10
   modifierIncrease: 0.05
   requireLvIncrease: 5
   priceIncrease: 100
   animation: {fileID: 3862846685897952975, guid: 59c47296a2338c841a39a8b88447aa41,
     type: 3}
+  buffs: []

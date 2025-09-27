@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddda58448748d7a448fb202428dd9dbd, type: 3}
   m_Name: bu024-healing-defense
   m_EditorClassIdentifier: 
-  id: 0
-  buffName: 
-  type: 0
+  id: 24
+  buffName: Healing Defense
+  type: 22
   isDebuff: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2115de63b88aa9d44a702d20c5f5d022, type: 3}
   value: 0
-  replaceBuffIds: 
+  replaceBuffIds: 1700000019000000

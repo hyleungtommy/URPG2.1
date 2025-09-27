@@ -10,22 +10,22 @@ public class BuffMatrix{
         foreach (Buff buff in buffs){
             switch (buff.buffType){
                 case BuffType.ATK:
-                    ATK += buff.value / 100;
+                    ATK += buff.isDebuff? -buff.value / 100 : buff.value / 100;
                     break;
                 case BuffType.DEF:
-                    DEF += buff.value / 100;
+                    DEF += buff.isDebuff? -buff.value / 100 : buff.value / 100;
                     break;
                 case BuffType.MATK:
-                    MATK += buff.value / 100;
+                    MATK += buff.isDebuff? -buff.value / 100 : buff.value / 100;
                     break;
                 case BuffType.MDEF:
-                    MDEF += buff.value / 100;
+                    MDEF += buff.isDebuff? -buff.value / 100 : buff.value / 100;
                     break;
                 case BuffType.AGI:
-                    AGI += buff.value / 100;
+                    AGI += buff.isDebuff? -buff.value / 100 : buff.value / 100;
                     break;
                 case BuffType.DEX:
-                    DEX += buff.value / 100;
+                    DEX += buff.isDebuff? -buff.value / 100 : buff.value / 100;
                     break;
             }
         }
