@@ -80,4 +80,57 @@ public class FloatingNumberManager : MonoBehaviour
         ShowDamageNumber(damage, entityPosition, isCritical);
     }
     
+    public void ShowHealNumber(int heal, Vector3 worldPosition)
+    {
+        if (floatingNumberPrefab == null)
+        {
+            Debug.LogWarning("FloatingNumberManager: Missing prefab reference");
+            return;
+        }
+
+        // Convert heal to string to get individual digits
+        string healString = heal.ToString();
+        
+        // Calculate total width for multi-digit numbers
+        float totalWidth = (healString.Length - 1) * digitSpacing;
+        float startX = -totalWidth / 2f;
+        
+        // Add random offset only once for the entire number
+        Vector3 randomOffset = new Vector3(
+            Random.Range(-randomOffsetRange, randomOffsetRange),
+            Random.Range(-randomOffsetRange, randomOffsetRange),
+            0
+        );
+        
+        // Create a prefab instance for each digit
+        for (int i = 0; i < healString.Length; i++)
+        {
+            int digit = int.Parse(healString[i].ToString());
+            
+            // Calculate position for this digit (relative to the first digit with random offset)
+            Vector3 digitPosition = worldPosition + new Vector3(startX + (i * digitSpacing), 0, 0) + randomOffset;
+            
+            // Create the heal number display
+            GameObject healNumberObj = Instantiate(floatingNumberPrefab);
+            healNumberObj.transform.position = digitPosition;
+            
+            // Get the controller and set up the single digit
+            FloatingNumberController controller = healNumberObj.GetComponent<FloatingNumberController>();
+            if (controller != null)
+            {
+                controller.SetupHealNumber(digit);
+                controller.StartFloatingAnimation(floatDuration, floatHeight);
+            }
+        }
+    }
+    
+    public void ShowHealNumberOnEntity(int heal, BattleEntity entity)
+    {
+        if (entity == null) return;
+        
+        // Get the entity's UI position
+        Vector3 entityPosition = BattleScene.Instance.GetEntityPosition(entity);
+        ShowHealNumber(heal, entityPosition);
+    }
+    
 }

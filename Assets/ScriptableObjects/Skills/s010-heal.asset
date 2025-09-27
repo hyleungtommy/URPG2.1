@@ -16,7 +16,7 @@ MonoBehaviour:
   skillName: Heal
   type: 2
   description: Heal a party member
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: bff21e7019590dd408549984aaf5f9ac, type: 3}
   modifier: 10
   hitCount: 1
   mpCost: 20

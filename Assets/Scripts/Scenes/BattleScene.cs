@@ -451,5 +451,15 @@ public class BattleScene : MonoBehaviour
     {
         FloatingNumberManager.Instance?.ShowDamageNumberOnEntity(damage, target, false);
     }
+    
+    /// <summary>
+    /// Shows floating heal numbers when an entity is healed
+    /// </summary>
+    /// <param name="heal">The amount of healing done</param>
+    /// <param name="target">The entity that was healed</param>
+    public void ShowFloatingHeal(int heal, BattleEntity target)
+    {
+        FloatingNumberManager.Instance?.ShowHealNumberOnEntity(heal, target);
+    }
 
 }

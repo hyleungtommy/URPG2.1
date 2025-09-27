@@ -73,6 +73,9 @@ public class CharacterClass
         if(template.type == SkillType.Buff || template.type == SkillType.BuffSelf || template.type == SkillType.BuffAOE){
             return new SkillBuff(template);
         }
+        if(template.type == SkillType.Heal || template.type == SkillType.HealAOE){
+            return new SkillHeal(template);
+        }
         Debug.LogError("Skill type not found for skill: " + template.name + " type: " + template.type);
         return null;
     }
