@@ -20,6 +20,10 @@ public enum BuffType
     Wind_Resistance,
     Dark_Resistance,
     Light_Resistance,
+    Taunt,
+    Defense,
+    Healing_Defense,
+    Counter_Attack_Defense
     
 
 }

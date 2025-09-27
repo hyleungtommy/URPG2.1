@@ -60,7 +60,7 @@ public class SkillAnimationManager : MonoBehaviour
         }
     }
     
-    private void PlaySkillAnimationByType(SkillType skillType, Vector3 position)
+    public void PlaySkillAnimationByType(SkillType skillType, Vector3 position)
     {
         GameObject animationPrefab = null;
         
@@ -71,6 +71,7 @@ public class SkillAnimationManager : MonoBehaviour
                 animationPrefab = healAnimation;
                 break;
             case SkillType.Buff:
+            case SkillType.BuffSelf:
             case SkillType.BuffAOE:
                 animationPrefab = buffAnimation;
                 break;
@@ -86,6 +87,7 @@ public class SkillAnimationManager : MonoBehaviour
         
         if (animationPrefab != null)
         {
+            Debug.Log("Playing skill animation: " + animationPrefab.name);
             GameObject animation = Instantiate(animationPrefab);
             SetAnimationPosition(animation, position);
             // Animation will auto-destroy via SkillAnimationController

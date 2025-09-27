@@ -67,8 +67,14 @@ public class CharacterClass
     }
 
     public Skill CreateSkillObject(SkillTemplate template){
-        if(template.type == SkillType.Attack){
+        if(template.type == SkillType.Attack || template.type == SkillType.AttackAOE){
             return new SkillAttack(template);
+        }
+        if(template.type == SkillType.Buff || template.type == SkillType.BuffSelf || template.type == SkillType.BuffAOE){
+            return new SkillBuff(template);
+        }
+        if(template.type == SkillType.Heal || template.type == SkillType.HealAOE){
+            return new SkillHeal(template);
         }
         Debug.LogError("Skill type not found for skill: " + template.name + " type: " + template.type);
         return null;

@@ -7,6 +7,7 @@ public class Buff
     public int duration { get; set; }
     public Sprite icon { get; private set; }
     public int value { get; private set; }
+    public bool isDebuff { get; private set; }
 
     public Buff(BuffTemplate template, int duration){
         id = template.id;
@@ -14,6 +15,7 @@ public class Buff
         this.duration = duration;
         icon = template.icon;
         value = template.value;
+        isDebuff = template.isDebuff;
     }
 
 }

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using UnityEngine;
+
 public class ItemMPPotion : BattleFunctionalItem
 {
     public int MPRestorePercentage;
@@ -17,8 +19,17 @@ public class ItemMPPotion : BattleFunctionalItem
 
     public override void Use(List<BattleEntity> targets)
     {
+        // Play heal animation for each target (using heal animation for MP potions as requested)
         foreach (BattleEntity target in targets)
         {
+            // Play heal animation at target's position
+            if (SkillAnimationManager.Instance != null)
+            {
+                Vector3 animationPosition = BattleScene.Instance.GetEntityPosition(target);
+                SkillAnimationManager.Instance.PlaySkillAnimationByType(SkillType.Heal, animationPosition);
+            }
+            
+            // Apply MP restoration (floating numbers will be shown by BattleEntity.RestoreMP method)
             if (target.Stats.MP <= MinMPRestore)
             {
                 target.RestoreMP(MinMPRestore);

@@ -285,6 +285,15 @@ public class BattleScene : MonoBehaviour
                 skillPanel.Close();
                 OnPlayerInputEnded();
             }
+            else if (skill.Type == SkillType.BuffSelf)
+            {
+                // BuffSelf skills automatically target the caster
+                selectionMode = SelectionMode.UseOnSelf;
+                manager.SkillToUse = skill;
+                manager.OnPlayerAction(selectionMode, null);
+                skillPanel.Close();
+                OnPlayerInputEnded();
+            }
             else
             {
                 battleTopBar.SetTextAndShow(manager.PeekNextEntity().Name, "Select target to use skill on");
@@ -441,6 +450,26 @@ public class BattleScene : MonoBehaviour
     public void ShowFloatingDamage(int damage, BattleEntity target)
     {
         FloatingNumberManager.Instance?.ShowDamageNumberOnEntity(damage, target, false);
+    }
+    
+    /// <summary>
+    /// Shows floating heal numbers when an entity is healed
+    /// </summary>
+    /// <param name="heal">The amount of healing done</param>
+    /// <param name="target">The entity that was healed</param>
+    public void ShowFloatingHeal(int heal, BattleEntity target)
+    {
+        FloatingNumberManager.Instance?.ShowHealNumberOnEntity(heal, target);
+    }
+    
+    /// <summary>
+    /// Shows floating mana regeneration numbers when an entity restores mana
+    /// </summary>
+    /// <param name="manaRegen">The amount of mana restored</param>
+    /// <param name="target">The entity that restored mana</param>
+    public void ShowFloatingManaRegen(int manaRegen, BattleEntity target)
+    {
+        FloatingNumberManager.Instance?.ShowManaRegenNumberOnEntity(manaRegen, target);
     }
 
 }

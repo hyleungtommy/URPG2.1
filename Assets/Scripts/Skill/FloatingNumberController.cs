@@ -5,6 +5,8 @@ public class FloatingNumberController : MonoBehaviour
 {
     [Header("Digit Sprites")]
     public Sprite[] damageNumbers; // assign digits 0–9 in Inspector
+    public Sprite[] healNumbers; // assign digits 0–9 in Inspector
+    public Sprite[] manaRegenNumbers; // assign digits 0–9 in Inspector
 
     private bool isAnimating = false;
 
@@ -54,6 +56,102 @@ public class FloatingNumberController : MonoBehaviour
             // For now, just show the first digit
             int firstDigit = int.Parse(damageString[0].ToString());
             SetDigit(firstDigit);
+        }
+    }
+    
+    public void SetupHealNumber(int heal)
+    {
+        // Check if healNumbers array is properly set
+        if (healNumbers == null || healNumbers.Length == 0)
+        {
+            Debug.LogError("healNumbers array is null or empty! Please assign heal digit sprites in the Inspector.");
+            return;
+        }
+        
+        // Convert heal to string to get individual digits
+        string healString = heal.ToString();
+
+        // For single digit numbers, just set the sprite directly
+        if (healString.Length == 1)
+        {
+            int digit = int.Parse(healString);
+            SetHealDigit(digit);
+        }
+        else
+        {
+            Debug.LogWarning($"Multi-digit heal ({heal}) detected. This prefab only supports single digits. Consider creating multiple prefab instances.");
+            // For now, just show the first digit
+            int firstDigit = int.Parse(healString[0].ToString());
+            SetHealDigit(firstDigit);
+        }
+    }
+    
+    public void SetHealDigit(int digit)
+    {
+        if (digit >= 0 && digit < healNumbers.Length)
+        {
+            // Use SpriteRenderer for world space display
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sprite = healNumbers[digit];
+            }
+            else
+            {
+                Debug.LogError("No SpriteRenderer found on FloatingNumberController! Make sure the prefab has a SpriteRenderer component.");
+            }
+        }
+        else
+        {
+            Debug.LogError($"Heal digit {digit} is out of range! Array length: {healNumbers.Length}");
+        }
+    }
+    
+    public void SetupManaRegenNumber(int manaRegen)
+    {
+        // Check if manaRegenNumbers array is properly set
+        if (manaRegenNumbers == null || manaRegenNumbers.Length == 0)
+        {
+            Debug.LogError("manaRegenNumbers array is null or empty! Please assign mana regen digit sprites in the Inspector.");
+            return;
+        }
+        
+        // Convert mana regen to string to get individual digits
+        string manaRegenString = manaRegen.ToString();
+
+        // For single digit numbers, just set the sprite directly
+        if (manaRegenString.Length == 1)
+        {
+            int digit = int.Parse(manaRegenString);
+            SetManaRegenDigit(digit);
+        }
+        else
+        {
+            Debug.LogWarning($"Multi-digit mana regen ({manaRegen}) detected. This prefab only supports single digits. Consider creating multiple prefab instances.");
+            // For now, just show the first digit
+            int firstDigit = int.Parse(manaRegenString[0].ToString());
+            SetManaRegenDigit(firstDigit);
+        }
+    }
+    
+    public void SetManaRegenDigit(int digit)
+    {
+        if (digit >= 0 && digit < manaRegenNumbers.Length)
+        {
+            // Use SpriteRenderer for world space display
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sprite = manaRegenNumbers[digit];
+            }
+            else
+            {
+                Debug.LogError("No SpriteRenderer found on FloatingNumberController! Make sure the prefab has a SpriteRenderer component.");
+            }
+        }
+        else
+        {
+            Debug.LogError($"Mana regen digit {digit} is out of range! Array length: {manaRegenNumbers.Length}");
         }
     }
     

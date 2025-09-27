@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
-  m_Name: s001
+  m_Name: s003-earthquake-wave
   m_EditorClassIdentifier: 
-  id: 1
-  skillName: Heavy Slash
-  type: 0
-  description: Deal %mod% of damage to an enemy
-  icon: {fileID: 21300000, guid: 4f58387e2e1b28b4993b03bab69a837b, type: 3}
+  id: 3
+  skillName: Earthquake Wave
+  type: 1
+  description: Smash the ground with your weapon, deals %mod% damage to all enemies
+  icon: {fileID: 21300000, guid: e3cd081e2e5dd6b469e47559d0c31a6b, type: 3}
   modifier: 1.25
   hitCount: 1
-  mpCost: 50
+  mpCost: 25
   cooldown: 0
-  requireLv: 1
-  price: 500
+  requireLv: 5
+  price: 1000
   maxSkillLv: 10
   mpCostIncrease: 25
   modifierIncrease: 0.05
   requireLvIncrease: 5
-  priceIncrease: 100
-  animation: {fileID: 3862846685897952975, guid: 59c47296a2338c841a39a8b88447aa41,
-    type: 3}
+  priceIncrease: 1000
+  animation: {fileID: 163928, guid: 85955e6b1170f9440b5469ae22d46e48, type: 3}
+  buffs: []

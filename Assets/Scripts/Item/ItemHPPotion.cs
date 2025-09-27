@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using UnityEngine;
+
 public class ItemHPPotion : BattleFunctionalItem
 {
     public int HPRestorePercentage;
@@ -17,8 +19,17 @@ public class ItemHPPotion : BattleFunctionalItem
 
     public override void Use(List<BattleEntity> targets)
     {
+        // Play heal animation for each target
         foreach (BattleEntity target in targets)
         {
+            // Play heal animation at target's position
+            if (SkillAnimationManager.Instance != null)
+            {
+                Vector3 animationPosition = BattleScene.Instance.GetEntityPosition(target);
+                SkillAnimationManager.Instance.PlaySkillAnimationByType(SkillType.Heal, animationPosition);
+            }
+            
+            // Apply healing (floating numbers will be shown by BattleEntity.Heal method)
             if (target.Stats.HP <= MinHPRestore)
             {
                 target.Heal(MinHPRestore);

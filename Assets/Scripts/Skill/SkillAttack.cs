@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SkillAttack : Skill
 {
+    public override UseOn UseOn => UseOn.Target;
     public SkillAttack(SkillTemplate template) : base(template)
     {
     }
@@ -15,8 +16,8 @@ public class SkillAttack : Skill
             for (int i = 0; i < HitCount; i++)
             {
                 user.PerformSkillAttack(target, this);
+                ApplyBuffs(user, targets);
             }
-
         }
     }
 }

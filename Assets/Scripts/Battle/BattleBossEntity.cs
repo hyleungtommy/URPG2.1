@@ -14,9 +14,9 @@ public class BattleBossEntity : BattleEnemyEntity
         DamageMultiplier = 1;
     }
 
-    public override void OnReceiveDamage(int amount)
+    public override void OnReceiveDamage(int amount, BattleEntity attacker = null)
     {
-        base.OnReceiveDamage((int)(amount * DamageMultiplier));
+        base.OnReceiveDamage((int)(amount * DamageMultiplier), attacker);
         if (IsShieldActive)
         {
             CurrentShield -= amount;
