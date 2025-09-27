@@ -5,6 +5,7 @@ public enum SkillType
     Heal,
     HealAOE,
     Buff,
+    BuffSelf,
     BuffAOE,
     Debuff,
     DebuffAOE

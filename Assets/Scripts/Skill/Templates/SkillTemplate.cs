@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System;
 [CreateAssetMenu(fileName = "New Skill", menuName = "Skill/Skill")]
 public class SkillTemplate : ScriptableObject
 {
@@ -21,5 +21,13 @@ public class SkillTemplate : ScriptableObject
     public int requireLvIncrease;
     public int priceIncrease;
     public GameObject animation;
+    public ApplyBuffTemplate[] buffs;
 
+}
+
+[Serializable]
+public class ApplyBuffTemplate{
+    public BuffTemplate buffTemplate;
+    public int duration;
+    public int chance;
 }

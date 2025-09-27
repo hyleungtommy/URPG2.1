@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
-  m_Name: s001
+  m_Name: s002-double-slash
   m_EditorClassIdentifier: 
-  id: 1
-  skillName: Heavy Slash
+  id: 2
+  skillName: Double Slash
   type: 0
-  description: Deal %mod% of damage to an enemy
-  icon: {fileID: 21300000, guid: 4f58387e2e1b28b4993b03bab69a837b, type: 3}
-  modifier: 1.25
-  hitCount: 1
+  description: Attack an enemy in 2 hits, each hit deal %mod% of damage
+  icon: {fileID: 21300000, guid: bcef3f86076fd3f49a9511ef54a9d022, type: 3}
+  modifier: 0.65
+  hitCount: 2
   mpCost: 50
   cooldown: 0
   requireLv: 1
@@ -26,7 +26,6 @@ MonoBehaviour:
   maxSkillLv: 10
   mpCostIncrease: 25
   modifierIncrease: 0.05
-  requireLvIncrease: 5
+  requireLvIncrease: 10
   priceIncrease: 100
-  animation: {fileID: 3862846685897952975, guid: 59c47296a2338c841a39a8b88447aa41,
-    type: 3}
+  animation: {fileID: 162372, guid: 3c32d36a6adac654f841b7ea183c466a, type: 3}
