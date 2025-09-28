@@ -51,6 +51,7 @@ public abstract class BattleEntity
     /// The base statistics of the entity before any buffs or debuffs are applied.
     /// </summary>
     public BaseStat BaseStats { get; private set; }
+    public ElementResistance ElementResistance { get; private set; }
 
     /// <summary>
     /// The effective statistics of the entity including all active buffs and debuffs.
@@ -82,7 +83,7 @@ public abstract class BattleEntity
     /// <param name="baseStat">The base statistics of the entity</param>
     /// <param name="manager">The battle manager controlling the battle</param>
     /// <exception cref="System.ArgumentNullException">Thrown when name, portrait, baseStat, or manager is null</exception>
-    public BattleEntity(string name, Sprite portrait, BaseStat baseStat, BattleManager manager)
+    public BattleEntity(string name, Sprite portrait, BaseStat baseStat, BattleManager manager, ElementResistance elementResistance)
     {
         // Validate parameters
         if (string.IsNullOrEmpty(name))
@@ -105,7 +106,7 @@ public abstract class BattleEntity
 
         // Cache AGI for turn order (note: doesn't update with buffs)
         AGI = Stats.AGI;
-
+        ElementResistance = elementResistance;
         this.manager = manager;
     }
 
@@ -139,6 +140,87 @@ public abstract class BattleEntity
         Debug.Log($"{Name} attacks {target.Name} for {damage} damage!");
     }
 
+    public void PerformSkillMagic(BattleEntity target, Skill skill)
+    {
+        if (target == null)
+            throw new System.ArgumentNullException(nameof(target), "Attack target cannot be null");
+        int damage = CalculateMagicDamage(target, skill.Modifier, skill.Element);
+        target.OnReceiveMagicDamage(damage, this, skill.Element);
+        Debug.Log($"{Name} attacks {target.Name} for {damage} damage!");
+    }
+
+    private int CalculateMagicDamage(BattleEntity target, float modifier, ElementType element)
+    {
+        int rawDamage = Mathf.Max(1, Stats.MATK - target.Stats.MDEF);
+        int damage = (int)(rawDamage * modifier);
+        damage = CalculateElementalDamage(target, damage, element);
+
+        // Apply counter attack defense buff reduction (35% damage reduction)
+        if (target.HasBuff("Counter_Attack_Defense"))
+        {
+            damage = Mathf.Max(1, (int)(damage * 0.65f)); // Reduce damage by 35%, minimum 1 damage
+            Debug.Log($"{target.Name}'s Counter Attack Defense buff reduces damage from {(int)(rawDamage * modifier)} to {damage}!");
+        }
+        // Apply healing defense buff reduction (35% damage reduction)
+        else if (target.HasBuff("Healing_Defense"))
+        {
+            damage = Mathf.Max(1, (int)(damage * 0.65f)); // Reduce damage by 35%, minimum 1 damage
+            Debug.Log($"{target.Name}'s Healing Defense buff reduces damage from {(int)(rawDamage * modifier)} to {damage}!");
+        }
+        // Apply regular defense buff reduction (50% damage reduction) - lowest priority
+        else if (target.HasBuff("Defense"))
+        {
+            damage = Mathf.Max(1, damage / 2); // Reduce damage by 50%, minimum 1 damage
+            Debug.Log($"{target.Name}'s Defense buff reduces damage from {rawDamage} to {damage}!");
+        }
+
+        return damage;
+    }
+
+    private int CalculateElementalDamage(BattleEntity target, int damage, ElementType element)
+    {
+        switch (element){
+            case ElementType.Fire:
+                return CalculateElementalDamageWithResistance(damage, target.ElementResistance.Fire);
+            case ElementType.Ice:
+                return CalculateElementalDamageWithResistance(damage, target.ElementResistance.Ice);
+            case ElementType.Lightning:
+                return CalculateElementalDamageWithResistance(damage, target.ElementResistance.Lightning);
+            case ElementType.Earth:
+                return CalculateElementalDamageWithResistance(damage, target.ElementResistance.Earth);
+            case ElementType.Wind:
+                return CalculateElementalDamageWithResistance(damage, target.ElementResistance.Wind);
+            case ElementType.Light:
+                return CalculateElementalDamageWithResistance(damage, target.ElementResistance.Light);
+            case ElementType.Dark:
+                return CalculateElementalDamageWithResistance(damage, target.ElementResistance.Dark);
+            case ElementType.None:
+                return damage; // No elemental modification
+        }
+        return damage;
+    }
+
+    /// <summary>
+    /// Calculates elemental damage based on resistance values.
+    /// Positive resistance reduces damage, negative resistance increases damage.
+    /// </summary>
+    /// <param name="damage">Base damage amount</param>
+    /// <param name="resistance">Resistance value (-100 to +100)</param>
+    /// <returns>Modified damage amount</returns>
+    private int CalculateElementalDamageWithResistance(int damage, int resistance)
+    {
+        // Clamp resistance to reasonable bounds to prevent extreme values
+        resistance = Mathf.Clamp(resistance, -100, 100);
+        
+        // Convert resistance to damage multiplier
+        // Positive resistance reduces damage, negative resistance increases damage
+        float multiplier = 1f - (resistance / 100f);
+        
+        // Ensure minimum damage of 1
+        int finalDamage = Mathf.Max(1, Mathf.RoundToInt(damage * multiplier));
+        
+        return finalDamage;
+    }
     private int CalculateDamage(BattleEntity target, float modifier)
     {
         int rawDamage = Mathf.Max(1, Stats.ATK - target.Stats.DEF);
@@ -199,6 +281,40 @@ public abstract class BattleEntity
     }
 
     /// <summary>
+    /// Handles magical damage received by the entity with element display.
+    /// </summary>
+    /// <param name="amount">The amount of damage to receive</param>
+    /// <param name="attacker">The entity that dealt the damage (for counter attack reflection)</param>
+    /// <param name="element">The element type of the magical damage</param>
+    public virtual void OnReceiveMagicDamage(int amount, BattleEntity attacker = null, ElementType element = ElementType.None)
+    {
+        Debug.Log($"on receive magic damage: {Name} receives {amount} damage from {attacker.Name} with element {element}");
+        CurrentHP = Mathf.Max(0, CurrentHP - amount);
+
+        // Show floating magical damage number with element icon
+        if (BattleScene.Instance != null)
+        {
+            BattleScene.Instance.ShowFloatingMagicDamage(amount, this, element);
+        }
+
+        // Process counter attack defense reflection (25% of damage reflected back)
+        if (attacker != null && HasBuff("Counter_Attack_Defense"))
+        {
+            int reflectedDamage = Mathf.Max(1, (int)(amount * 0.25f)); // Reflect 25% of damage, minimum 1
+            Debug.Log($"{Name}'s Counter Attack Defense reflects {reflectedDamage} damage back to {attacker.Name}!");
+
+            // Apply reflected damage to attacker (as regular damage, not magical)
+            attacker.CurrentHP = Mathf.Max(0, attacker.CurrentHP - reflectedDamage);
+
+            // Show floating damage number for reflected damage (regular damage, no element)
+            if (BattleScene.Instance != null)
+            {
+                BattleScene.Instance.ShowFloatingDamage(reflectedDamage, attacker);
+            }
+        }
+    }
+
+    /// <summary>
     /// Processes end-of-turn effects, including buff duration management and HP debuffs.
     /// </summary>
     public virtual void OnEndTurn()
@@ -249,7 +365,7 @@ public abstract class BattleEntity
         int originalHP = CurrentHP;
         CurrentHP = Mathf.Min(CurrentHP + amount, Stats.HP);
         int actualHeal = CurrentHP - originalHP;
-        
+
         // Show floating heal number if there was actual healing
         if (actualHeal > 0 && BattleScene.Instance != null)
         {
@@ -266,7 +382,7 @@ public abstract class BattleEntity
         int originalMP = CurrentMP;
         CurrentMP = Mathf.Min(CurrentMP + amount, Stats.MP);
         int actualManaRegen = CurrentMP - originalMP;
-        
+
         // Show floating mana regen number if there was actual mana restoration
         if (actualManaRegen > 0 && BattleScene.Instance != null)
         {

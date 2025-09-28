@@ -7,9 +7,46 @@ public class FloatingNumberController : MonoBehaviour
     public Sprite[] damageNumbers; // assign digits 0–9 in Inspector
     public Sprite[] healNumbers; // assign digits 0–9 in Inspector
     public Sprite[] manaRegenNumbers; // assign digits 0–9 in Inspector
+    public Sprite fireIcon;
+    public Sprite iceIcon;
+    public Sprite lightningIcon;
+    public Sprite earthIcon;
+    public Sprite windIcon;
+    public Sprite lightIcon;
+    public Sprite darkIcon;
 
     private bool isAnimating = false;
+    
+    [Header("Element Icon Settings")]
+    public float elementIconSpacing = 0.5f; // Space between element icon and numbers
 
+    /// <summary>
+    /// Gets the sprite for the specified element type
+    /// </summary>
+    /// <param name="element">The element type</param>
+    /// <returns>The corresponding sprite, or null if element is None or not found</returns>
+    public Sprite GetElementIcon(ElementType element)
+    {
+        switch (element)
+        {
+            case ElementType.Fire:
+                return fireIcon;
+            case ElementType.Ice:
+                return iceIcon;
+            case ElementType.Lightning:
+                return lightningIcon;
+            case ElementType.Earth:
+                return earthIcon;
+            case ElementType.Wind:
+                return windIcon;
+            case ElementType.Light:
+                return lightIcon;
+            case ElementType.Dark:
+                return darkIcon;
+            default:
+                return null;
+        }
+    }
 
     public void SetDigit(int digit)
     {
@@ -32,7 +69,7 @@ public class FloatingNumberController : MonoBehaviour
         }
     }
     
-    public void SetupDamageNumber(int damage, bool isCritical = false)
+    public void SetupDamageNumber(int damage, bool isCritical = false, ElementType element = ElementType.None)
     {
         // Check if damageNumbers array is properly set
         if (damageNumbers == null || damageNumbers.Length == 0)

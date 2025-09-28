@@ -453,6 +453,18 @@ public class BattleScene : MonoBehaviour
     }
     
     /// <summary>
+    /// Shows floating magical damage numbers with element icon when an entity takes magical damage
+    /// </summary>
+    /// <param name="damage">The amount of damage dealt</param>
+    /// <param name="target">The entity that took damage</param>
+    /// <param name="element">The element type of the magic</param>
+    public void ShowFloatingMagicDamage(int damage, BattleEntity target, ElementType element)
+    {
+        Debug.Log($"Showing floating magical damage: {damage} on {target.Name} with element {element}");
+        FloatingNumberManager.Instance?.ShowMagicDamageNumberOnEntity(damage, target, element, false);
+    }
+    
+    /// <summary>
     /// Shows floating heal numbers when an entity is healed
     /// </summary>
     /// <param name="heal">The amount of healing done</param>

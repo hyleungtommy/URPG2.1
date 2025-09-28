@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
+  m_Name: s014-ice-shard
+  m_EditorClassIdentifier: 
+  id: 14
+  skillName: Ice Shard
+  type: 2
+  element: 2
+  description: "Deal %mod% magical damage to an enemy, has a chance to reduce enemy\u2019s
+    AGI for 3 rounds"
+  icon: {fileID: 21300000, guid: e49c64ae7726611499d44444ddcd1cdc, type: 3}
+  modifier: 1.4
+  hitCount: 1
+  mpCost: 50
+  cooldown: 0
+  requireLv: 10
+  price: 2000
+  maxSkillLv: 10
+  mpCostIncrease: 10
+  modifierIncrease: 0.5
+  requireLvIncrease: 5
+  priceIncrease: 2000
+  animation: {fileID: 155208, guid: 2a1ea9105bbe55640a0db642b17bc4bf, type: 3}
+  buffs:
+  - buffTemplate: {fileID: 11400000, guid: 1b9c6955fced950459c28704e2a468a0, type: 2}
+    duration: 3
+    chance: 100

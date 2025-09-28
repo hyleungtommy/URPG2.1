@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillAttack : Skill
+public class SkillMagic : Skill
 {
     public override UseOn UseOn => UseOn.Target;
-    public SkillAttack(SkillTemplate template) : base(template)
+    public SkillMagic(SkillTemplate template) : base(template)
     {
     }
 
@@ -15,11 +15,10 @@ public class SkillAttack : Skill
         {
             for (int i = 0; i < HitCount; i++)
             {
-                user.PerformSkillAttack(target, this);
+                user.PerformSkillMagic(target, this);
             }
         }
         // Apply buffs once after all damage has been dealt
         ApplyBuffs(user, targets);
     }
 }
-

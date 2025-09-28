@@ -1,19 +1,21 @@
 using UnityEngine;
 
-public class BattleEnemyEntity: BattleEntity
+public class BattleEnemyEntity : BattleEntity
 {
     public int dropMoney { get; private set; }
     public int dropEXP { get; private set; }
     public int enemyId { get; private set; }
     public BattleEnemyEntity(EnemyTemplate enemyTemplate, BattleManager manager)
-    :base(enemyTemplate.EnemyName, enemyTemplate.EnemyImage, enemyTemplate.ToBaseStat(), manager
-    ){
+    : base(enemyTemplate.EnemyName, enemyTemplate.EnemyImage, enemyTemplate.ToBaseStat(), manager, enemyTemplate.ToElementResistance()
+    )
+    {
         dropMoney = enemyTemplate.DropMoney;
         dropEXP = enemyTemplate.DropExp;
         enemyId = int.Parse(enemyTemplate.ID);
     }
 
-    public override void TakeTurn(){
+    public override void TakeTurn()
+    {
         // Start the enemy turn as a coroutine to handle delays
         if (BattleScene.Instance != null)
         {
@@ -25,13 +27,13 @@ public class BattleEnemyEntity: BattleEntity
             PerformEnemyAction();
         }
     }
-    
+
     private System.Collections.IEnumerator EnemyTurnCoroutine()
     {
         // Taunt AI: prioritize players with taunt buff, otherwise attack random player
         BattleEntity[] tauntedPlayers = manager.GetTauntedPlayers();
         BattleEntity target;
-        
+
         if (tauntedPlayers.Length > 0)
         {
             // Attack a random taunted player
@@ -47,10 +49,10 @@ public class BattleEnemyEntity: BattleEntity
                 manager.EndTurn(this);
                 yield break;
             }
-            
+
             target = possibleTargets[Random.Range(0, possibleTargets.Length)];
         }
-        
+
         // Wait for 1 second to let the animation play
         yield return new WaitForSeconds(1f);
 
@@ -59,17 +61,17 @@ public class BattleEnemyEntity: BattleEntity
         {
             BattleScene.Instance.PlayEnemyAttackAnimation(this, target);
         }
-        
+
         PerformNormalAttack(target);
         manager.EndTurn(this);
     }
-    
+
     private void PerformEnemyAction()
     {
         // Fallback method without coroutine - also implements taunt logic
         BattleEntity[] tauntedPlayers = manager.GetTauntedPlayers();
         BattleEntity target;
-        
+
         if (tauntedPlayers.Length > 0)
         {
             // Attack a random taunted player
@@ -85,16 +87,16 @@ public class BattleEnemyEntity: BattleEntity
                 manager.EndTurn(this);
                 return;
             }
-            
+
             target = possibleTargets[Random.Range(0, possibleTargets.Length)];
         }
-        
+
         // Play enemy attack animation before performing attack
         if (BattleScene.Instance != null)
         {
             BattleScene.Instance.PlayEnemyAttackAnimation(this, target);
         }
-        
+
         PerformNormalAttack(target);
         manager.EndTurn(this);
     }

@@ -36,4 +36,5 @@ public class EnemyTemplate : ScriptableObject, IQuestRequirement
     [Range(-100, 100)] public int Slash;
 
     public BaseStat ToBaseStat() => new BaseStat(HP, MP, ATK, DEF, MATK, MDEF, AGI, DEX);
+    public ElementResistance ToElementResistance() => new ElementResistance(Fire, Ice, Lightning, Earth, Wind, Light, Dark);
 }

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
+  m_Name: s015-lightning-bolt
+  m_EditorClassIdentifier: 
+  id: 15
+  skillName: Lightning Bolt
+  type: 2
+  element: 3
+  description: Deal %mod% magical damage to an enemy, has a chance to stun enemy
+    for 2 rounds
+  icon: {fileID: 21300000, guid: 8e7bf8cb5242c0448a4bd42e750ec831, type: 3}
+  modifier: 1.4
+  hitCount: 1
+  mpCost: 50
+  cooldown: 0
+  requireLv: 10
+  price: 2000
+  maxSkillLv: 10
+  mpCostIncrease: 10
+  modifierIncrease: 0.1
+  requireLvIncrease: 5
+  priceIncrease: 2000
+  animation: {fileID: 119640, guid: 9eabbc0cc583cca4abfd403764cb993f, type: 3}
+  buffs:
+  - buffTemplate: {fileID: 11400000, guid: 6f9821ef14aceb64a932c93f7ff39d04, type: 2}
+    duration: 2
+    chance: 100

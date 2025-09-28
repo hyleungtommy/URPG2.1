@@ -6,6 +6,7 @@ public class SkillTemplate : ScriptableObject
     public int id;
     public string skillName;
     public SkillType type;
+    public ElementType element = ElementType.None;
     [TextArea(3, 10)]
     public string description;
     public Sprite icon;
