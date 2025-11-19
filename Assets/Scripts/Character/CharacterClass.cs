@@ -76,6 +76,9 @@ public class CharacterClass
         if(template.type == SkillType.Heal || template.type == SkillType.HealAOE){
             return new SkillHeal(template);
         }
+        if(template.type == SkillType.Magic || template.type == SkillType.MagicAOE){
+            return new SkillMagic(template);
+        }
         Debug.LogError("Skill type not found for skill: " + template.name + " type: " + template.type);
         return null;
     }

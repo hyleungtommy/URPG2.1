@@ -5,7 +5,8 @@ public class BattlePlayerEntity : BattleEntity
     public Sprite BattlePortrait { get; private set; }
     public Skill[] SkillList { get; private set; }
 
-    public BattlePlayerEntity(BattleCharacter character, BattleManager manager) : base(character.Name, character.Face, character.BaseStat, manager)
+    //TODO: element resistance from equipment
+    public BattlePlayerEntity(BattleCharacter character, BattleManager manager) : base(character.Name, character.Face, character.BaseStat, manager, new ElementResistance())
     {
         BattlePortrait = character.BattlePortrait;
         SkillList = character.CharacterClass.LearntSkillsList;

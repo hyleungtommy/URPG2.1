@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 674e2d34b95a7824c8d8f7af780232ad, type: 3}
-  m_Name: s009-taunt
+  m_Name: s016-mana-recovery
   m_EditorClassIdentifier: 
-  id: 9
-  skillName: Taunt
+  id: 16
+  skillName: Mana Recovery
   type: 7
   element: 0
-  description: Taunt enemies, make them target you for 5 rounds
-  icon: {fileID: 21300000, guid: a896c398a267b7e4bbe1bb08aa6eafb9, type: 3}
+  description: "Regenerate self\u2019s MP for 5 rounds"
+  icon: {fileID: 21300000, guid: f24bf7c248e72be429a44b9d3b655946, type: 3}
   modifier: 0
   hitCount: 1
-  mpCost: 10
+  mpCost: 100
   cooldown: 0
-  requireLv: 10
-  price: 1000
+  requireLv: 20
+  price: 2000
   maxSkillLv: 1
   mpCostIncrease: 0
   modifierIncrease: 0
   requireLvIncrease: 0
   priceIncrease: 0
-  animation: {fileID: 101736, guid: 3e7de9254df2c634b80bc23c0788244b, type: 3}
+  animation: {fileID: 0}
   buffs:
-  - buffTemplate: {fileID: 11400000, guid: 3bea13f831bcd6a48b230205fae66739, type: 2}
-    duration: 5
+  - buffTemplate: {fileID: 11400000, guid: 59a84903cfef9d34d833d6fdc610f465, type: 2}
+    duration: 10
     chance: 100

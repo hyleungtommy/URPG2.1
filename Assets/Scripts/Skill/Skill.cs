@@ -7,6 +7,7 @@ public abstract class Skill
     public Sprite Icon { get; private set; }
     public string Name { get; private set; }
     public SkillType Type { get; private set; }
+    public ElementType Element { get; private set; }
     public int HitCount { get; private set; }
     public int SkillLv { get; set; }
     public string Description { get; private set; }
@@ -33,7 +34,7 @@ public abstract class Skill
     {
         get
         {
-            return Type == SkillType.AttackAOE || Type == SkillType.HealAOE || Type == SkillType.BuffAOE || Type == SkillType.DebuffAOE;
+            return Type == SkillType.AttackAOE || Type == SkillType.MagicAOE || Type == SkillType.HealAOE || Type == SkillType.BuffAOE || Type == SkillType.DebuffAOE;
         }
     }
 
@@ -41,7 +42,7 @@ public abstract class Skill
     {
         get
         {
-            return Type == SkillType.Attack || Type == SkillType.AttackAOE || Type == SkillType.DebuffAOE || Type == SkillType.Debuff;
+            return Type == SkillType.Attack || Type == SkillType.AttackAOE || Type == SkillType.Magic || Type == SkillType.MagicAOE || Type == SkillType.DebuffAOE || Type == SkillType.Debuff;
         }
     }
 
@@ -51,6 +52,7 @@ public abstract class Skill
         Name = template.skillName;
         Icon = template.icon;
         Type = template.type;
+        Element = template.element;
         HitCount = template.hitCount;
         SkillLv = 1;
         Description = template.description;

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456f6a12d2f3a3740a0e2b2e4adb3d5a, type: 3}
+  m_Name: Ivan
+  m_EditorClassIdentifier: 
+  CharacterName: Ivan
+  StartingLv: 1
+  Portrait: {fileID: 21300000, guid: b5691e56583592248bb986dda7bb1d12, type: 3}
+  Face: {fileID: 21300000, guid: 1123fda0dba69ee46ad5a2784d1edcd3, type: 3}
+  BattlePortrait: {fileID: 5615939526949122511, guid: 65627b02cd8925d4fba9ab0e84bcb75f,
+    type: 3}
+  StartingSkillPoints: 0
+  StartingUpgradePoints: 0
+  UnlockedAtStart: 1
+  Class: {fileID: 11400000, guid: 00e6eaa4898f0eb48bd63bedd8551f03, type: 2}

@@ -2,6 +2,8 @@ public enum SkillType
 {
     Attack,
     AttackAOE,
+    Magic,
+    MagicAOE,
     Heal,
     HealAOE,
     Buff,
